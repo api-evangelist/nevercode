@@ -1,0 +1,525 @@
+openapi: 3.1.0
+info:
+  title: Codemagic App Previews Users API
+  version: v3.0
+  description: "\n# ℹ️ Overview\n\nWelcome to the Codemagic REST API. This API allows you to programmatically interact with [Codemagic's CI/CD](https://codemagic.io/) platform\nto manage your apps, trigger builds, access artifacts, and more.\n\n### Authentication\n\nAll API requests require authentication using a personal API token that is unique to each Codemagic user. The actions permitted by the token are determined by the user’s role within the team.\n\nYou can find your API token by navigating to **Teams > Personal Account > Integrations > Codemagic API > Show**.\n\nInclude your token in the request header:\n\n```\nx-auth-token: <your-api-token>\n```\n\n### Getting started\n\n1. Generate your API token from the Codemagic dashboard\n2. Explore the available endpoints in the sidebar\n3. Try out requests directly from this documentation\n\n### Rate limits\n\nCodemagic limits the number of API requests you can make within a specific amount of time to ensure the API remains\navailable for all users. Your personal rate limit is **5,000 requests per hour**.\n\nIf you exceed your rate limit, you will receive a `429` response, and the `ratelimit-remaining` header will be `0`.\nYou should not retry your request until after the time specified by the `ratelimit-reset` header.\n\n#### Checking the status of your rate limit\n\nYou can use the headers that are sent with each response to determine the current status of your rate limit.\n\n| **Header** | **Description** |\n| ---    | ---         |\n| ratelimit-limit | The maximum number of requests that you can make per hour. |\n| ratelimit-remaining | The number of requests remaining in the current rate limit window. |\n| ratelimit-reset | The number of seconds remaining until the current rate limit window resets. |\n\n### Help and support\n\n- Ask our [GitHub community](https://github.com/codemagic-ci-cd/codemagic-docs/discussions).\n- Our paying customers can get in touch with us via the in-app chat widget.\n  You have to be logged in to see the chat icon (note that some ad blockers may block the chat widget).\n\n---\n&copy; Nevercode Ltd. | All Rights Reserved | Codemagic is registered trademark of Nevercode Ltd. | [Terms](https://codemagic.io/terms)\n"
+servers:
+- url: https://codemagic.io/
+  x-internal: false
+security:
+- api_key: []
+tags:
+- name: Users
+  description: REST API endpoints for users.
+  external_docs: null
+paths:
+  /api/v3/user:
+    get:
+      tags:
+      - Users
+      summary: Get authenticated user info
+      operationId: ApiV3UserGetUser
+      responses:
+        '200':
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoPagination_api.routes.user.schemas.UserSchema_'
+      deprecated: false
+  /api/v3/user/preferences:
+    get:
+      tags:
+      - Users
+      summary: Get preferences for the authenticated user
+      operationId: ApiV3UserPreferencesGetPreferences
+      responses:
+        '200':
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoPagination_api.routes.user.schemas.PreferencesSchema_'
+      deprecated: false
+  /api/v3/user/api-key:
+    get:
+      tags:
+      - Users
+      summary: Get API key for the authenticated user
+      operationId: ApiV3UserApiKeyGetApiKey
+      responses:
+        '200':
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoPagination_api.routes.user.schemas.ApiKeySchema_'
+      deprecated: false
+    delete:
+      tags:
+      - Users
+      summary: Revoke API key for the authenticated user
+      operationId: ApiV3UserApiKeyRevokeApiKey
+      responses:
+        '204':
+          description: Request fulfilled, nothing follows
+          headers: {}
+      deprecated: false
+  /api/v3/user/track:
+    post:
+      tags:
+      - Users
+      summary: Track user events
+      operationId: ApiV3UserTrackTrack
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackUserSchema'
+        required: true
+      responses:
+        '201':
+          description: Document created, URL follows
+          headers: {}
+        '400':
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                    - 'null'
+                    - object
+                    - array
+                type: object
+                required:
+                - detail
+                - status_code
+                description: Validation Exception
+                examples:
+                - status_code: 400
+                  detail: Bad Request
+                  extra: {}
+      deprecated: false
+  /api/v3/user/notifications:
+    get:
+      tags:
+      - Users
+      summary: Get notifications for the authenticated user
+      operationId: ApiV3UserNotificationsGetNotifications
+      parameters:
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          maximum: 100.0
+          minimum: 1.0
+          description: The maximum number of results per page.
+          default: 30
+        description: The maximum number of results per page.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        allowReserved: false
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1.0
+          description: The page number of the results to fetch.
+          default: 1
+        description: The page number of the results to fetch.
+        required: false
+        deprecated: false
+        allowEmptyValue: false
+        allowReserved: false
+      responses:
+        '200':
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassicPagination_api.routes.user.schemas.NotificationSchema_'
+        '400':
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                    - 'null'
+                    - object
+                    - array
+                type: object
+                required:
+                - detail
+                - status_code
+                description: Validation Exception
+                examples:
+                - status_code: 400
+                  detail: Bad Request
+                  extra: {}
+      deprecated: false
+  /api/v3/user/teams/{team_id}/permissions:
+    get:
+      tags:
+      - Users
+      summary: Get the authenticated user's permissions in a team
+      operationId: ApiV3UserTeamsTeamIdPermissionsGetTeamPermissions
+      parameters:
+      - name: team_id
+        in: path
+        schema:
+          type: string
+        required: true
+        deprecated: false
+      responses:
+        '200':
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoPagination_api.routes.user_team_permissions.schemas.TeamPermissionsSchema_'
+        '400':
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                    - 'null'
+                    - object
+                    - array
+                type: object
+                required:
+                - detail
+                - status_code
+                description: Validation Exception
+                examples:
+                - status_code: 400
+                  detail: Bad Request
+                  extra: {}
+      deprecated: false
+components:
+  schemas:
+    TrackUserSchema:
+      properties:
+        event:
+          $ref: '#/components/schemas/ClientEvent'
+        properties:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+      required:
+      - event
+      - properties
+      title: TrackUserSchema
+    NoPagination_api.routes.user_team_permissions.schemas.TeamPermissionsSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/TeamPermissionsSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[TeamPermissionsSchema]
+    NoPagination_api.routes.user.schemas.ApiKeySchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/ApiKeySchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[ApiKeySchema]
+    Theme:
+      type: string
+      enum:
+      - light
+      - dark
+      - system
+      title: Theme
+    ClientEvent:
+      type: string
+      enum:
+      - Onboarding Viewed
+      - Onboarding Started
+      - Onboarding Finished
+      - Onboarding Info Provided
+      - Onboarding Billing Submitted
+      - Onboarding Billing Enabled
+      - Onboarding Billing Selected
+      - Onboarding Redirected
+      title: ClientEvent
+    UserSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        avatar_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+        permissions:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/Permission'
+            type: array
+          type: object
+      type: object
+      required:
+      - id
+      - permissions
+      title: UserSchema
+    AppPermission:
+      type: string
+      enum:
+      - can_start_app_preview
+      - can_read_app_preview
+      - can_create_app_vars
+      - can_read_app_vars
+      - can_read_builds
+      - can_create_tester_groups
+      - can_read_tester_groups
+      - can_update_tester_groups
+      - can_delete_tester_groups
+      - can_create_tester_group_contacts
+      - can_read_tester_group_contacts
+      - can_delete_tester_group_contacts
+      title: AppPermission
+    NoPagination_api.routes.user.schemas.UserSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/UserSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[UserSchema]
+    ClassicPagination_api.routes.user.schemas.NotificationSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NotificationSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[NotificationSchema]
+    Permission:
+      type: string
+      enum:
+      - can_read_audit_log
+      - can_read_audit_log_connector
+      - can_update_audit_log_connector
+      - can_delete_audit_log_connector
+      - can_read_team_billing
+      - can_update_team_billing
+      - can_update_subscription
+      - can_read_team
+      - can_update_team
+      - can_delete_team
+      - can_read_team_members
+      - can_delete_team_members
+      - can_read_team_invitations
+      - can_create_team_invitations
+      - can_delete_team_invitations
+      - can_create_team_vars
+      - can_read_team_vars
+      - can_create_vars
+      - can_read_vars
+      - can_update_vars
+      - can_delete_vars
+      - can_read_apps
+      - can_read_ota_updates
+      - can_read_ota_access_keys
+      - can_create_ota_access_keys
+      - can_delete_ota_access_keys
+      - can_start_app_preview
+      - can_read_app_preview
+      - can_create_app_vars
+      - can_read_app_vars
+      - can_read_builds
+      - can_create_tester_groups
+      - can_read_tester_groups
+      - can_update_tester_groups
+      - can_delete_tester_groups
+      - can_create_tester_group_contacts
+      - can_read_tester_group_contacts
+      - can_delete_tester_group_contacts
+      title: Permission
+    TeamPermission:
+      type: string
+      enum:
+      - can_read_audit_log
+      - can_read_audit_log_connector
+      - can_update_audit_log_connector
+      - can_delete_audit_log_connector
+      - can_read_team_billing
+      - can_update_team_billing
+      - can_update_subscription
+      - can_read_team
+      - can_update_team
+      - can_delete_team
+      - can_read_team_members
+      - can_delete_team_members
+      - can_read_team_invitations
+      - can_create_team_invitations
+      - can_delete_team_invitations
+      - can_create_team_vars
+      - can_read_team_vars
+      - can_create_vars
+      - can_read_vars
+      - can_update_vars
+      - can_delete_vars
+      - can_read_apps
+      - can_read_ota_updates
+      - can_read_ota_access_keys
+      - can_create_ota_access_keys
+      - can_delete_ota_access_keys
+      title: TeamPermission
+    PreferencesSchema:
+      properties:
+        pinned_accounts:
+          items:
+            $ref: '#/components/schemas/PinnedAccountSchema'
+          type: array
+        theme:
+          $ref: '#/components/schemas/Theme'
+      type: object
+      required:
+      - pinned_accounts
+      - theme
+      title: PreferencesSchema
+    NoPagination_api.routes.user.schemas.PreferencesSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/PreferencesSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[PreferencesSchema]
+    ApiKeySchema:
+      properties:
+        api_key:
+          type: string
+      type: object
+      required:
+      - api_key
+      title: ApiKeySchema
+    TeamPermissionsSchema:
+      properties:
+        team_id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        user_id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        team:
+          items:
+            $ref: '#/components/schemas/TeamPermission'
+          type: array
+          description: Team-scoped permissions. Empty for app-only members.
+        default_app_permissions:
+          items:
+            $ref: '#/components/schemas/AppPermission'
+          type: array
+          description: App-scoped permissions applied to every app the user can access.
+        apps:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/AppPermission'
+            type: array
+          type: object
+          description: 'Per-app overrides: only apps whose effective permissions differ from `default_app_permissions`.'
+      type: object
+      required:
+      - apps
+      - default_app_permissions
+      - team
+      - team_id
+      - user_id
+      title: TeamPermissionsSchema
+    NotificationSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        category:
+          $ref: '#/components/schemas/NotificationCategory'
+        body_text:
+          type: string
+        cta_text:
+          type: string
+        cta_url:
+          type: string
+      type: object
+      required:
+      - body_text
+      - category
+      - cta_text
+      - cta_url
+      - id
+      title: NotificationSchema
+    NotificationCategory:
+      type: string
+      enum:
+      - news1
+      title: NotificationCategory
+    PinnedAccountView:
+      type: string
+      enum:
+      - full
+      - compact
+      title: PinnedAccountView
+    PinnedAccountSchema:
+      properties:
+        team:
+          type: string
+          description: 'Allowed values: `personal` or team ID, see [/user/teams](#/operations/UserTeamsGetTeams)'
+        view:
+          $ref: '#/components/schemas/PinnedAccountView'
+      type: object
+      required:
+      - team
+      - view
+      title: PinnedAccountSchema
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-auth-token
+      in: header
