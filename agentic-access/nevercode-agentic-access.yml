@@ -1,0 +1,1076 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/nevercode-openapi-original.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 85
+  by_action_class:
+    acting: 33
+    connected: 52
+  by_consequence:
+    write: 25
+    read: 52
+    safety-critical: 3
+    physical: 5
+  human_in_the_loop_required: 3
+operations:
+- path: /api/v3/subscriptions/{team_id}/features
+  method: patch
+  operationId: ApiV3SubscriptionsTeamIdFeaturesUpdateFeatures
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/apps/{app_id}/tester-groups
+  method: get
+  operationId: ApiV3AppsAppIdTesterGroupsGetTesterGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/apps/{app_id}/tester-groups
+  method: post
+  operationId: ApiV3AppsAppIdTesterGroupsCreateTesterGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/apps/{app_id}/variable-groups
+  method: get
+  operationId: ApiV3AppsAppIdVariableGroupsGetVariableGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/apps/{app_id}/variable-groups
+  method: post
+  operationId: ApiV3AppsAppIdVariableGroupsCreateVariableGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/builds/{build_id}/preview
+  method: post
+  operationId: ApiV3BuildsBuildIdPreviewStartPreview
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/builds/{build_id}
+  method: get
+  operationId: ApiV3BuildsBuildIdGetBuild
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/builds/{build_id}/remote-access
+  method: get
+  operationId: ApiV3BuildsBuildIdRemoteAccessGetBuildRemoteAccess
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/builds/{build_id}/actions
+  method: get
+  operationId: ApiV3BuildsBuildIdActionsGetBuildActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/user
+  method: get
+  operationId: ApiV3UserGetUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/user/teams
+  method: get
+  operationId: ApiV3UserTeamsGetTeams
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/user/apps
+  method: get
+  operationId: ApiV3UserAppsGetApps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/user/preferences
+  method: get
+  operationId: ApiV3UserPreferencesGetPreferences
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/user/api-key
+  method: get
+  operationId: ApiV3UserApiKeyGetApiKey
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/user/api-key
+  method: delete
+  operationId: ApiV3UserApiKeyRevokeApiKey
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v3/user/track
+  method: post
+  operationId: ApiV3UserTrackTrack
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/user/notifications
+  method: get
+  operationId: ApiV3UserNotificationsGetNotifications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/user/memberships/{team_id}
+  method: delete
+  operationId: ApiV3UserMembershipsTeamIdLeaveTeam
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/user/teams/{team_id}/permissions
+  method: get
+  operationId: ApiV3UserTeamsTeamIdPermissionsGetTeamPermissions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/variable-groups/{variable_group_id}/variables
+  method: get
+  operationId: ApiV3VariableGroupsVariableGroupIdVariablesGetVariables
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/variable-groups/{variable_group_id}/variables
+  method: post
+  operationId: ApiV3VariableGroupsVariableGroupIdVariablesBulkImport
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/variable-groups/{variable_group_id}
+  method: get
+  operationId: ApiV3VariableGroupsVariableGroupIdGetGroup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/variable-groups/{variable_group_id}
+  method: delete
+  operationId: ApiV3VariableGroupsVariableGroupIdDeleteGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/variable-groups/{variable_group_id}
+  method: patch
+  operationId: ApiV3VariableGroupsVariableGroupIdUpdateGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/variable-groups/{variable_group_id}/variables/{variable_id}
+  method: get
+  operationId: ApiV3VariableGroupsVariableGroupIdVariablesVariableIdGetVariable
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/variable-groups/{variable_group_id}/variables/{variable_id}
+  method: delete
+  operationId: ApiV3VariableGroupsVariableGroupIdVariablesVariableIdDeleteVariable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/variable-groups/{variable_group_id}/variables/{variable_id}
+  method: patch
+  operationId: ApiV3VariableGroupsVariableGroupIdVariablesVariableIdUpdateVariable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/meta
+  method: get
+  operationId: ApiV3MetaGetMeta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/meta/shorebird
+  method: get
+  operationId: ApiV3MetaShorebirdGetShorebirdMeta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/over-the-air-updates
+  method: get
+  operationId: ApiV3OverTheAirUpdatesGetAccountInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/ota
+  method: get
+  operationId: ApiV3OtaGetAccountInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/over-the-air-updates/deployments/{deployment_id}/releases
+  method: get
+  operationId: ApiV3OverTheAirUpdatesDeploymentsDeploymentIdReleasesListDeploymentReleases
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/ota/deployments/{deployment_id}/releases
+  method: get
+  operationId: ApiV3OtaDeploymentsDeploymentIdReleasesListDeploymentReleases
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/over-the-air-updates/projects/{project_id}/deployment-keys
+  method: get
+  operationId: ApiV3OverTheAirUpdatesProjectsProjectIdDeploymentKeysListDeploymentKeys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/ota/projects/{project_id}/deployment-keys
+  method: get
+  operationId: ApiV3OtaProjectsProjectIdDeploymentKeysListDeploymentKeys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/ota/deployments/{deployment_id}/usage/{metric}
+  method: get
+  operationId: ApiV3OtaDeploymentsDeploymentIdUsageMetricGetDeploymentUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/over-the-air-updates/deployments/{deployment_id}/usage/{metric}
+  method: get
+  operationId: ApiV3OverTheAirUpdatesDeploymentsDeploymentIdUsageMetricGetDeploymentUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/ota/{team_id}/access-keys
+  method: get
+  operationId: ApiV3OtaTeamIdAccessKeysListOtaAccessKeys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/ota/{team_id}/access-keys
+  method: post
+  operationId: ApiV3OtaTeamIdAccessKeysCreateOtaAccessKey
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/ota/{team_id}/access-keys/{key_id}
+  method: delete
+  operationId: ApiV3OtaTeamIdAccessKeysKeyIdDeleteOtaAccessKey
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/ota/{team_id}/projects
+  method: get
+  operationId: ApiV3OtaTeamIdProjectsListProjects
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/over-the-air-updates/{team_id}/projects
+  method: get
+  operationId: ApiV3OverTheAirUpdatesTeamIdProjectsListProjects
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/over-the-air-updates/{team_id}/usage
+  method: get
+  operationId: ApiV3OverTheAirUpdatesTeamIdUsageGetUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/ota/{team_id}/usage
+  method: get
+  operationId: ApiV3OtaTeamIdUsageGetUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}
+  method: get
+  operationId: ApiV3TeamsTeamIdGetTeam
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/apps
+  method: get
+  operationId: ApiV3TeamsTeamIdAppsListTeamApps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/audit-log
+  method: get
+  operationId: ApiV3TeamsTeamIdAuditLogDownloadAuditLog
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/audit-log-connector
+  method: get
+  operationId: ApiV3TeamsTeamIdAuditLogConnectorGetAuditLogConnector
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/audit-log-connector
+  method: put
+  operationId: ApiV3TeamsTeamIdAuditLogConnectorUpdateAuditLogConnector
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/audit-log-connector
+  method: delete
+  operationId: ApiV3TeamsTeamIdAuditLogConnectorDeleteAuditLogConnector
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/builds
+  method: get
+  operationId: ApiV3TeamsTeamIdBuildsListTeamBuilds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/previews
+  method: get
+  operationId: ApiV3TeamsTeamIdPreviewsListTeamPreviews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/subscriptions/{subscription_id}/promotion-code
+  method: post
+  operationId: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdPromotionCodeApplySubscriptionPromotionCode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/subscriptions/{subscription_id}
+  method: get
+  operationId: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdGetSubscription
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/subscriptions/{subscription_id}
+  method: delete
+  operationId: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdCancelSubscription
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/subscriptions
+  method: get
+  operationId: ApiV3TeamsTeamIdSubscriptionsListTeamSubscriptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/subscriptions
+  method: post
+  operationId: ApiV3TeamsTeamIdSubscriptionsCreateTeamSubscription
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/subscriptions/{subscription_id}/invoice-preview
+  method: get
+  operationId: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdInvoicePreviewGetSubscriptionInvoicePreview
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/subscriptions/{subscription_id}/invoices
+  method: get
+  operationId: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdInvoicesListSubscriptionInvoices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/subscriptions/{subscription_id}/default-payment-method
+  method: put
+  operationId: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdDefaultPaymentMethodSetSubscriptionDefaultPaymentMethod
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/cards
+  method: get
+  operationId: ApiV3TeamsTeamIdCardsListTeamCards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/variable-groups
+  method: get
+  operationId: ApiV3TeamsTeamIdVariableGroupsGetVariableGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/variable-groups
+  method: post
+  operationId: ApiV3TeamsTeamIdVariableGroupsCreateVariableGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/members
+  method: get
+  operationId: ApiV3TeamsTeamIdMembersListTeamMembers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/memberships/{user_id}
+  method: put
+  operationId: ApiV3TeamsTeamIdMembershipsUserIdUpdateTeamMembership
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/memberships/{user_id}
+  method: delete
+  operationId: ApiV3TeamsTeamIdMembershipsUserIdDeleteTeamMembership
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/invitations/{code}/accept
+  method: post
+  operationId: ApiV3InvitationsCodeAcceptAcceptTeamInvitation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/invitations
+  method: get
+  operationId: ApiV3TeamsTeamIdInvitationsListPendingTeamInvitations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/invitations
+  method: post
+  operationId: ApiV3TeamsTeamIdInvitationsCreateTeamInvitation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/invitations/public/{code}
+  method: get
+  operationId: ApiV3InvitationsPublicCodeGetInvitationByCode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/teams/{team_id}/invitations/{invitation_id}
+  method: delete
+  operationId: ApiV3TeamsTeamIdInvitationsInvitationIdRevokeTeamInvitation
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v3/teams/{team_id}/invoice-preview
+  method: post
+  operationId: ApiV3TeamsTeamIdInvoicePreviewGenerateInvoicePreview
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/teams/{team_id}/invoices
+  method: get
+  operationId: ApiV3TeamsTeamIdInvoicesListTeamInvoices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/dashboards/{uuid}
+  method: get
+  operationId: ApiV3DashboardsUuidGetDashboard
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/dashboards/{uuid}/builds
+  method: get
+  operationId: ApiV3DashboardsUuidBuildsGetBuilds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/tester-groups/{tester_group_id}/contacts
+  method: get
+  operationId: ApiV3TesterGroupsTesterGroupIdContactsListContacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/tester-groups/{tester_group_id}/contacts
+  method: post
+  operationId: ApiV3TesterGroupsTesterGroupIdContactsBulkImport
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/tester-groups/{tester_group_id}/contacts/{contact_id}
+  method: delete
+  operationId: ApiV3TesterGroupsTesterGroupIdContactsContactIdDeleteContact
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/tester-groups/{tester_group_id}
+  method: get
+  operationId: ApiV3TesterGroupsTesterGroupIdGetGroup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/tester-groups/{tester_group_id}
+  method: delete
+  operationId: ApiV3TesterGroupsTesterGroupIdDeleteGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/tester-groups/{tester_group_id}
+  method: patch
+  operationId: ApiV3TesterGroupsTesterGroupIdUpdateTesterGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/previews/{preview_id}
+  method: get
+  operationId: ApiV3PreviewsPreviewIdGetPreviewInformation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v3/previews/{preview_id}
+  method: delete
+  operationId: ApiV3PreviewsPreviewIdStopPreview
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v3/previews/{preview_id}/share
+  method: post
+  operationId: ApiV3PreviewsPreviewIdShareSharePreview
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v3/shared-previews/{shared_preview_id}
+  method: get
+  operationId: ApiV3SharedPreviewsSharedPreviewIdGetSharedPreview
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

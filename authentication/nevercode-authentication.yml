@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/nevercode-openapi-original.json
+docs: https://docs.codemagic.io/rest-api/overview/
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  note: Personal API token sent in the x-auth-token request header; token is managed in Account settings
+    and can be revoked/regenerated.
+schemes:
+- name: api_key
+  type: apiKey
+  sources:
+  - openapi/nevercode-openapi-original.json
+  in: header
+  parameter: x-auth-token

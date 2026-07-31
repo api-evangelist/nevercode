@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://codemagic.io/security-statement
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: Publishes an OpenAPI 3.1.0 description at /api/v3/schema/openapi.json
+- id: apikey-auth
+  conforms: true
+  evidence: securityScheme type apiKey (x-auth-token header)
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme in spec
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: standard JSON error bodies (not application/problem+json)
+- id: soc2-type2
+  conforms: true
+  evidence: Published on codemagic.io security statement / homepage
+- id: iso-27001
+  conforms: true
+  evidence: Published on codemagic.io security statement / homepage
+- id: gdpr
+  conforms: true
+  evidence: Published on codemagic.io (GDPR/CCPA compliant)
+- id: ccpa
+  conforms: true
+  evidence: Published on codemagic.io (GDPR/CCPA compliant)

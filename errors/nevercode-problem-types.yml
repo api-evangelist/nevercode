@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nevercode-openapi-original.json
+format: json
+note: Derived from Codemagic REST API v3 OpenAPI 4xx responses. The API returns standard JSON error bodies
+  (not application/problem+json).
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad request syntax or unsupported method
+  content_types:
+  - application/json
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3SubscriptionsTeamIdFeaturesUpdateFeatures
+- status: 402
+  title: Payment Required
+  description: The maximum number of contacts has been reached
+  content_types:
+  - application/json
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3BuildsBuildIdPreviewStartPreview
+- status: 410
+  title: Gone
+  description: Remote access is no longer available
+  content_types: []
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3BuildsBuildIdRemoteAccessGetBuildRemoteAccess
+- status: 422
+  title: Unprocessable Entity
+  description: Billing is not configured for the team
+  content_types:
+  - application/json
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsSubscriptionIdPromotionCodeApplySubscriptionPromotionCode

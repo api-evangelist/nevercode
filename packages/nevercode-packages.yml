@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://pypi.org/project/codemagic-cli-tools/
+note: >-
+  Codemagic's first-party published package is codemagic-cli-tools, a set of
+  command-line utilities used to power mobile app builds (code signing, App Store
+  Connect, Google Play, keychain, Xcode project handling). It is the CLI binary,
+  not a REST API client SDK — no official client SDK for the Codemagic REST API
+  was found on npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist
+  or crates.io.
+packages:
+- language: python
+  registry: pypi
+  name: codemagic-cli-tools
+  url: https://pypi.org/project/codemagic-cli-tools/
+  install: python -m pip install codemagic-cli-tools
+  repository: https://github.com/codemagic-ci-cd/cli-tools
+  requires: Python 3.8+
+  official: true
+  kind: cli

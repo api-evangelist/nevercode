@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/codemagic-ci-cd/cli-tools
+name: Codemagic CLI Tools
+package: codemagic-cli-tools
+install:
+- python -m pip install codemagic-cli-tools
+requires: Python 3.8+
+docs: https://github.com/codemagic-ci-cd/cli-tools/tree/master/docs#cli-tools
+note: >-
+  Command-line utilities for managing Android and iOS app builds, code signing,
+  and deployment. Used to power builds at codemagic.io but usable locally or in
+  other CI environments. Each executable exposes subcommands; run `<command> --help`.
+executables:
+- name: android-app-bundle
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/android-app-bundle/README.md
+- name: android-keystore
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/android-keystore/README.md
+- name: app-store-connect
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/app-store-connect/README.md
+- name: codemagic-cli-tools
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/codemagic-cli-tools/README.md
+- name: git-changelog
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/git-changelog/README.md
+- name: google-play
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/google-play/README.md
+- name: keychain
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/keychain/README.md
+- name: universal-apk
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/universal-apk/README.md
+- name: xcode-project
+  docs: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/xcode-project/README.md

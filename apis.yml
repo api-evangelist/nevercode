@@ -1,7 +1,25 @@
 aid: nevercode
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nevercode.png
 name: Nevercode
-description: Nevercode is a company surfaced as a portfolio company of seedcamp and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Codemagic (built by Nevercode, founded in Estonia) is a continuous integration
+  and delivery (CI/CD) platform purpose-built for mobile app teams. It automates building,
+  testing, code signing, and releasing apps across Flutter, React Native, native iOS
+  and Android, Unity, Ionic, and .NET MAUI, and integrates with GitHub, GitLab, Bitbucket,
+  and Azure DevOps. Its REST API (v3) exposes applications, builds, artifacts, teams,
+  tester groups, secrets and environment variables, over-the-air updates, app previews,
+  and billing so teams can trigger builds and manage their CI/CD pipelines programmatically.
 url: https://raw.githubusercontent.com/api-evangelist/nevercode/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +27,269 @@ x-backed-by:
 - seedcamp
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Continuous Integration
+- Continuous Delivery
+- CI/CD
+- DevOps
+- Mobile
+- Flutter
+- Builds
+- App Distribution
+- Code Signing
+apis:
+- aid: nevercode:nevercode-app-previews-api
+  name: Nevercode App Previews API
+  description: REST API endpoints for app previews.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - App Previews
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-app-previews-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-applications-api
+  name: Nevercode Applications API
+  description: REST API endpoints for applications.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-applications-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-billing-api
+  name: Nevercode Billing API
+  description: REST API endpoints for billing.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Billing
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-billing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-build-dashboards-api
+  name: Nevercode Build Dashboards API
+  description: REST API endpoints for build dashboards.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Build Dashboards
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-build-dashboards-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-builds-api
+  name: Nevercode Builds API
+  description: REST API endpoints for builds.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Builds
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-builds-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-meta-api
+  name: Nevercode Meta API
+  description: REST API endpoints for meta data.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Meta
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-meta-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-over-the-air-updates-api
+  name: Nevercode Over-the-air Updates API
+  description: REST API endpoints for over-the-air updates.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Over-the-air Updates
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-over-the-air-updates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-secrets-and-environment-vars-api
+  name: Nevercode Secrets and Environment Vars API
+  description: REST API endpoints for environment variables.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Secrets and Environment Vars
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-secrets-and-environment-vars-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-team-invitations-api
+  name: Nevercode Team Invitations API
+  description: REST API endpoints for team invitations.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Team Invitations
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-team-invitations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-team-members-api
+  name: Nevercode Team Members API
+  description: REST API endpoints for team members.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Team Members
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-team-members-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-teams-api
+  name: Nevercode Teams API
+  description: REST API endpoints for teams.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-teams-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-tester-groups-api
+  name: Nevercode Tester Groups API
+  description: REST API endpoints for tester groups.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Tester Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-tester-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
+- aid: nevercode:nevercode-users-api
+  name: Nevercode Users API
+  description: REST API endpoints for users.
+  humanURL: https://docs.codemagic.io/rest-api/overview/
+  baseURL: https://codemagic.io/
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/nevercode-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.codemagic.io/rest-api/overview/
+  - type: APIReference
+    url: https://codemagic.io/api/v3/schema
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Packages
+  url: packages/nevercode-packages.yml
+- type: CLI
+  url: cli/nevercode-cli.yml
+- type: Compliance
+  url: https://codemagic.io/security-statement
+- type: DomainSecurity
+  url: security/nevercode-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/nevercode-agentic-access.yml
+- type: LLMsTxt
+  url: llms/nevercode-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Conformance
+  url: conformance/nevercode-conformance.yml
+- type: Lifecycle
+  url: lifecycle/nevercode-lifecycle.yml
+- type: MCPServer
+  url: mcp/nevercode-mcp.yml
+- type: DataModel
+  url: data-model/nevercode-data-model.yml
+- type: Conventions
+  url: conventions/nevercode-conventions.yml
+- type: Authentication
+  url: authentication/nevercode-authentication.yml
+- type: ErrorCatalog
+  url: errors/nevercode-problem-types.yml
 - type: Website
-  url: http://codemagic.io
+  url: https://codemagic.io
+- type: DeveloperPortal
+  url: https://docs.codemagic.io
+- type: Documentation
+  url: https://docs.codemagic.io
+- type: APIReference
+  url: https://codemagic.io/api/v3/schema
+- type: GettingStarted
+  url: https://docs.codemagic.io/getting-started/about-codemagic/
+- type: Blog
+  url: https://blog.codemagic.io
+- type: Support
+  url: https://github.com/orgs/codemagic-ci-cd/discussions
+- type: GitHubOrganization
+  url: https://github.com/codemagic-ci-cd
+- type: StatusPage
+  url: https://status.codemagic.io
+- type: Pricing
+  url: https://codemagic.io/pricing
+- type: SignUp
+  url: https://codemagic.io/signup
+- type: Login
+  url: https://codemagic.io/login
+- type: TermsOfService
+  url: https://codemagic.io/terms
+- type: PrivacyPolicy
+  url: https://codemagic.io/privacy-policy
+- type: Security
+  url: https://codemagic.io/security-statement

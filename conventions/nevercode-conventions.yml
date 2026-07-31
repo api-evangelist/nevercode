@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nevercode-openapi-original.json
+authentication:
+  style: api-key
+  header: x-auth-token
+  ref: authentication/nevercode-authentication.yml
+versioning:
+  style: uri-path
+  current: v3
+  base_path: /api/v3
+  note: A legacy v1 REST API also exists; v3 is the current schema.
+media_type: application/json
+pagination:
+  detected_params:
+  - cursor
+  - page
+  - page_size
+  note: Query parameters detected.
+idempotency:
+  supported: false
+  header: null
+errors:
+  ref: errors/nevercode-problem-types.yml
+lifecycle:
+  ref: lifecycle/nevercode-lifecycle.yml

@@ -1,0 +1,38 @@
+{
+  "provider": "nevercode",
+  "sources": [
+    "nevercode-app-previews-api-openapi.yml",
+    "nevercode-applications-api-openapi.yml",
+    "nevercode-billing-api-openapi.yml",
+    "nevercode-build-dashboards-api-openapi.yml",
+    "nevercode-builds-api-openapi.yml",
+    "nevercode-meta-api-openapi.yml",
+    "nevercode-over-the-air-updates-api-openapi.yml",
+    "nevercode-secrets-and-environment-vars-api-openapi.yml",
+    "nevercode-team-invitations-api-openapi.yml",
+    "nevercode-team-members-api-openapi.yml",
+    "nevercode-teams-api-openapi.yml",
+    "nevercode-tester-groups-api-openapi.yml",
+    "nevercode-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "nevercode-app-previews-api-openapi.yml",
+    "nevercode-applications-api-openapi.yml",
+    "nevercode-billing-api-openapi.yml",
+    "nevercode-build-dashboards-api-openapi.yml",
+    "nevercode-builds-api-openapi.yml",
+    "nevercode-meta-api-openapi.yml",
+    "nevercode-over-the-air-updates-api-openapi.yml",
+    "nevercode-secrets-and-environment-vars-api-openapi.yml",
+    "nevercode-team-invitations-api-openapi.yml",
+    "nevercode-team-members-api-openapi.yml",
+    "nevercode-teams-api-openapi.yml",
+    "nevercode-tester-groups-api-openapi.yml",
+    "nevercode-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

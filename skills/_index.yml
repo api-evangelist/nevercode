@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/nevercode-openapi-original.json
+skills:
+- file: nevercode-inspect-apps-and-builds.md
+  name: Inspect Codemagic applications and builds
+  api: openapi/nevercode-openapi-original.json
+  operations:
+  - ApiV3UserAppsGetApps
+  - ApiV3BuildsBuildIdGetBuild
+  - ApiV3BuildsBuildIdActionsGetBuildActions
+- file: nevercode-manage-secrets.md
+  name: Manage Codemagic secrets and environment variables
+  api: openapi/nevercode-openapi-original.json
+  operations:
+  - ApiV3AppsAppIdVariableGroupsGetVariableGroups
+  - ApiV3AppsAppIdVariableGroupsCreateVariableGroup
+  - ApiV3VariableGroupsVariableGroupIdVariablesBulkImport
+  - ApiV3VariableGroupsVariableGroupIdVariablesGetVariables
+- file: nevercode-ota-updates.md
+  name: Inspect Codemagic over-the-air updates
+  api: openapi/nevercode-openapi-original.json
+  operations:
+  - ApiV3OverTheAirUpdatesGetAccountInfo
+  - ApiV3OverTheAirUpdatesDeploymentsDeploymentIdReleasesListDeploymentReleases
+  - ApiV3OverTheAirUpdatesProjectsProjectIdDeploymentKeysListDeploymentKeys

@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+host: https://codemagic.io
+documents:
+- path: /.well-known/security.txt
+  status: 404
+  note: html-fallback
+- path: /.well-known/openid-configuration
+  status: 404
+  note: html-fallback
+- path: /.well-known/oauth-authorization-server
+  status: 404
+  note: html-fallback
+- path: /.well-known/api-catalog
+  status: 404
+  note: html-fallback
+- path: /.well-known/ai-plugin.json
+  status: 404
+  note: html-fallback

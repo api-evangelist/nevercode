@@ -1,0 +1,265 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+note: No official hosted Codemagic MCP server found; candidate tool list derived one-per-operation from
+  the v3 OpenAPI.
+server:
+  name: codemagic
+  transport: http
+tool_count: 85
+tools:
+- name: ApiV3SubscriptionsTeamIdFeaturesUpdateFeatures
+  description: Update subscription features for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3SubscriptionsTeamIdFeaturesUpdateFeatures
+- name: ApiV3AppsAppIdTesterGroupsGetTesterGroups
+  description: List tester groups for the app
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3AppsAppIdTesterGroupsGetTesterGroups
+- name: ApiV3AppsAppIdTesterGroupsCreateTesterGroup
+  description: Create tester group for the app
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3AppsAppIdTesterGroupsCreateTesterGroup
+- name: ApiV3AppsAppIdVariableGroupsGetVariableGroups
+  description: List variable groups for the app
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3AppsAppIdVariableGroupsGetVariableGroups
+- name: ApiV3AppsAppIdVariableGroupsCreateVariableGroup
+  description: Create a variable group for the app
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3AppsAppIdVariableGroupsCreateVariableGroup
+- name: ApiV3BuildsBuildIdPreviewStartPreview
+  description: Start an app preview
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3BuildsBuildIdPreviewStartPreview
+- name: ApiV3BuildsBuildIdGetBuild
+  description: Get build info
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3BuildsBuildIdGetBuild
+- name: ApiV3BuildsBuildIdRemoteAccessGetBuildRemoteAccess
+  description: Get build remote access info
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3BuildsBuildIdRemoteAccessGetBuildRemoteAccess
+- name: ApiV3BuildsBuildIdActionsGetBuildActions
+  description: Get build actions
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3BuildsBuildIdActionsGetBuildActions
+- name: ApiV3UserGetUser
+  description: Get authenticated user info
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserGetUser
+- name: ApiV3UserTeamsGetTeams
+  description: List teams for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserTeamsGetTeams
+- name: ApiV3UserAppsGetApps
+  description: List apps for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserAppsGetApps
+- name: ApiV3UserPreferencesGetPreferences
+  description: Get preferences for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserPreferencesGetPreferences
+- name: ApiV3UserApiKeyGetApiKey
+  description: Get API key for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserApiKeyGetApiKey
+- name: ApiV3UserApiKeyRevokeApiKey
+  description: Revoke API key for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserApiKeyRevokeApiKey
+- name: ApiV3UserTrackTrack
+  description: Track user events
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserTrackTrack
+- name: ApiV3UserNotificationsGetNotifications
+  description: Get notifications for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserNotificationsGetNotifications
+- name: ApiV3UserMembershipsTeamIdLeaveTeam
+  description: Remove authenticated user from the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserMembershipsTeamIdLeaveTeam
+- name: ApiV3UserTeamsTeamIdPermissionsGetTeamPermissions
+  description: Get the authenticated user's permissions in a team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3UserTeamsTeamIdPermissionsGetTeamPermissions
+- name: ApiV3VariableGroupsVariableGroupIdVariablesGetVariables
+  description: List variables for the group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdVariablesGetVariables
+- name: ApiV3VariableGroupsVariableGroupIdVariablesBulkImport
+  description: Bulk import variables to the group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdVariablesBulkImport
+- name: ApiV3VariableGroupsVariableGroupIdGetGroup
+  description: Get group information
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdGetGroup
+- name: ApiV3VariableGroupsVariableGroupIdDeleteGroup
+  description: Delete the group and all variables
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdDeleteGroup
+- name: ApiV3VariableGroupsVariableGroupIdUpdateGroup
+  description: Change group name and settings
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdUpdateGroup
+- name: ApiV3VariableGroupsVariableGroupIdVariablesVariableIdGetVariable
+  description: Get a variable from the group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdVariablesVariableIdGetVariable
+- name: ApiV3VariableGroupsVariableGroupIdVariablesVariableIdDeleteVariable
+  description: Delete the variable
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdVariablesVariableIdDeleteVariable
+- name: ApiV3VariableGroupsVariableGroupIdVariablesVariableIdUpdateVariable
+  description: Update the variable
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3VariableGroupsVariableGroupIdVariablesVariableIdUpdateVariable
+- name: ApiV3MetaGetMeta
+  description: Get meta information
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3MetaGetMeta
+- name: ApiV3MetaShorebirdGetShorebirdMeta
+  description: Get information about Shorebird integration
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3MetaShorebirdGetShorebirdMeta
+- name: ApiV3OverTheAirUpdatesGetAccountInfo
+  description: Get account information for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OverTheAirUpdatesGetAccountInfo
+- name: ApiV3OtaGetAccountInfo
+  description: Get account information for the authenticated user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaGetAccountInfo
+- name: ApiV3OverTheAirUpdatesDeploymentsDeploymentIdReleasesListDeploymentReleases
+  description: Get deployment releases history
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OverTheAirUpdatesDeploymentsDeploymentIdReleasesListDeploymentReleases
+- name: ApiV3OtaDeploymentsDeploymentIdReleasesListDeploymentReleases
+  description: Get deployment releases history
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaDeploymentsDeploymentIdReleasesListDeploymentReleases
+- name: ApiV3OverTheAirUpdatesProjectsProjectIdDeploymentKeysListDeploymentKeys
+  description: Get project deployment keys
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OverTheAirUpdatesProjectsProjectIdDeploymentKeysListDeploymentKeys
+- name: ApiV3OtaProjectsProjectIdDeploymentKeysListDeploymentKeys
+  description: Get project deployment keys
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaProjectsProjectIdDeploymentKeysListDeploymentKeys
+- name: ApiV3OtaDeploymentsDeploymentIdUsageMetricGetDeploymentUsage
+  description: Get usage stats for a deployment channel.
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaDeploymentsDeploymentIdUsageMetricGetDeploymentUsage
+- name: ApiV3OverTheAirUpdatesDeploymentsDeploymentIdUsageMetricGetDeploymentUsage
+  description: Get usage stats for a deployment channel.
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OverTheAirUpdatesDeploymentsDeploymentIdUsageMetricGetDeploymentUsage
+- name: ApiV3OtaTeamIdAccessKeysListOtaAccessKeys
+  description: List all access keys for a team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaTeamIdAccessKeysListOtaAccessKeys
+- name: ApiV3OtaTeamIdAccessKeysCreateOtaAccessKey
+  description: Create an access key for a team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaTeamIdAccessKeysCreateOtaAccessKey
+- name: ApiV3OtaTeamIdAccessKeysKeyIdDeleteOtaAccessKey
+  description: Delete an access key for a team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaTeamIdAccessKeysKeyIdDeleteOtaAccessKey
+- name: ApiV3OtaTeamIdProjectsListProjects
+  description: List projects for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaTeamIdProjectsListProjects
+- name: ApiV3OverTheAirUpdatesTeamIdProjectsListProjects
+  description: List projects for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OverTheAirUpdatesTeamIdProjectsListProjects
+- name: ApiV3OverTheAirUpdatesTeamIdUsageGetUsage
+  description: Get usage stats for the team.
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OverTheAirUpdatesTeamIdUsageGetUsage
+- name: ApiV3OtaTeamIdUsageGetUsage
+  description: Get usage stats for the team.
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3OtaTeamIdUsageGetUsage
+- name: ApiV3TeamsTeamIdGetTeam
+  description: Get team info
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdGetTeam
+- name: ApiV3TeamsTeamIdAppsListTeamApps
+  description: List apps for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdAppsListTeamApps
+- name: ApiV3TeamsTeamIdAuditLogDownloadAuditLog
+  description: Download team audit log as CSV
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdAuditLogDownloadAuditLog
+- name: ApiV3TeamsTeamIdAuditLogConnectorGetAuditLogConnector
+  description: Get Audit Log Connector settings for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdAuditLogConnectorGetAuditLogConnector
+- name: ApiV3TeamsTeamIdAuditLogConnectorUpdateAuditLogConnector
+  description: Update Audit Log Connector settings for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdAuditLogConnectorUpdateAuditLogConnector
+- name: ApiV3TeamsTeamIdAuditLogConnectorDeleteAuditLogConnector
+  description: Delete Audit Log Connector settings for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdAuditLogConnectorDeleteAuditLogConnector
+- name: ApiV3TeamsTeamIdBuildsListTeamBuilds
+  description: List team builds
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdBuildsListTeamBuilds
+- name: ApiV3TeamsTeamIdPreviewsListTeamPreviews
+  description: List app previews for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdPreviewsListTeamPreviews
+- name: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdPromotionCodeApplySubscriptionPromotionCode
+  description: Apply promotion code to subscription
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsSubscriptionIdPromotionCodeApplySubscriptionPromotionCode
+- name: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdGetSubscription
+  description: Get subscription details
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsSubscriptionIdGetSubscription
+- name: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdCancelSubscription
+  description: Cancel team subscription
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsSubscriptionIdCancelSubscription
+- name: ApiV3TeamsTeamIdSubscriptionsListTeamSubscriptions
+  description: List team subscriptions
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsListTeamSubscriptions
+- name: ApiV3TeamsTeamIdSubscriptionsCreateTeamSubscription
+  description: Create team subscription
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsCreateTeamSubscription
+- name: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdInvoicePreviewGetSubscriptionInvoicePreview
+  description: Get subscription invoice preview
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsSubscriptionIdInvoicePreviewGetSubscriptionInvoicePreview
+- name: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdInvoicesListSubscriptionInvoices
+  description: List subscription invoices
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsSubscriptionIdInvoicesListSubscriptionInvoices
+- name: ApiV3TeamsTeamIdSubscriptionsSubscriptionIdDefaultPaymentMethodSetSubscriptionDefaultPaymentMethod
+  description: Set subscription default payment method
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdSubscriptionsSubscriptionIdDefaultPaymentMethodSetSubscriptionDefaultPaymentMethod
+- name: ApiV3TeamsTeamIdCardsListTeamCards
+  description: List team cards
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdCardsListTeamCards
+- name: ApiV3TeamsTeamIdVariableGroupsGetVariableGroups
+  description: List variable groups for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdVariableGroupsGetVariableGroups
+- name: ApiV3TeamsTeamIdVariableGroupsCreateVariableGroup
+  description: Create a variable group for the team
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdVariableGroupsCreateVariableGroup
+- name: ApiV3TeamsTeamIdMembersListTeamMembers
+  description: List team members
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdMembersListTeamMembers
+- name: ApiV3TeamsTeamIdMembershipsUserIdUpdateTeamMembership
+  description: Update team membership for a user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdMembershipsUserIdUpdateTeamMembership
+- name: ApiV3TeamsTeamIdMembershipsUserIdDeleteTeamMembership
+  description: Remove team membership for a user
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdMembershipsUserIdDeleteTeamMembership
+- name: ApiV3InvitationsCodeAcceptAcceptTeamInvitation
+  description: Accept a team invitation
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3InvitationsCodeAcceptAcceptTeamInvitation
+- name: ApiV3TeamsTeamIdInvitationsListPendingTeamInvitations
+  description: List pending team invitations
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdInvitationsListPendingTeamInvitations
+- name: ApiV3TeamsTeamIdInvitationsCreateTeamInvitation
+  description: Create a team invitation
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdInvitationsCreateTeamInvitation
+- name: ApiV3InvitationsPublicCodeGetInvitationByCode
+  description: Get team invitation by code
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3InvitationsPublicCodeGetInvitationByCode
+- name: ApiV3TeamsTeamIdInvitationsInvitationIdRevokeTeamInvitation
+  description: Revoke a team invitation
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdInvitationsInvitationIdRevokeTeamInvitation
+- name: ApiV3TeamsTeamIdInvoicePreviewGenerateInvoicePreview
+  description: Generate invoice preview for chosen line items
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdInvoicePreviewGenerateInvoicePreview
+- name: ApiV3TeamsTeamIdInvoicesListTeamInvoices
+  description: List team invoices
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TeamsTeamIdInvoicesListTeamInvoices
+- name: ApiV3DashboardsUuidGetDashboard
+  description: Get a dashboard
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3DashboardsUuidGetDashboard
+- name: ApiV3DashboardsUuidBuildsGetBuilds
+  description: List dashboard builds
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3DashboardsUuidBuildsGetBuilds
+- name: ApiV3TesterGroupsTesterGroupIdContactsListContacts
+  description: List contacts for the tester group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TesterGroupsTesterGroupIdContactsListContacts
+- name: ApiV3TesterGroupsTesterGroupIdContactsBulkImport
+  description: Bulk import contacts to the tester group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TesterGroupsTesterGroupIdContactsBulkImport
+- name: ApiV3TesterGroupsTesterGroupIdContactsContactIdDeleteContact
+  description: Delete contact from the tester group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TesterGroupsTesterGroupIdContactsContactIdDeleteContact
+- name: ApiV3TesterGroupsTesterGroupIdGetGroup
+  description: Get a tester group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TesterGroupsTesterGroupIdGetGroup
+- name: ApiV3TesterGroupsTesterGroupIdDeleteGroup
+  description: Delete tester group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TesterGroupsTesterGroupIdDeleteGroup
+- name: ApiV3TesterGroupsTesterGroupIdUpdateTesterGroup
+  description: Update a tester group
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3TesterGroupsTesterGroupIdUpdateTesterGroup
+- name: ApiV3PreviewsPreviewIdGetPreviewInformation
+  description: Get app preview information
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3PreviewsPreviewIdGetPreviewInformation
+- name: ApiV3PreviewsPreviewIdStopPreview
+  description: Stop an app preview
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3PreviewsPreviewIdStopPreview
+- name: ApiV3PreviewsPreviewIdShareSharePreview
+  description: Share an app preview
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3PreviewsPreviewIdShareSharePreview
+- name: ApiV3SharedPreviewsSharedPreviewIdGetSharedPreview
+  description: Get shared app preview information
+  source_operation: openapi/nevercode-openapi-original.json#ApiV3SharedPreviewsSharedPreviewIdGetSharedPreview

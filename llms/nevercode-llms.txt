@@ -1,0 +1,18 @@
+# Codemagic (Nevercode)
+
+> Codemagic is a CI/CD platform for mobile app teams (Flutter, React Native, native iOS/Android, Unity, Ionic, .NET MAUI). Its REST API v3 manages applications, builds, artifacts, teams, secrets, over-the-air updates, and app previews.
+
+## APIs
+- [Codemagic REST API docs](https://docs.codemagic.io/rest-api/overview/)
+- [Codemagic API reference (v3 schema)](https://codemagic.io/api/v3/schema)
+
+## Specs
+- [OpenAPI 3.1 (v3)](https://codemagic.io/api/v3/schema/openapi.json)
+
+## Docs
+- [Documentation](https://docs.codemagic.io)
+- [Getting started](https://docs.codemagic.io/getting-started/about-codemagic/)
+- [Pricing](https://codemagic.io/pricing)
+- [Blog](https://blog.codemagic.io)
+- [Status](https://status.codemagic.io)
+- [Security statement](https://codemagic.io/security-statement)

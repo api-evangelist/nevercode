@@ -1,0 +1,9 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/nevercode-openapi-original.json
+versioning:
+  scheme: uri-path
+  current: v3
+  docs: https://docs.codemagic.io/rest-api/overview/
+status_page: https://status.codemagic.io
+deprecated_operations: []
