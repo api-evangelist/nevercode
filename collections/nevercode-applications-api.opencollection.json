@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Applications API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List apps for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/user/apps",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter apps by name. The query is split on whitespace and every token must appear (case-insensitively) in the app name."
+              }
+            ]
+          },
+          "docs": "To list the applications belonging to a team, see [/teams/{team_id}/apps](#/operations/TeamsTeamIdAppsGetApps)"
+        },
+        {
+          "info": {
+            "name": "List apps for the team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/apps",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "App IDs to filter by."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter apps by name. The query is split on whitespace and every token must appear (case-insensitively) in the app name."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List apps for the team"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

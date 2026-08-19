@@ -1,0 +1,200 @@
+{
+  "item": [
+    {
+      "id": "55b0a052-b541-40e0-ba51-1cce3fbe17fa",
+      "name": "Meta",
+      "description": {
+        "content": "REST API endpoints for meta data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "855bf54d-1c69-40bd-8524-780955907ff9",
+          "name": "Get meta information",
+          "request": {
+            "name": "Get meta information",
+            "description": {
+              "content": "\nReturns meta information about Codemagic, including a list of public IP addresses in use.\n\nThese IP addresses are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).\nIf needed, you can use an online conversion tool to convert from CIDR notation to IP address ranges.\n\nPlease note that these IP addresses may change from time to time, so if you use them for IP whitelisting or any kind of automation, we strongly encourage you to regularly monitor our API.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": [
+            {
+              "id": "34e0f125-9f4d-471a-b5a1-37d9164bde18",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"address_prefixes\": [\n      \"156.184.19.212\",\n      \"247.23.74.170\"\n    ],\n    \"simulator_address_prefixes\": [\n      \"103.52.242.83\",\n      \"184.127.91.3\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "980b591b-48a7-4d5a-8bf1-02e56a2a7192",
+          "name": "Get information about Shorebird integration",
+          "request": {
+            "name": "Get information about Shorebird integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "meta",
+                "shorebird"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": [
+            {
+              "id": "ebf3b547-c58c-4b1a-b5c6-199762bb92bb",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "meta",
+                    "shorebird"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"flutter_versions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"shorebird_version\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://codemagic.io/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-auth-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97c97667-3861-4157-b23c-35e0ab343670",
+    "name": "Codemagic App Previews Meta API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n# ℹ️ Overview\n\nWelcome to the Codemagic REST API. This API allows you to programmatically interact with [Codemagic's CI/CD](https://codemagic.io/) platform\nto manage your apps, trigger builds, access artifacts, and more.\n\n### Authentication\n\nAll API requests require authentication using a personal API token that is unique to each Codemagic user. The actions permitted by the token are determined by the user’s role within the team.\n\nYou can find your API token by navigating to **Teams > Personal Account > Integrations > Codemagic API > Show**.\n\nInclude your token in the request header:\n\n```\nx-auth-token: <your-api-token>\n```\n\n### Getting started\n\n1. Generate your API token from the Codemagic dashboard\n2. Explore the available endpoints in the sidebar\n3. Try out requests directly from this documentation\n\n### Rate limits\n\nCodemagic limits the number of API requests you can make within a specific amount of time to ensure the API remains\navailable for all users. Your personal rate limit is **5,000 requests per hour**.\n\nIf you exceed your rate limit, you will receive a `429` response, and the `ratelimit-remaining` header will be `0`.\nYou should not retry your request until after the time specified by the `ratelimit-reset` header.\n\n#### Checking the status of your rate limit\n\nYou can use the headers that are sent with each response to determine the current status of your rate limit.\n\n| **Header** | **Description** |\n| ---    | ---         |\n| ratelimit-limit | The maximum number of requests that you can make per hour. |\n| ratelimit-remaining | The number of requests remaining in the current rate limit window. |\n| ratelimit-reset | The number of seconds remaining until the current rate limit window resets. |\n\n### Help and support\n\n- Ask our [GitHub community](https://github.com/codemagic-ci-cd/codemagic-docs/discussions).\n- Our paying customers can get in touch with us via the in-app chat widget.\n  You have to be logged in to see the chat icon (note that some ad blockers may block the chat widget).\n\n---\n&copy; Nevercode Ltd. | All Rights Reserved | Codemagic is registered trademark of Nevercode Ltd. | [Terms](https://codemagic.io/terms)\n",
+      "type": "text/plain"
+    }
+  }
+}

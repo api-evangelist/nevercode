@@ -1,0 +1,211 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Tester Groups API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tester Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tester groups for the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/apps/:app_id/tester-groups",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "List tester groups for the app"
+        },
+        {
+          "info": {
+            "name": "Create tester group for the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codemagic.io/api/v3/apps/:app_id/tester-groups",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create tester group for the app"
+        },
+        {
+          "info": {
+            "name": "List contacts for the tester group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/tester-groups/:tester_group_id/contacts",
+            "params": [
+              {
+                "name": "tester_group_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "List contacts for the tester group"
+        },
+        {
+          "info": {
+            "name": "Bulk import contacts to the tester group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codemagic.io/api/v3/tester-groups/:tester_group_id/contacts",
+            "params": [
+              {
+                "name": "tester_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n<!-- theme: warning -->\n> The bulk import API is not designed to sync updates in real-time from an external database.\n\n### Skipped contacts\n\nContacts must meet all the following criteria in order to be created or updated with this API:\n\n- The imported contacts may not exceed your account limit.\n- The contact must have a valid email address.\n- The contact's email address must not be on an exclusion list.\n- The contact's email must not be on a list of bounced email addresses.\n\nIf contacts do not "
+        },
+        {
+          "info": {
+            "name": "Delete contact from the tester group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codemagic.io/api/v3/tester-groups/:tester_group_id/contacts/:contact_id",
+            "params": [
+              {
+                "name": "tester_group_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contact_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete contact from the tester group"
+        },
+        {
+          "info": {
+            "name": "Get a tester group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/tester-groups/:tester_group_id",
+            "params": [
+              {
+                "name": "tester_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a tester group"
+        },
+        {
+          "info": {
+            "name": "Update a tester group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://codemagic.io/api/v3/tester-groups/:tester_group_id",
+            "params": [
+              {
+                "name": "tester_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a tester group"
+        },
+        {
+          "info": {
+            "name": "Delete tester group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codemagic.io/api/v3/tester-groups/:tester_group_id",
+            "params": [
+              {
+                "name": "tester_group_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete tester group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

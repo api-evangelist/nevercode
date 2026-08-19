@@ -1,0 +1,2665 @@
+{
+  "item": [
+    {
+      "id": "d4c9fd7c-fd41-4fa6-92f2-52b97792b488",
+      "name": "Over-the-air Updates",
+      "description": {
+        "content": "REST API endpoints for over-the-air updates.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ad8ace8-b517-4184-8749-a2cbda49dddc",
+          "name": "Get account information for the authenticated user",
+          "request": {
+            "name": "Get account information for the authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "over-the-air-updates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88791265-d8a4-4282-901d-938bd2866da9",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"status\": \"disabled\",\n    \"team_id\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f875348-a46a-4dbb-9eb0-e7356ba05baa",
+          "name": "Get account information for the authenticated user",
+          "request": {
+            "name": "Get account information for the authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2369c06-8a41-428c-b488-b5588480cd10",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"status\": \"disabled\",\n    \"team_id\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64f3ab73-60a6-4484-8021-1554555a9c41",
+          "name": "Get deployment releases history",
+          "request": {
+            "name": "Get deployment releases history",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "over-the-air-updates",
+                "deployments",
+                ":deployment_id",
+                "releases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deployment_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b44c5886-47c8-43a9-8ef9-7a5628fc24a0",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    "deployments",
+                    ":deployment_id",
+                    "releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 9724,\n  \"data\": [\n    {\n      \"status\": \"inactive\",\n      \"summary\": [\n        {\n          \"metric\": \"string\",\n          \"value\": 6948\n        },\n        {\n          \"metric\": \"string\",\n          \"value\": 4761\n        }\n      ],\n      \"version\": \"string\",\n      \"application_version\": \"string\",\n      \"released_at\": \"1953-09-10T14:49:50.015Z\"\n    },\n    {\n      \"status\": \"inactive\",\n      \"summary\": [\n        {\n          \"metric\": \"string\",\n          \"value\": 6199\n        },\n        {\n          \"metric\": \"string\",\n          \"value\": 6725\n        }\n      ],\n      \"version\": \"string\",\n      \"application_version\": \"string\",\n      \"released_at\": \"1956-06-11T07:33:44.821Z\"\n    }\n  ],\n  \"page_size\": 321,\n  \"total_pages\": 2622\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48d9567c-2e1c-4f78-9e2a-8c4fbcf6ee28",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    "deployments",
+                    ":deployment_id",
+                    "releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "629a0333-9268-43c1-a9c7-8a5d1c839d95",
+          "name": "Get deployment releases history",
+          "request": {
+            "name": "Get deployment releases history",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                "deployments",
+                ":deployment_id",
+                "releases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deployment_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73b6287a-3a3c-4457-977d-6f2d7e6e4b92",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    "deployments",
+                    ":deployment_id",
+                    "releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 9724,\n  \"data\": [\n    {\n      \"status\": \"inactive\",\n      \"summary\": [\n        {\n          \"metric\": \"string\",\n          \"value\": 6948\n        },\n        {\n          \"metric\": \"string\",\n          \"value\": 4761\n        }\n      ],\n      \"version\": \"string\",\n      \"application_version\": \"string\",\n      \"released_at\": \"1953-09-10T14:49:50.015Z\"\n    },\n    {\n      \"status\": \"inactive\",\n      \"summary\": [\n        {\n          \"metric\": \"string\",\n          \"value\": 6199\n        },\n        {\n          \"metric\": \"string\",\n          \"value\": 6725\n        }\n      ],\n      \"version\": \"string\",\n      \"application_version\": \"string\",\n      \"released_at\": \"1956-06-11T07:33:44.821Z\"\n    }\n  ],\n  \"page_size\": 321,\n  \"total_pages\": 2622\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a46b0c9e-53b1-4c7a-9abd-c6b37decce6d",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    "deployments",
+                    ":deployment_id",
+                    "releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a15fb5a8-8c92-4b46-a350-f2d71be61721",
+          "name": "Get project deployment keys",
+          "request": {
+            "name": "Get project deployment keys",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "over-the-air-updates",
+                "projects",
+                ":project_id",
+                "deployment-keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f843bc45-aa83-4bf6-91a6-e8008a0e995d",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    "projects",
+                    ":project_id",
+                    "deployment-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 9417,\n  \"data\": [\n    {\n      \"key\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"page_size\": 7867,\n  \"total_pages\": 5058\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ed9dce7-da9d-46fd-83e1-b43c9c63026f",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    "projects",
+                    ":project_id",
+                    "deployment-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf61f795-b5e3-4dca-b1e9-4d2abf747f4a",
+          "name": "Get project deployment keys",
+          "request": {
+            "name": "Get project deployment keys",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                "projects",
+                ":project_id",
+                "deployment-keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaf5e199-fdc1-497a-97ff-079588734e91",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    "projects",
+                    ":project_id",
+                    "deployment-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 9417,\n  \"data\": [\n    {\n      \"key\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"page_size\": 7867,\n  \"total_pages\": 5058\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ed20a11-dda3-47d7-b487-a1a66b622963",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    "projects",
+                    ":project_id",
+                    "deployment-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fd210e0-6aea-4be9-9b8d-c551dedc3e03",
+          "name": "Get usage stats for a deployment channel.",
+          "request": {
+            "name": "Get usage stats for a deployment channel.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                "deployments",
+                ":deployment_id",
+                "usage",
+                ":metric"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; the default is set to the first day of the current month."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; default is set to now."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deployment_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "metric",
+                  "description": "(Required) The name of the usage metric to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3fa25158-8f77-4ec1-92fa-2b7aac0179c2",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    "deployments",
+                    ":deployment_id",
+                    "usage",
+                    ":metric"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) The name of the usage metric to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"meta\": {\n      \"interval\": \"string\",\n      \"period_from\": \"2024-01-08T00:51:17.674Z\",\n      \"period_to\": \"1968-09-25T07:06:42.864Z\"\n    },\n    \"series\": [\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"1979-05-10T22:35:03.502Z\",\n            \"value\": 7994\n          },\n          {\n            \"timestamp\": \"2016-04-06T16:03:43.138Z\",\n            \"value\": 5172\n          }\n        ]\n      },\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"1988-05-27T12:30:46.477Z\",\n            \"value\": 9011\n          },\n          {\n            \"timestamp\": \"1950-03-07T05:23:09.751Z\",\n            \"value\": 908\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cdd614b-537b-4e8d-b6ba-fa822d71453d",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    "deployments",
+                    ":deployment_id",
+                    "usage",
+                    ":metric"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) The name of the usage metric to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28f7f210-c57b-4696-b9d4-c95c0330dad3",
+          "name": "Get usage stats for a deployment channel.",
+          "request": {
+            "name": "Get usage stats for a deployment channel.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "over-the-air-updates",
+                "deployments",
+                ":deployment_id",
+                "usage",
+                ":metric"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; the default is set to the first day of the current month."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; default is set to now."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deployment_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "metric",
+                  "description": "(Required) The name of the usage metric to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b9c7696-8ae0-41c4-bb2f-ccf14fc2b8ef",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    "deployments",
+                    ":deployment_id",
+                    "usage",
+                    ":metric"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) The name of the usage metric to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"meta\": {\n      \"interval\": \"string\",\n      \"period_from\": \"2024-01-08T00:51:17.674Z\",\n      \"period_to\": \"1968-09-25T07:06:42.864Z\"\n    },\n    \"series\": [\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"1979-05-10T22:35:03.502Z\",\n            \"value\": 7994\n          },\n          {\n            \"timestamp\": \"2016-04-06T16:03:43.138Z\",\n            \"value\": 5172\n          }\n        ]\n      },\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"1988-05-27T12:30:46.477Z\",\n            \"value\": 9011\n          },\n          {\n            \"timestamp\": \"1950-03-07T05:23:09.751Z\",\n            \"value\": 908\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40212e11-326b-448f-ac1b-74c29daf2933",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    "deployments",
+                    ":deployment_id",
+                    "usage",
+                    ":metric"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deployment_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) The name of the usage metric to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16f3e609-d50e-4044-9dc9-2aeb5fa12c15",
+          "name": "List all access keys for a team",
+          "request": {
+            "name": "List all access keys for a team",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                ":team_id",
+                "access-keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c90f2340-3402-4e94-bb0d-7de686706bd2",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "access-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 936,\n  \"data\": [\n    {\n      \"created_at\": \"2007-01-06T08:32:57.811Z\",\n      \"created_by\": \"string\",\n      \"expires_at\": \"2011-12-09T16:02:36.395Z\",\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"created_at\": \"1992-09-08T13:32:20.820Z\",\n      \"created_by\": \"string\",\n      \"expires_at\": \"2009-04-30T11:06:05.454Z\",\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"page_size\": 1769,\n  \"total_pages\": 2374\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "623f26d8-8430-4ad1-8116-dab2e36d3203",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "access-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a337c09e-f1f9-4f5c-87bb-7e144bc44511",
+          "name": "Create an access key for a team",
+          "request": {
+            "name": "Create an access key for a team",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                ":team_id",
+                "access-keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ttl_days\": 365\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28752325-5ba5-4d7f-9fdf-b2fe09698eae",
+              "name": "Document created, URL follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "access-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ttl_days\": 365\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"created_at\": \"2017-09-06T16:38:08.405Z\",\n    \"created_by\": \"string\",\n    \"expires_at\": \"1968-04-03T19:11:22.718Z\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"token\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "897dd20b-a2b8-4a01-a9eb-f72b2c5422e1",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "access-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ttl_days\": 365\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15d0e542-e404-4295-87a0-8afacb1bdc7d",
+          "name": "Delete an access key for a team",
+          "request": {
+            "name": "Delete an access key for a team",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                ":team_id",
+                "access-keys",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6b4716e-8b48-4c1a-95c0-bbdc18ba8c7b",
+              "name": "Request fulfilled, nothing follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "access-keys",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c98b50c5-5eef-4a0b-9093-c3dd45e15f9d",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "access-keys",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3a9c503-fe44-4674-8ff1-f08ec7f4a298",
+          "name": "List projects for the team",
+          "request": {
+            "name": "List projects for the team",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                ":team_id",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a06d98bd-bfd9-4621-b99a-b116a7f168ec",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 8533,\n  \"data\": [\n    {\n      \"deployment_channels\": [\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        }\n      ],\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"name\": \"string\",\n      \"last_update\": {\n        \"application_version\": \"string\",\n        \"deployment_channel\": {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        \"released_at\": \"1972-11-12T05:47:07.212Z\",\n        \"status\": \"active\",\n        \"summary\": [\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"version\": \"string\"\n      }\n    },\n    {\n      \"deployment_channels\": [\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        }\n      ],\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"name\": \"string\",\n      \"last_update\": {\n        \"application_version\": \"string\",\n        \"deployment_channel\": {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        \"released_at\": \"2002-07-19T07:45:22.163Z\",\n        \"status\": \"active\",\n        \"summary\": [\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"version\": \"string\"\n      }\n    }\n  ],\n  \"page_size\": 9767,\n  \"total_pages\": 7909\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b77a4153-b1a6-4b32-a6a3-17c6b6488d0f",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6c35e09-e868-4fdb-987f-6d22f26aa3d2",
+          "name": "List projects for the team",
+          "request": {
+            "name": "List projects for the team",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "over-the-air-updates",
+                ":team_id",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a786b40b-ea3a-42fc-890b-4dca94a7ac37",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    ":team_id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 8533,\n  \"data\": [\n    {\n      \"deployment_channels\": [\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        }\n      ],\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"name\": \"string\",\n      \"last_update\": {\n        \"application_version\": \"string\",\n        \"deployment_channel\": {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        \"released_at\": \"1972-11-12T05:47:07.212Z\",\n        \"status\": \"active\",\n        \"summary\": [\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"version\": \"string\"\n      }\n    },\n    {\n      \"deployment_channels\": [\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        }\n      ],\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"name\": \"string\",\n      \"last_update\": {\n        \"application_version\": \"string\",\n        \"deployment_channel\": {\n          \"id\": \"60a0b1c2d3e4f56789abcdef\",\n          \"name\": \"string\"\n        },\n        \"released_at\": \"2002-07-19T07:45:22.163Z\",\n        \"status\": \"active\",\n        \"summary\": [\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"metric\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"version\": \"string\"\n      }\n    }\n  ],\n  \"page_size\": 9767,\n  \"total_pages\": 7909\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b00b3987-e6dc-40ad-b3b1-682a81fe756b",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    ":team_id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3aa15b98-4b1c-4585-8f05-2156d09f7125",
+          "name": "Get usage stats for the team.",
+          "request": {
+            "name": "Get usage stats for the team.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "over-the-air-updates",
+                ":team_id",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; the default is set to the first day of the current month."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; default is set to now."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "622c9f58-a9cf-452e-817d-0c0e6c6db6a7",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    ":team_id",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"meta\": {\n      \"interval\": \"string\",\n      \"period_from\": \"1997-01-17T18:04:05.010Z\",\n      \"period_to\": \"1986-11-01T16:52:06.024Z\"\n    },\n    \"series\": [\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"2009-04-26T16:18:14.522Z\",\n            \"value\": 4120\n          },\n          {\n            \"timestamp\": \"1992-09-26T13:32:05.077Z\",\n            \"value\": 7031\n          }\n        ]\n      },\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"1964-06-13T21:13:02.223Z\",\n            \"value\": 8067\n          },\n          {\n            \"timestamp\": \"1972-07-16T20:56:46.629Z\",\n            \"value\": 194\n          }\n        ]\n      }\n    ],\n    \"summary\": [\n      {\n        \"metric\": \"string\",\n        \"value\": 7139\n      },\n      {\n        \"metric\": \"string\",\n        \"value\": 9269\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b57d848d-fe40-4efa-a479-a3bba95e326d",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "over-the-air-updates",
+                    ":team_id",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffec7a4a-4999-45aa-8da6-8ff65c3f462c",
+          "name": "Get usage stats for the team.",
+          "request": {
+            "name": "Get usage stats for the team.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "ota",
+                ":team_id",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "period_from",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; the default is set to the first day of the current month."
+                },
+                {
+                  "disabled": false,
+                  "key": "period_to",
+                  "value": "<dateTime>",
+                  "description": "Datetime in ISO format; default is set to now."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f45a09a8-11e3-40e2-9cfd-f8a7b8f2b525",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"meta\": {\n      \"interval\": \"string\",\n      \"period_from\": \"1997-01-17T18:04:05.010Z\",\n      \"period_to\": \"1986-11-01T16:52:06.024Z\"\n    },\n    \"series\": [\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"2009-04-26T16:18:14.522Z\",\n            \"value\": 4120\n          },\n          {\n            \"timestamp\": \"1992-09-26T13:32:05.077Z\",\n            \"value\": 7031\n          }\n        ]\n      },\n      {\n        \"metric\": \"string\",\n        \"name\": \"string\",\n        \"values\": [\n          {\n            \"timestamp\": \"1964-06-13T21:13:02.223Z\",\n            \"value\": 8067\n          },\n          {\n            \"timestamp\": \"1972-07-16T20:56:46.629Z\",\n            \"value\": 194\n          }\n        ]\n      }\n    ],\n    \"summary\": [\n      {\n        \"metric\": \"string\",\n        \"value\": 7139\n      },\n      {\n        \"metric\": \"string\",\n        \"value\": 9269\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c55702a8-f42a-4b7b-862f-0fb8a2738a1f",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "ota",
+                    ":team_id",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "period_to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://codemagic.io/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-auth-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b4c8e880-75b0-4557-bb99-5d14c4c55e3d",
+    "name": "Codemagic App Previews Over-the-air Updates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n# ℹ️ Overview\n\nWelcome to the Codemagic REST API. This API allows you to programmatically interact with [Codemagic's CI/CD](https://codemagic.io/) platform\nto manage your apps, trigger builds, access artifacts, and more.\n\n### Authentication\n\nAll API requests require authentication using a personal API token that is unique to each Codemagic user. The actions permitted by the token are determined by the user’s role within the team.\n\nYou can find your API token by navigating to **Teams > Personal Account > Integrations > Codemagic API > Show**.\n\nInclude your token in the request header:\n\n```\nx-auth-token: <your-api-token>\n```\n\n### Getting started\n\n1. Generate your API token from the Codemagic dashboard\n2. Explore the available endpoints in the sidebar\n3. Try out requests directly from this documentation\n\n### Rate limits\n\nCodemagic limits the number of API requests you can make within a specific amount of time to ensure the API remains\navailable for all users. Your personal rate limit is **5,000 requests per hour**.\n\nIf you exceed your rate limit, you will receive a `429` response, and the `ratelimit-remaining` header will be `0`.\nYou should not retry your request until after the time specified by the `ratelimit-reset` header.\n\n#### Checking the status of your rate limit\n\nYou can use the headers that are sent with each response to determine the current status of your rate limit.\n\n| **Header** | **Description** |\n| ---    | ---         |\n| ratelimit-limit | The maximum number of requests that you can make per hour. |\n| ratelimit-remaining | The number of requests remaining in the current rate limit window. |\n| ratelimit-reset | The number of seconds remaining until the current rate limit window resets. |\n\n### Help and support\n\n- Ask our [GitHub community](https://github.com/codemagic-ci-cd/codemagic-docs/discussions).\n- Our paying customers can get in touch with us via the in-app chat widget.\n  You have to be logged in to see the chat icon (note that some ad blockers may block the chat widget).\n\n---\n&copy; Nevercode Ltd. | All Rights Reserved | Codemagic is registered trademark of Nevercode Ltd. | [Terms](https://codemagic.io/terms)\n",
+      "type": "text/plain"
+    }
+  }
+}

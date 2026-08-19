@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Build Dashboards API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Build Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/dashboards/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "\nFor more information, see \"[Build dashboards](https://docs.codemagic.io/knowledge-others/build-dashboards/).\"\n"
+        },
+        {
+          "info": {
+            "name": "List dashboard builds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/dashboards/:uuid/builds",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A unique identifier after which the results should be returned."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              }
+            ]
+          },
+          "docs": "List dashboard builds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

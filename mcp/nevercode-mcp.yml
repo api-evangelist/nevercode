@@ -263,3 +263,9 @@ tools:
 - name: ApiV3SharedPreviewsSharedPreviewIdGetSharedPreview
   description: Get shared app preview information
   source_operation: openapi/nevercode-openapi-original.json#ApiV3SharedPreviewsSharedPreviewIdGetSharedPreview
+deployment:
+  mode: none
+  verified: derived
+  tools: 85
+  checked: '2026-08-12'
+  source: catalog MCP census

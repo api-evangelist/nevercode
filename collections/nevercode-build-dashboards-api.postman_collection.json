@@ -1,0 +1,346 @@
+{
+  "item": [
+    {
+      "id": "4a7d6345-787b-445d-905b-6f8301f602f7",
+      "name": "Build Dashboards",
+      "description": {
+        "content": "REST API endpoints for build dashboards.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2817d5f1-aea2-4de5-b839-7da57f40a230",
+          "name": "Get a dashboard",
+          "request": {
+            "name": "Get a dashboard",
+            "description": {
+              "content": "\nFor more information, see \"[Build dashboards](https://docs.codemagic.io/knowledge-others/build-dashboards/).\"\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "dashboards",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": [
+            {
+              "id": "75a74445-a5e0-4be3-a285-e5b63227b3c0",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "dashboards",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"name\": \"string\",\n    \"uuid\": \"string\",\n    \"icon_url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fffc7de5-b926-47c2-9187-0ba9cff00d98",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "dashboards",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b924e0b-a9e0-4fb1-89c3-15b322d5b84d",
+          "name": "List dashboard builds",
+          "request": {
+            "name": "List dashboard builds",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "dashboards",
+                ":uuid",
+                "builds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": [
+            {
+              "id": "9e205ef9-4137-4d93-967c-f7ce30a24fb5",
+              "name": "\nThe response headers include a `link` header that provides URLs for fetching additional pages of results.\nThe `link` header looks something like this:\n```\nlink: <https://codemagic.io/dashboards/{uuid}/builds>; rel=\"first\", <https://codemagic.io/dashboards/{uuid}/builds?cursor=xxx>; rel=\"next\"\n```\n\n- The URL for the first page is followed by `rel=\"first\"`.\n- The URL for the next page is followed by `rel=\"next\"`.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "dashboards",
+                    ":uuid",
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"app\": {\n        \"name\": \"string\",\n        \"icon_url\": \"string\"\n      },\n      \"artifacts\": [\n        {\n          \"name\": \"string\",\n          \"short_lived_download_url\": \"string\",\n          \"size_in_bytes\": 9771,\n          \"type\": \"apk\",\n          \"version_code\": \"string\",\n          \"version_name\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"short_lived_download_url\": \"string\",\n          \"size_in_bytes\": 3254,\n          \"type\": \"pkg\",\n          \"version_code\": \"string\",\n          \"version_name\": \"string\"\n        }\n      ],\n      \"created_at\": \"1951-06-30T22:24:41.321Z\",\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"index\": 5666,\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"release_notes\": [\n        {\n          \"language\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"text\": \"string\"\n        }\n      ],\n      \"status\": \"timeout\",\n      \"workflow\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"commit\": {\n        \"hash\": \"string\",\n        \"avatar_url\": \"string\",\n        \"author_name\": \"string\",\n        \"author_email\": \"string\",\n        \"message\": \"string\",\n        \"url\": \"string\"\n      },\n      \"branch\": \"string\",\n      \"tag\": \"string\",\n      \"pull_request\": {\n        \"destination_branch\": \"string\",\n        \"number\": 2230,\n        \"source_branch\": \"string\"\n      },\n      \"started_at\": \"1972-05-04T14:05:37.308Z\",\n      \"finished_at\": \"1947-11-21T02:32:53.772Z\"\n    },\n    {\n      \"app\": {\n        \"name\": \"string\",\n        \"icon_url\": \"string\"\n      },\n      \"artifacts\": [\n        {\n          \"name\": \"string\",\n          \"short_lived_download_url\": \"string\",\n          \"size_in_bytes\": 8087,\n          \"type\": \"bundle\",\n          \"version_code\": \"string\",\n          \"version_name\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"short_lived_download_url\": \"string\",\n          \"size_in_bytes\": 9408,\n          \"type\": \"xcodebuild_log\",\n          \"version_code\": \"string\",\n          \"version_name\": \"string\"\n        }\n      ],\n      \"created_at\": \"1964-07-23T00:13:23.875Z\",\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"index\": 461,\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"release_notes\": [\n        {\n          \"language\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"language\": \"string\",\n          \"text\": \"string\"\n        }\n      ],\n      \"status\": \"fetching\",\n      \"workflow\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"commit\": {\n        \"hash\": \"string\",\n        \"avatar_url\": \"string\",\n        \"author_name\": \"string\",\n        \"author_email\": \"string\",\n        \"message\": \"string\",\n        \"url\": \"string\"\n      },\n      \"branch\": \"string\",\n      \"tag\": \"string\",\n      \"pull_request\": {\n        \"destination_branch\": \"string\",\n        \"number\": 9916,\n        \"source_branch\": \"string\"\n      },\n      \"started_at\": \"2026-01-21T02:08:47.724Z\",\n      \"finished_at\": \"1990-01-14T00:25:42.118Z\"\n    }\n  ],\n  \"page_size\": 6045,\n  \"cursor\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9b36efb-7e46-41ca-ade9-2321464216a2",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "dashboards",
+                    ":uuid",
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://codemagic.io/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-auth-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "659a0fcd-65dd-4dbf-93fa-b32e226d2f68",
+    "name": "Codemagic App Previews Build Dashboards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n# ℹ️ Overview\n\nWelcome to the Codemagic REST API. This API allows you to programmatically interact with [Codemagic's CI/CD](https://codemagic.io/) platform\nto manage your apps, trigger builds, access artifacts, and more.\n\n### Authentication\n\nAll API requests require authentication using a personal API token that is unique to each Codemagic user. The actions permitted by the token are determined by the user’s role within the team.\n\nYou can find your API token by navigating to **Teams > Personal Account > Integrations > Codemagic API > Show**.\n\nInclude your token in the request header:\n\n```\nx-auth-token: <your-api-token>\n```\n\n### Getting started\n\n1. Generate your API token from the Codemagic dashboard\n2. Explore the available endpoints in the sidebar\n3. Try out requests directly from this documentation\n\n### Rate limits\n\nCodemagic limits the number of API requests you can make within a specific amount of time to ensure the API remains\navailable for all users. Your personal rate limit is **5,000 requests per hour**.\n\nIf you exceed your rate limit, you will receive a `429` response, and the `ratelimit-remaining` header will be `0`.\nYou should not retry your request until after the time specified by the `ratelimit-reset` header.\n\n#### Checking the status of your rate limit\n\nYou can use the headers that are sent with each response to determine the current status of your rate limit.\n\n| **Header** | **Description** |\n| ---    | ---         |\n| ratelimit-limit | The maximum number of requests that you can make per hour. |\n| ratelimit-remaining | The number of requests remaining in the current rate limit window. |\n| ratelimit-reset | The number of seconds remaining until the current rate limit window resets. |\n\n### Help and support\n\n- Ask our [GitHub community](https://github.com/codemagic-ci-cd/codemagic-docs/discussions).\n- Our paying customers can get in touch with us via the in-app chat widget.\n  You have to be logged in to see the chat icon (note that some ad blockers may block the chat widget).\n\n---\n&copy; Nevercode Ltd. | All Rights Reserved | Codemagic is registered trademark of Nevercode Ltd. | [Terms](https://codemagic.io/terms)\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Over-the-air Updates API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Over-the-air Updates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account information for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/over-the-air-updates"
+          },
+          "docs": "Get account information for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Get account information for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/ota"
+          },
+          "docs": "Get account information for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Get deployment releases history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/over-the-air-updates/deployments/:deployment_id/releases",
+            "params": [
+              {
+                "name": "deployment_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "Get deployment releases history"
+        },
+        {
+          "info": {
+            "name": "Get deployment releases history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/ota/deployments/:deployment_id/releases",
+            "params": [
+              {
+                "name": "deployment_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "Get deployment releases history"
+        },
+        {
+          "info": {
+            "name": "Get project deployment keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/over-the-air-updates/projects/:project_id/deployment-keys",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "Get project deployment keys"
+        },
+        {
+          "info": {
+            "name": "Get project deployment keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/ota/projects/:project_id/deployment-keys",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "Get project deployment keys"
+        },
+        {
+          "info": {
+            "name": "Get usage stats for a deployment channel.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/ota/deployments/:deployment_id/usage/:metric",
+            "params": [
+              {
+                "name": "deployment_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "path",
+                "description": "The name of the usage metric to retrieve."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; the default is set to the first day of the current month."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; default is set to now."
+              }
+            ]
+          },
+          "docs": "Get usage stats for a deployment channel."
+        },
+        {
+          "info": {
+            "name": "Get usage stats for a deployment channel.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/over-the-air-updates/deployments/:deployment_id/usage/:metric",
+            "params": [
+              {
+                "name": "deployment_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "path",
+                "description": "The name of the usage metric to retrieve."
+              },
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; the default is set to the first day of the current month."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; default is set to now."
+              }
+            ]
+          },
+          "docs": "Get usage stats for a deployment channel."
+        },
+        {
+          "info": {
+            "name": "List all access keys for a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/ota/:team_id/access-keys",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all access keys for a team"
+        },
+        {
+          "info": {
+            "name": "Create an access key for a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codemagic.io/api/v3/ota/:team_id/access-keys",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an access key for a team"
+        },
+        {
+          "info": {
+            "name": "Delete an access key for a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codemagic.io/api/v3/ota/:team_id/access-keys/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an access key for a team"
+        },
+        {
+          "info": {
+            "name": "List projects for the team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/ota/:team_id/projects",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List projects for the team"
+        },
+        {
+          "info": {
+            "name": "List projects for the team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/over-the-air-updates/:team_id/projects",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List projects for the team"
+        },
+        {
+          "info": {
+            "name": "Get usage stats for the team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/over-the-air-updates/:team_id/usage",
+            "params": [
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; the default is set to the first day of the current month."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; default is set to now."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get usage stats for the team."
+        },
+        {
+          "info": {
+            "name": "Get usage stats for the team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/ota/:team_id/usage",
+            "params": [
+              {
+                "name": "period_from",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; the default is set to the first day of the current month."
+              },
+              {
+                "name": "period_to",
+                "value": "",
+                "type": "query",
+                "description": "Datetime in ISO format; default is set to now."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get usage stats for the team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

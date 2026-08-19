@@ -1,0 +1,423 @@
+{
+  "item": [
+    {
+      "id": "090311f5-a7cf-4d5d-922b-667fe81284dc",
+      "name": "Applications",
+      "description": {
+        "content": "REST API endpoints for applications.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45ddf363-1f61-4ce5-8eee-6cb351b67fcc",
+          "name": "List apps for the authenticated user",
+          "request": {
+            "name": "List apps for the authenticated user",
+            "description": {
+              "content": "To list the applications belonging to a team, see [/teams/{team_id}/apps](#/operations/TeamsTeamIdAppsGetApps)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "user",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter apps by name. The query is split on whitespace and every token must appear (case-insensitively) in the app name."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eee7347a-35d0-4691-ad49-f1bde312bea4",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 9376,\n  \"data\": [\n    {\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"last_build_id\": {},\n      \"name\": \"string\",\n      \"icon_url\": \"string\",\n      \"archived\": true\n    },\n    {\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"last_build_id\": {},\n      \"name\": \"string\",\n      \"icon_url\": \"string\",\n      \"archived\": false\n    }\n  ],\n  \"page_size\": 4814,\n  \"total_pages\": 7119\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb2406e1-223c-4904-aff3-2c6e93b32e74",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c934b16-fd82-431a-a451-408ed6e200ab",
+          "name": "List apps for the team",
+          "request": {
+            "name": "List apps for the team",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "teams",
+                ":team_id",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter apps by name. The query is split on whitespace and every token must appear (case-insensitively) in the app name."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c40b480b-c6bd-481c-ad0d-29eeef792bf8",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 7968,\n  \"data\": [\n    {\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"name\": \"string\",\n      \"repository\": {\n        \"url\": \"string\"\n      },\n      \"settings_source\": \"ui\",\n      \"icon_url\": \"string\",\n      \"project_type\": \"string\",\n      \"last_build_id\": {},\n      \"archived\": false\n    },\n    {\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"name\": \"string\",\n      \"repository\": {\n        \"url\": \"string\"\n      },\n      \"settings_source\": \"ui\",\n      \"icon_url\": \"string\",\n      \"project_type\": \"string\",\n      \"last_build_id\": {},\n      \"archived\": false\n    }\n  ],\n  \"page_size\": 4516,\n  \"total_pages\": 7021\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "063d0ea6-97ac-45aa-8506-8463b9325702",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://codemagic.io/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-auth-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2399e6c2-2d52-49d2-a1e3-0e27d021a79b",
+    "name": "Codemagic App Previews Applications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n# ℹ️ Overview\n\nWelcome to the Codemagic REST API. This API allows you to programmatically interact with [Codemagic's CI/CD](https://codemagic.io/) platform\nto manage your apps, trigger builds, access artifacts, and more.\n\n### Authentication\n\nAll API requests require authentication using a personal API token that is unique to each Codemagic user. The actions permitted by the token are determined by the user’s role within the team.\n\nYou can find your API token by navigating to **Teams > Personal Account > Integrations > Codemagic API > Show**.\n\nInclude your token in the request header:\n\n```\nx-auth-token: <your-api-token>\n```\n\n### Getting started\n\n1. Generate your API token from the Codemagic dashboard\n2. Explore the available endpoints in the sidebar\n3. Try out requests directly from this documentation\n\n### Rate limits\n\nCodemagic limits the number of API requests you can make within a specific amount of time to ensure the API remains\navailable for all users. Your personal rate limit is **5,000 requests per hour**.\n\nIf you exceed your rate limit, you will receive a `429` response, and the `ratelimit-remaining` header will be `0`.\nYou should not retry your request until after the time specified by the `ratelimit-reset` header.\n\n#### Checking the status of your rate limit\n\nYou can use the headers that are sent with each response to determine the current status of your rate limit.\n\n| **Header** | **Description** |\n| ---    | ---         |\n| ratelimit-limit | The maximum number of requests that you can make per hour. |\n| ratelimit-remaining | The number of requests remaining in the current rate limit window. |\n| ratelimit-reset | The number of seconds remaining until the current rate limit window resets. |\n\n### Help and support\n\n- Ask our [GitHub community](https://github.com/codemagic-ci-cd/codemagic-docs/discussions).\n- Our paying customers can get in touch with us via the in-app chat widget.\n  You have to be logged in to see the chat icon (note that some ad blockers may block the chat widget).\n\n---\n&copy; Nevercode Ltd. | All Rights Reserved | Codemagic is registered trademark of Nevercode Ltd. | [Terms](https://codemagic.io/terms)\n",
+      "type": "text/plain"
+    }
+  }
+}

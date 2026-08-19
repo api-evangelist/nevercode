@@ -1,0 +1,306 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Billing API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Billing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apply promotion code to subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions/:subscription_id/promotion-code",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Apply promotion code to subscription"
+        },
+        {
+          "info": {
+            "name": "Get subscription details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions/:subscription_id",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get subscription details"
+        },
+        {
+          "info": {
+            "name": "Cancel team subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions/:subscription_id",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel team subscription"
+        },
+        {
+          "info": {
+            "name": "List team subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List team subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create team subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create team subscription"
+        },
+        {
+          "info": {
+            "name": "Get subscription invoice preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions/:subscription_id/invoice-preview",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get subscription invoice preview"
+        },
+        {
+          "info": {
+            "name": "List subscription invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions/:subscription_id/invoices",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A unique identifier after which the results should be returned."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List subscription invoices"
+        },
+        {
+          "info": {
+            "name": "Set subscription default payment method",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/subscriptions/:subscription_id/default-payment-method",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set subscription default payment method"
+        },
+        {
+          "info": {
+            "name": "List team cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/cards",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A unique identifier after which the results should be returned."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List team cards"
+        },
+        {
+          "info": {
+            "name": "Generate invoice preview for chosen line items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/invoice-preview",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate invoice preview for chosen line items"
+        },
+        {
+          "info": {
+            "name": "List team invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/invoices",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A unique identifier after which the results should be returned."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List team invoices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

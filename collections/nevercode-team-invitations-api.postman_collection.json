@@ -1,0 +1,881 @@
+{
+  "item": [
+    {
+      "id": "eac5e906-d1e2-4022-b9ae-98ea8877cf75",
+      "name": "Team Invitations",
+      "description": {
+        "content": "REST API endpoints for team invitations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ff8f6ba-16ce-4662-ab88-06b2b222b6eb",
+          "name": "Accept a team invitation",
+          "request": {
+            "name": "Accept a team invitation",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "invitations",
+                ":code",
+                "accept"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e679285-9c47-476f-9f1d-3131b78debc6",
+              "name": "Request fulfilled, nothing follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "invitations",
+                    ":code",
+                    "accept"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c173bba-e2f6-4ff1-a9de-5fdd6eac17da",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "invitations",
+                    ":code",
+                    "accept"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41b2c0fb-6bd4-4d7a-9aeb-867a3f9428aa",
+          "name": "List pending team invitations",
+          "request": {
+            "name": "List pending team invitations",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "teams",
+                ":team_id",
+                "invitations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "The maximum number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of the results to fetch."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "272ea107-d808-43c2-b6a1-bad1127a8a6c",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 1518,\n  \"data\": [\n    {\n      \"created_at\": \"1981-08-01T20:46:22.398Z\",\n      \"email\": \"string\",\n      \"expires_at\": \"2026-03-22T16:44:49.774Z\",\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"roles\": [\n        {\n          \"role\": \"admin\"\n        },\n        {\n          \"role\": \"admin\"\n        }\n      ],\n      \"status\": \"revoked\"\n    },\n    {\n      \"created_at\": \"2008-05-16T19:09:12.884Z\",\n      \"email\": \"string\",\n      \"expires_at\": \"1957-07-31T14:29:41.988Z\",\n      \"id\": \"60a0b1c2d3e4f56789abcdef\",\n      \"roles\": [\n        {\n          \"role\": \"admin\"\n        },\n        {\n          \"role\": \"member\"\n        }\n      ],\n      \"status\": \"revoked\"\n    }\n  ],\n  \"page_size\": 7658,\n  \"total_pages\": 7688\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc07f607-bd67-43ac-9c2f-0a90a3428df4",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f433102f-826a-4a87-857f-0eb2eb9d6f6d",
+          "name": "Create a team invitation",
+          "request": {
+            "name": "Create a team invitation",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "teams",
+                ":team_id",
+                "invitations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"roles\": [\n    {\n      \"role\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58ba4707-8b1f-4fa4-add4-8c414b897fd6",
+              "name": "Document created, URL follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"roles\": [\n    {\n      \"role\": \"admin\"\n    },\n    {\n      \"role\": \"member\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"created_at\": \"1952-08-23T00:27:36.364Z\",\n    \"email\": \"string\",\n    \"expires_at\": \"1991-02-02T22:35:56.596Z\",\n    \"id\": \"60a0b1c2d3e4f56789abcdef\",\n    \"roles\": [\n      {\n        \"role\": \"admin\"\n      },\n      {\n        \"role\": \"admin\"\n      }\n    ],\n    \"status\": \"pending\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83f0ed23-85c1-4e3a-be26-286ec44fb410",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"roles\": [\n    {\n      \"role\": \"admin\"\n    },\n    {\n      \"role\": \"member\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c92c639-a337-44ea-99a3-a8dcdc98ce05",
+          "name": "Get team invitation by code",
+          "request": {
+            "name": "Get team invitation by code",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "invitations",
+                "public",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": [
+            {
+              "id": "88eca68f-9720-41f9-bb7a-dd308067b78d",
+              "name": "Request fulfilled, document follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "invitations",
+                    "public",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"created_at\": \"1978-06-24T07:53:24.654Z\",\n    \"expires_at\": \"2021-11-18T18:44:50.079Z\",\n    \"invitee_email\": \"string\",\n    \"roles\": [\n      {\n        \"role\": \"admin\"\n      },\n      {\n        \"role\": \"member\"\n      }\n    ],\n    \"team_name\": \"string\",\n    \"inviter_display_name\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "600574a4-7d40-496a-a837-5319616fbd04",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "invitations",
+                    "public",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2b92a7c-c14d-4601-9b2a-03fdeffc654c",
+          "name": "Revoke a team invitation",
+          "request": {
+            "name": "Revoke a team invitation",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "teams",
+                ":team_id",
+                "invitations",
+                ":invitation_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invitation_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87ecbc34-a59a-4522-8c7f-16d7c174103f",
+              "name": "Request fulfilled, nothing follows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "invitations",
+                    ":invitation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db1a7a20-7389-40fc-b89a-92541f6f46ef",
+              "name": "Bad request syntax or unsupported method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "teams",
+                    ":team_id",
+                    "invitations",
+                    ":invitation_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-auth-token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_code\": 400,\n  \"detail\": \"Bad Request\",\n  \"extra\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://codemagic.io/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-auth-token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "636d20cf-2840-4bfe-a144-d95ba80e4497",
+    "name": "Codemagic App Previews Team Invitations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n# ℹ️ Overview\n\nWelcome to the Codemagic REST API. This API allows you to programmatically interact with [Codemagic's CI/CD](https://codemagic.io/) platform\nto manage your apps, trigger builds, access artifacts, and more.\n\n### Authentication\n\nAll API requests require authentication using a personal API token that is unique to each Codemagic user. The actions permitted by the token are determined by the user’s role within the team.\n\nYou can find your API token by navigating to **Teams > Personal Account > Integrations > Codemagic API > Show**.\n\nInclude your token in the request header:\n\n```\nx-auth-token: <your-api-token>\n```\n\n### Getting started\n\n1. Generate your API token from the Codemagic dashboard\n2. Explore the available endpoints in the sidebar\n3. Try out requests directly from this documentation\n\n### Rate limits\n\nCodemagic limits the number of API requests you can make within a specific amount of time to ensure the API remains\navailable for all users. Your personal rate limit is **5,000 requests per hour**.\n\nIf you exceed your rate limit, you will receive a `429` response, and the `ratelimit-remaining` header will be `0`.\nYou should not retry your request until after the time specified by the `ratelimit-reset` header.\n\n#### Checking the status of your rate limit\n\nYou can use the headers that are sent with each response to determine the current status of your rate limit.\n\n| **Header** | **Description** |\n| ---    | ---         |\n| ratelimit-limit | The maximum number of requests that you can make per hour. |\n| ratelimit-remaining | The number of requests remaining in the current rate limit window. |\n| ratelimit-reset | The number of seconds remaining until the current rate limit window resets. |\n\n### Help and support\n\n- Ask our [GitHub community](https://github.com/codemagic-ci-cd/codemagic-docs/discussions).\n- Our paying customers can get in touch with us via the in-app chat widget.\n  You have to be logged in to see the chat icon (note that some ad blockers may block the chat widget).\n\n---\n&copy; Nevercode Ltd. | All Rights Reserved | Codemagic is registered trademark of Nevercode Ltd. | [Terms](https://codemagic.io/terms)\n",
+      "type": "text/plain"
+    }
+  }
+}

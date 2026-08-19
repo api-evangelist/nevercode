@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Meta API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Meta",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get meta information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/meta"
+          },
+          "docs": "\nReturns meta information about Codemagic, including a list of public IP addresses in use.\n\nThese IP addresses are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).\nIf needed, you can use an online conversion tool to convert from CIDR notation to IP address ranges.\n\nPlease note that these IP addresses may change from time to time, so if you use them for IP whitelisting or any kind of automation, we strongly encourage you to regularly monitor our API."
+        },
+        {
+          "info": {
+            "name": "Get information about Shorebird integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/meta/shorebird"
+          },
+          "docs": "Get information about Shorebird integration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

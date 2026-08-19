@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Users API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get authenticated user info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/user"
+          },
+          "docs": "Get authenticated user info"
+        },
+        {
+          "info": {
+            "name": "Get preferences for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/user/preferences"
+          },
+          "docs": "Get preferences for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Get API key for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/user/api-key"
+          },
+          "docs": "Get API key for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Revoke API key for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codemagic.io/api/v3/user/api-key"
+          },
+          "docs": "Revoke API key for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Track user events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://codemagic.io/api/v3/user/track",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Track user events"
+        },
+        {
+          "info": {
+            "name": "Get notifications for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/user/notifications",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "Get notifications for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Get the authenticated user's permissions in a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/user/teams/:team_id/permissions",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the authenticated user's permissions in a team"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

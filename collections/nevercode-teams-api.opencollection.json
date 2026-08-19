@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Codemagic App Previews Teams API",
+    "version": "v3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-auth-token",
+      "value": "{{x-auth-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update subscription features for the team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://codemagic.io/api/v3/subscriptions/:team_id/features",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update subscription features for the team"
+        },
+        {
+          "info": {
+            "name": "List teams for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/user/teams",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of the results to fetch."
+              }
+            ]
+          },
+          "docs": "List teams for the authenticated user"
+        },
+        {
+          "info": {
+            "name": "Get team info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get team info"
+        },
+        {
+          "info": {
+            "name": "Download team audit log as CSV",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/audit-log",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a CSV file that contains the audit log events.\n### Event List\n\n- `app_created`\n- `app_deleted`\n- `audit_log_connector_deleted`\n- `audit_log_connector_updated`\n- `audit_log_downloaded`\n- `file_downloaded`\n- `team_deleted`\n- `team_invitation_accepted`\n- `team_invitation_revoked`\n- `team_member_invited`\n- `team_member_removed`\n- `team_member_role_changed`\n- `user_authenticated`\n"
+        },
+        {
+          "info": {
+            "name": "Get Audit Log Connector settings for the team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/audit-log-connector",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Audit Log Connector settings for the team"
+        },
+        {
+          "info": {
+            "name": "Update Audit Log Connector settings for the team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/audit-log-connector",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Audit Log Connector settings for the team"
+        },
+        {
+          "info": {
+            "name": "Delete Audit Log Connector settings for the team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://codemagic.io/api/v3/teams/:team_id/audit-log-connector",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Audit Log Connector settings for the team"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
