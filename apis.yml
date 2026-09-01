@@ -151,7 +151,7 @@ apis:
   humanURL: https://docs.codemagic.io/rest-api/overview/
   baseURL: https://codemagic.io/
   tags:
-  - Over-the-air Updates
+  - Over-the-Air Updates
   tags_raw:
   - Over-the-air Updates
   properties:
