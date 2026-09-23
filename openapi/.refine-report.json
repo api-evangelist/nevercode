@@ -1,19 +1,7 @@
 {
   "provider": "nevercode",
   "sources": [
-    "nevercode-app-previews-api-openapi.yml",
-    "nevercode-applications-api-openapi.yml",
-    "nevercode-billing-api-openapi.yml",
-    "nevercode-build-dashboards-api-openapi.yml",
-    "nevercode-builds-api-openapi.yml",
-    "nevercode-meta-api-openapi.yml",
-    "nevercode-over-the-air-updates-api-openapi.yml",
-    "nevercode-secrets-and-environment-vars-api-openapi.yml",
-    "nevercode-team-invitations-api-openapi.yml",
-    "nevercode-team-members-api-openapi.yml",
-    "nevercode-teams-api-openapi.yml",
-    "nevercode-tester-groups-api-openapi.yml",
-    "nevercode-users-api-openapi.yml"
+    "_original/nevercode-openapi-original.json"
   ],
   "outputs": [
     "nevercode-app-previews-api-openapi.yml",
@@ -33,6 +21,24 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "nevercode-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "nevercode-app-previews-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-billing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-build-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-builds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-meta-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-over-the-air-updates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-secrets-and-environment-vars-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-team-invitations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-team-members-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-tester-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nevercode-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

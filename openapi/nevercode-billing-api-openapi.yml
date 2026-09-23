@@ -1,8 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Codemagic App Previews Billing API
+  title: Codemagic Billing API
   version: v3.0
-  description: "\n# ℹ️ Overview\n\nWelcome to the Codemagic REST API. This API allows you to programmatically interact with [Codemagic's CI/CD](https://codemagic.io/) platform\nto manage your apps, trigger builds, access artifacts, and more.\n\n### Authentication\n\nAll API requests require authentication using a personal API token that is unique to each Codemagic user. The actions permitted by the token are determined by the user’s role within the team.\n\nYou can find your API token by navigating to **Teams > Personal Account > Integrations > Codemagic API > Show**.\n\nInclude your token in the request header:\n\n```\nx-auth-token: <your-api-token>\n```\n\n### Getting started\n\n1. Generate your API token from the Codemagic dashboard\n2. Explore the available endpoints in the sidebar\n3. Try out requests directly from this documentation\n\n### Rate limits\n\nCodemagic limits the number of API requests you can make within a specific amount of time to ensure the API remains\navailable for all users. Your personal rate limit is **5,000 requests per hour**.\n\nIf you exceed your rate limit, you will receive a `429` response, and the `ratelimit-remaining` header will be `0`.\nYou should not retry your request until after the time specified by the `ratelimit-reset` header.\n\n#### Checking the status of your rate limit\n\nYou can use the headers that are sent with each response to determine the current status of your rate limit.\n\n| **Header** | **Description** |\n| ---    | ---         |\n| ratelimit-limit | The maximum number of requests that you can make per hour. |\n| ratelimit-remaining | The number of requests remaining in the current rate limit window. |\n| ratelimit-reset | The number of seconds remaining until the current rate limit window resets. |\n\n### Help and support\n\n- Ask our [GitHub community](https://github.com/codemagic-ci-cd/codemagic-docs/discussions).\n- Our paying customers can get in touch with us via the in-app chat widget.\n  You have to be logged in to see the chat icon (note that some ad blockers may block the chat widget).\n\n---\n&copy; Nevercode Ltd. | All Rights Reserved | Codemagic is registered trademark of Nevercode Ltd. | [Terms](https://codemagic.io/terms)\n"
+  description: '# ℹ️ Overview
+
+
+    Welcome to the Codemagic REST API.'
 servers:
 - url: https://codemagic.io/
   x-internal: false
@@ -701,6 +704,437 @@ paths:
       deprecated: false
 components:
   schemas:
+    PaymentMethodSchema:
+      properties:
+        type:
+          $ref: '#/components/schemas/PaymentMethodType'
+        provider_id:
+          type: string
+      type: object
+      required:
+      - provider_id
+      - type
+      title: PaymentMethodSchema
+    InvoicePreviewLineItem:
+      properties:
+        product_id: {}
+        quantity:
+          oneOf:
+          - type: integer
+          - type: 'null'
+      type: object
+      required:
+      - product_id
+      title: InvoicePreviewLineItem
+    NoPagination_api.routes.team_invoice_preview.schemas.Invoice_:
+      properties:
+        data:
+          $ref: '#/components/schemas/Invoice'
+      type: object
+      required:
+      - data
+      title: NoPagination[Invoice]
+    ProductSlug:
+      type: string
+      enum:
+      - codepush
+      title: ProductSlug
+    SubscriptionStatus:
+      type: string
+      enum:
+      - disabled
+      - active
+      - incomplete
+      - incomplete_expired
+      - unpaid
+      - paused
+      - past_due
+      - trialing
+      - canceled
+      title: SubscriptionStatus
+    SubscriptionDetailsSchema:
+      properties:
+        id: {}
+        pricing_model:
+          $ref: '#/components/schemas/PricingModel'
+        status:
+          $ref: '#/components/schemas/SubscriptionStatus'
+        category:
+          $ref: '#/components/schemas/ProductCategory'
+        trial_end_at:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+        default_payment_method:
+          oneOf:
+          - $ref: '#/components/schemas/PaymentMethodSchema'
+          - type: 'null'
+        provider_id:
+          oneOf:
+          - type: string
+          - type: 'null'
+        created_at:
+          type: string
+          format: date-time
+        current_period_start_at:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+        current_period_end_at:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+        trial_start_at:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+        items:
+          oneOf:
+          - items:
+              $ref: '#/components/schemas/SubscriptionItemSchema'
+            type: array
+          - type: 'null'
+      type: object
+      required:
+      - category
+      - created_at
+      - id
+      - pricing_model
+      - status
+      title: SubscriptionDetailsSchema
+    NoPagination_list_api.routes.team_subscriptions.schemas.SubscriptionSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SubscriptionSchema'
+          type: array
+      type: object
+      required:
+      - data
+      title: NoPagination[list[SubscriptionSchema]]
+    CursorPagination_str_api.routes.team_cards.schemas.CardSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CardSchema'
+          type: array
+        page_size:
+          type: integer
+        cursor:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - data
+      - page_size
+      title: CursorPagination[str, CardSchema]
+    Tax:
+      properties:
+        description:
+          type: string
+        percentage:
+          type: string
+          description: Decimal value serialized as a string to avoid floating-point precision loss.
+          examples:
+          - '19.99'
+        effective_percentage:
+          oneOf:
+          - type: string
+          - type: 'null'
+          description: Optional decimal value serialized as a string to avoid floating-point precision loss.
+          examples:
+          - '19.99'
+        amount:
+          type: integer
+        taxable_amount:
+          type: integer
+      type: object
+      required:
+      - amount
+      - description
+      - effective_percentage
+      - percentage
+      - taxable_amount
+      title: Tax
+    team_subscriptions_schemas_InvoiceStatus:
+      type: string
+      enum:
+      - draft
+      - open
+      - paid
+      - uncollectible
+      - void
+      title: InvoiceStatus
+    SubscriptionItemSchema:
+      properties:
+        provider_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+      type: object
+      required:
+      - created_at
+      - provider_id
+      title: SubscriptionItemSchema
+    team_invoices_schemas_InvoiceSchema:
+      properties:
+        provider_id:
+          type: string
+        status:
+          oneOf:
+          - $ref: '#/components/schemas/team_invoices_schemas_InvoiceStatus'
+          - type: 'null'
+        total:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        billing_reason:
+          oneOf:
+          - type: string
+          - type: 'null'
+        url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - created_at
+      - provider_id
+      - total
+      title: InvoiceSchema
+    CardSchema:
+      properties:
+        provider_id:
+          type: string
+        owner:
+          $ref: '#/components/schemas/OwnerSchema'
+        card:
+          $ref: '#/components/schemas/CardDetailsSchema'
+      type: object
+      required:
+      - card
+      - owner
+      - provider_id
+      title: CardSchema
+    Invoice:
+      properties:
+        currency:
+          type: string
+        period_start:
+          type: string
+          format: date-time
+        period_end:
+          type: string
+          format: date-time
+        line_items:
+          items:
+            $ref: '#/components/schemas/InvoiceLineItem'
+          type: array
+        subtotal:
+          type: integer
+        discounts:
+          items:
+            $ref: '#/components/schemas/Discount'
+          type: array
+        total_excluding_tax:
+          type: integer
+        taxes:
+          items:
+            $ref: '#/components/schemas/Tax'
+          type: array
+        total:
+          type: integer
+      type: object
+      required:
+      - currency
+      - discounts
+      - line_items
+      - period_end
+      - period_start
+      - subtotal
+      - taxes
+      - total
+      - total_excluding_tax
+      title: Invoice
+    ValidationErrorResponseSchema:
+      properties:
+        status_code:
+          type: integer
+        detail:
+          type: string
+        extra:
+          $ref: '#/components/schemas/ValidationErrorExtraSchema'
+      type: object
+      required:
+      - detail
+      - extra
+      - status_code
+      title: ValidationErrorResponseSchema
+    CreateSubscriptionProductCategory:
+      type: string
+      enum:
+      - codepush
+      title: CreateSubscriptionProductCategory
+    Discount:
+      properties:
+        name:
+          oneOf:
+          - type: string
+          - type: 'null'
+        source:
+          type: string
+        amount:
+          type: integer
+        amount_off:
+          oneOf:
+          - type: integer
+          - type: 'null'
+          description: Amount that will be taken off the subtotal.
+        currency:
+          oneOf:
+          - type: string
+          - type: 'null'
+          description: Three-letter ISO code for the currency of the amount to take off.
+        percent_off:
+          oneOf:
+          - type: string
+          - type: 'null'
+          description: Percent that will be taken off the subtotal.
+        duration:
+          $ref: '#/components/schemas/team_invoice_preview_schemas_DiscountDuration'
+        duration_in_months:
+          oneOf:
+          - type: integer
+          - type: 'null'
+          description: If duration is repeating, the number of months the coupon applies, null otherwise.
+      type: object
+      required:
+      - amount
+      - amount_off
+      - currency
+      - duration
+      - duration_in_months
+      - percent_off
+      - source
+      title: Discount
+    GenerateInvoicePreview:
+      properties:
+        line_items:
+          items:
+            $ref: '#/components/schemas/InvoicePreviewLineItem'
+          type: array
+        promotion_code:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - line_items
+      title: GenerateInvoicePreview
+    InvoicePreviewDiscountSchema:
+      properties:
+        name:
+          oneOf:
+          - type: string
+          - type: 'null'
+        source:
+          type: string
+        amount:
+          type: integer
+        amount_off:
+          oneOf:
+          - type: integer
+          - type: 'null'
+          description: Amount that will be taken off the subtotal.
+        currency:
+          oneOf:
+          - type: string
+          - type: 'null'
+          description: Three-letter ISO code for the currency of the amount to take off.
+        percent_off:
+          oneOf:
+          - type: string
+          - type: 'null'
+          description: Percent that will be taken off the subtotal.
+        duration:
+          $ref: '#/components/schemas/team_subscriptions_schemas_DiscountDuration'
+        duration_in_months:
+          oneOf:
+          - type: integer
+          - type: 'null'
+          description: If duration is repeating, the number of months the coupon applies, null otherwise.
+      type: object
+      required:
+      - amount
+      - amount_off
+      - currency
+      - duration
+      - duration_in_months
+      - percent_off
+      - source
+      title: InvoicePreviewDiscountSchema
+    CreateSubscriptionPricingModel:
+      type: string
+      enum:
+      - flat_rate
+      - usage_based
+      title: CreateSubscriptionPricingModel
+    team_subscriptions_schemas_DiscountDuration:
+      type: string
+      enum:
+      - forever
+      - once
+      - repeating
+      title: DiscountDuration
+    PricingModel:
+      type: string
+      enum:
+      - flat_rate
+      - usage_based
+      - custom
+      title: PricingModel
+    NoPagination_api.routes.team_subscriptions.schemas.SubscriptionDetailsSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/SubscriptionDetailsSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[SubscriptionDetailsSchema]
+    team_invoice_preview_schemas_DiscountDuration:
+      type: string
+      enum:
+      - forever
+      - once
+      - repeating
+      title: DiscountDuration
+    InvoiceLineItem:
+      properties:
+        description:
+          type: string
+        amount:
+          type: integer
+        unit_amount:
+          type: string
+          description: Decimal value serialized as a string to avoid floating-point precision loss.
+          examples:
+          - '19.99'
+        quantity:
+          type: integer
+      type: object
+      required:
+      - amount
+      - description
+      - quantity
+      - unit_amount
+      title: InvoiceLineItem
     InvoiceLineItemSchema:
       properties:
         description:
@@ -732,31 +1166,160 @@ components:
       - quantity
       - unit_amount
       title: InvoiceLineItemSchema
-    ProductSlug:
-      type: string
-      enum:
-      - codepush
-      title: ProductSlug
-    InvoiceLineItem:
+    team_subscriptions_schemas_InvoiceSchema:
+      properties:
+        provider_id:
+          type: string
+        status:
+          oneOf:
+          - $ref: '#/components/schemas/team_subscriptions_schemas_InvoiceStatus'
+          - type: 'null'
+        total:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        billing_reason:
+          oneOf:
+          - type: string
+          - type: 'null'
+        url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - created_at
+      - provider_id
+      - total
+      title: InvoiceSchema
+    ApplyPromotionCodeSchema:
+      properties:
+        code:
+          type: string
+          minLength: 1
+      type: object
+      required:
+      - code
+      title: ApplyPromotionCodeSchema
+    SubscriptionSchema:
+      properties:
+        id: {}
+        pricing_model:
+          $ref: '#/components/schemas/PricingModel'
+        status:
+          $ref: '#/components/schemas/SubscriptionStatus'
+        category:
+          $ref: '#/components/schemas/ProductCategory'
+        trial_end_at:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+      type: object
+      required:
+      - category
+      - id
+      - pricing_model
+      - status
+      title: SubscriptionSchema
+    InvoicePreviewTaxSchema:
       properties:
         description:
           type: string
-        amount:
-          type: integer
-        unit_amount:
+        percentage:
           type: string
           description: Decimal value serialized as a string to avoid floating-point precision loss.
           examples:
           - '19.99'
-        quantity:
+        effective_percentage:
+          oneOf:
+          - type: string
+          - type: 'null'
+          description: Optional decimal value serialized as a string to avoid floating-point precision loss.
+          examples:
+          - '19.99'
+        amount:
+          type: integer
+        taxable_amount:
           type: integer
       type: object
       required:
       - amount
       - description
-      - quantity
-      - unit_amount
-      title: InvoiceLineItem
+      - effective_percentage
+      - percentage
+      - taxable_amount
+      title: InvoicePreviewTaxSchema
+    BillingInterval:
+      type: string
+      enum:
+      - monthly
+      - annual
+      title: BillingInterval
+    CardDetailsSchema:
+      properties:
+        brand:
+          type: string
+        exp_month:
+          type: integer
+        exp_year:
+          type: integer
+        last4:
+          type: string
+      type: object
+      required:
+      - brand
+      - exp_month
+      - exp_year
+      - last4
+      title: CardDetailsSchema
+    CursorPagination_str_api.routes.team_invoices.schemas.InvoiceSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/team_invoices_schemas_InvoiceSchema'
+          type: array
+        page_size:
+          type: integer
+        cursor:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - data
+      - page_size
+      title: CursorPagination[str, InvoiceSchema]
+    CreateSubscriptionCardSchema:
+      properties:
+        provider_id:
+          type: string
+      type: object
+      required:
+      - provider_id
+      title: CreateSubscriptionCardSchema
+    CreateSubscriptionItemSchema:
+      properties:
+        product_slug:
+          $ref: '#/components/schemas/ProductSlug'
+      type: object
+      required:
+      - product_slug
+      title: CreateSubscriptionItemSchema
+    NoPagination_api.routes.team_subscriptions.schemas.InvoicePreviewSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/InvoicePreviewSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[InvoicePreviewSchema]
+    PaymentMethodType:
+      type: string
+      enum:
+      - card
+      title: PaymentMethodType
     InvoicePreviewSchema:
       properties:
         provider_id:
@@ -816,536 +1379,6 @@ components:
       - total
       - total_excluding_tax
       title: InvoicePreviewSchema
-    PaymentMethodSchema:
-      properties:
-        type:
-          $ref: '#/components/schemas/PaymentMethodType'
-        provider_id:
-          type: string
-      type: object
-      required:
-      - provider_id
-      - type
-      title: PaymentMethodSchema
-    ApplyPromotionCodeSchema:
-      properties:
-        code:
-          type: string
-          minLength: 1
-      type: object
-      required:
-      - code
-      title: ApplyPromotionCodeSchema
-    team_subscriptions_schemas_DiscountDuration:
-      type: string
-      enum:
-      - forever
-      - once
-      - repeating
-      title: DiscountDuration
-    OwnerSchema:
-      properties:
-        name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required: []
-      title: OwnerSchema
-    CreateSubscriptionPricingModel:
-      type: string
-      enum:
-      - flat_rate
-      - usage_based
-      title: CreateSubscriptionPricingModel
-    SubscriptionDetailsSchema:
-      properties:
-        id: {}
-        pricing_model:
-          $ref: '#/components/schemas/PricingModel'
-        status:
-          $ref: '#/components/schemas/SubscriptionStatus'
-        category:
-          $ref: '#/components/schemas/ProductCategory'
-        trial_end_at:
-          oneOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-        default_payment_method:
-          oneOf:
-          - $ref: '#/components/schemas/PaymentMethodSchema'
-          - type: 'null'
-        provider_id:
-          oneOf:
-          - type: string
-          - type: 'null'
-        created_at:
-          type: string
-          format: date-time
-        current_period_start_at:
-          oneOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-        current_period_end_at:
-          oneOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-        trial_start_at:
-          oneOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-        items:
-          oneOf:
-          - items:
-              $ref: '#/components/schemas/SubscriptionItemSchema'
-            type: array
-          - type: 'null'
-      type: object
-      required:
-      - category
-      - created_at
-      - id
-      - pricing_model
-      - status
-      title: SubscriptionDetailsSchema
-    CursorPagination_str_api.routes.team_invoices.schemas.InvoiceSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/team_invoices_schemas_InvoiceSchema'
-          type: array
-        page_size:
-          type: integer
-        cursor:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - data
-      - page_size
-      title: CursorPagination[str, InvoiceSchema]
-    CreateSubscriptionItemSchema:
-      properties:
-        product_slug:
-          $ref: '#/components/schemas/ProductSlug'
-      type: object
-      required:
-      - product_slug
-      title: CreateSubscriptionItemSchema
-    NoPagination_api.routes.team_subscriptions.schemas.SubscriptionDetailsSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/SubscriptionDetailsSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[SubscriptionDetailsSchema]
-    BillingInterval:
-      type: string
-      enum:
-      - monthly
-      - annual
-      title: BillingInterval
-    team_invoice_preview_schemas_DiscountDuration:
-      type: string
-      enum:
-      - forever
-      - once
-      - repeating
-      title: DiscountDuration
-    Discount:
-      properties:
-        name:
-          oneOf:
-          - type: string
-          - type: 'null'
-        source:
-          type: string
-        amount:
-          type: integer
-        amount_off:
-          oneOf:
-          - type: integer
-          - type: 'null'
-          description: Amount that will be taken off the subtotal.
-        currency:
-          oneOf:
-          - type: string
-          - type: 'null'
-          description: Three-letter ISO code for the currency of the amount to take off.
-        percent_off:
-          oneOf:
-          - type: string
-          - type: 'null'
-          description: Percent that will be taken off the subtotal.
-        duration:
-          $ref: '#/components/schemas/team_invoice_preview_schemas_DiscountDuration'
-        duration_in_months:
-          oneOf:
-          - type: integer
-          - type: 'null'
-          description: If duration is repeating, the number of months the coupon applies, null otherwise.
-      type: object
-      required:
-      - amount
-      - amount_off
-      - currency
-      - duration
-      - duration_in_months
-      - percent_off
-      - source
-      title: Discount
-    SubscriptionStatus:
-      type: string
-      enum:
-      - disabled
-      - active
-      - incomplete
-      - incomplete_expired
-      - unpaid
-      - paused
-      - past_due
-      - trialing
-      - canceled
-      title: SubscriptionStatus
-    InvoicePreviewLineItem:
-      properties:
-        product_id: {}
-        quantity:
-          oneOf:
-          - type: integer
-          - type: 'null'
-      type: object
-      required:
-      - product_id
-      title: InvoicePreviewLineItem
-    CursorPagination_str_api.routes.team_cards.schemas.CardSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/CardSchema'
-          type: array
-        page_size:
-          type: integer
-        cursor:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - data
-      - page_size
-      title: CursorPagination[str, CardSchema]
-    Invoice:
-      properties:
-        currency:
-          type: string
-        period_start:
-          type: string
-          format: date-time
-        period_end:
-          type: string
-          format: date-time
-        line_items:
-          items:
-            $ref: '#/components/schemas/InvoiceLineItem'
-          type: array
-        subtotal:
-          type: integer
-        discounts:
-          items:
-            $ref: '#/components/schemas/Discount'
-          type: array
-        total_excluding_tax:
-          type: integer
-        taxes:
-          items:
-            $ref: '#/components/schemas/Tax'
-          type: array
-        total:
-          type: integer
-      type: object
-      required:
-      - currency
-      - discounts
-      - line_items
-      - period_end
-      - period_start
-      - subtotal
-      - taxes
-      - total
-      - total_excluding_tax
-      title: Invoice
-    NoPagination_api.routes.team_invoice_preview.schemas.Invoice_:
-      properties:
-        data:
-          $ref: '#/components/schemas/Invoice'
-      type: object
-      required:
-      - data
-      title: NoPagination[Invoice]
-    ValidationErrorResponseSchema:
-      properties:
-        status_code:
-          type: integer
-        detail:
-          type: string
-        extra:
-          $ref: '#/components/schemas/ValidationErrorExtraSchema'
-      type: object
-      required:
-      - detail
-      - extra
-      - status_code
-      title: ValidationErrorResponseSchema
-    team_invoices_schemas_InvoiceSchema:
-      properties:
-        provider_id:
-          type: string
-        status:
-          oneOf:
-          - $ref: '#/components/schemas/team_invoices_schemas_InvoiceStatus'
-          - type: 'null'
-        total:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        billing_reason:
-          oneOf:
-          - type: string
-          - type: 'null'
-        url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - created_at
-      - provider_id
-      - total
-      title: InvoiceSchema
-    ValidationErrorExtraSchema:
-      properties:
-        message:
-          type: string
-        key:
-          type: string
-        source:
-          type: string
-      type: object
-      required:
-      - key
-      - message
-      - source
-      title: ValidationErrorExtraSchema
-    CreateSubscriptionProductCategory:
-      type: string
-      enum:
-      - codepush
-      title: CreateSubscriptionProductCategory
-    CreateSubscriptionCardSchema:
-      properties:
-        provider_id:
-          type: string
-      type: object
-      required:
-      - provider_id
-      title: CreateSubscriptionCardSchema
-    InvoicePreviewDiscountSchema:
-      properties:
-        name:
-          oneOf:
-          - type: string
-          - type: 'null'
-        source:
-          type: string
-        amount:
-          type: integer
-        amount_off:
-          oneOf:
-          - type: integer
-          - type: 'null'
-          description: Amount that will be taken off the subtotal.
-        currency:
-          oneOf:
-          - type: string
-          - type: 'null'
-          description: Three-letter ISO code for the currency of the amount to take off.
-        percent_off:
-          oneOf:
-          - type: string
-          - type: 'null'
-          description: Percent that will be taken off the subtotal.
-        duration:
-          $ref: '#/components/schemas/team_subscriptions_schemas_DiscountDuration'
-        duration_in_months:
-          oneOf:
-          - type: integer
-          - type: 'null'
-          description: If duration is repeating, the number of months the coupon applies, null otherwise.
-      type: object
-      required:
-      - amount
-      - amount_off
-      - currency
-      - duration
-      - duration_in_months
-      - percent_off
-      - source
-      title: InvoicePreviewDiscountSchema
-    NoPagination_list_api.routes.team_subscriptions.schemas.SubscriptionSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/SubscriptionSchema'
-          type: array
-      type: object
-      required:
-      - data
-      title: NoPagination[list[SubscriptionSchema]]
-    team_subscriptions_schemas_InvoiceStatus:
-      type: string
-      enum:
-      - draft
-      - open
-      - paid
-      - uncollectible
-      - void
-      title: InvoiceStatus
-    PricingModel:
-      type: string
-      enum:
-      - flat_rate
-      - usage_based
-      - custom
-      title: PricingModel
-    GenerateInvoicePreview:
-      properties:
-        line_items:
-          items:
-            $ref: '#/components/schemas/InvoicePreviewLineItem'
-          type: array
-        promotion_code:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - line_items
-      title: GenerateInvoicePreview
-    CardDetailsSchema:
-      properties:
-        brand:
-          type: string
-        exp_month:
-          type: integer
-        exp_year:
-          type: integer
-        last4:
-          type: string
-      type: object
-      required:
-      - brand
-      - exp_month
-      - exp_year
-      - last4
-      title: CardDetailsSchema
-    SubscriptionSchema:
-      properties:
-        id: {}
-        pricing_model:
-          $ref: '#/components/schemas/PricingModel'
-        status:
-          $ref: '#/components/schemas/SubscriptionStatus'
-        category:
-          $ref: '#/components/schemas/ProductCategory'
-        trial_end_at:
-          oneOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-      type: object
-      required:
-      - category
-      - id
-      - pricing_model
-      - status
-      title: SubscriptionSchema
-    Tax:
-      properties:
-        description:
-          type: string
-        percentage:
-          type: string
-          description: Decimal value serialized as a string to avoid floating-point precision loss.
-          examples:
-          - '19.99'
-        effective_percentage:
-          oneOf:
-          - type: string
-          - type: 'null'
-          description: Optional decimal value serialized as a string to avoid floating-point precision loss.
-          examples:
-          - '19.99'
-        amount:
-          type: integer
-        taxable_amount:
-          type: integer
-      type: object
-      required:
-      - amount
-      - description
-      - effective_percentage
-      - percentage
-      - taxable_amount
-      title: Tax
-    team_subscriptions_schemas_InvoiceSchema:
-      properties:
-        provider_id:
-          type: string
-        status:
-          oneOf:
-          - $ref: '#/components/schemas/team_subscriptions_schemas_InvoiceStatus'
-          - type: 'null'
-        total:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        billing_reason:
-          oneOf:
-          - type: string
-          - type: 'null'
-        url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - created_at
-      - provider_id
-      - total
-      title: InvoiceSchema
-    CardSchema:
-      properties:
-        provider_id:
-          type: string
-        owner:
-          $ref: '#/components/schemas/OwnerSchema'
-        card:
-          $ref: '#/components/schemas/CardDetailsSchema'
-      type: object
-      required:
-      - card
-      - owner
-      - provider_id
-      title: CardSchema
     CreateSubscriptionSchema:
       properties:
         category:
@@ -1368,6 +1401,26 @@ components:
       - items
       - pricing_model
       title: CreateSubscriptionSchema
+    ProductCategory:
+      type: string
+      enum:
+      - cicd
+      - codepush
+      title: ProductCategory
+    ValidationErrorExtraSchema:
+      properties:
+        message:
+          type: string
+        key:
+          type: string
+        source:
+          type: string
+      type: object
+      required:
+      - key
+      - message
+      - source
+      title: ValidationErrorExtraSchema
     team_invoices_schemas_InvoiceStatus:
       type: string
       enum:
@@ -1377,6 +1430,15 @@ components:
       - uncollectible
       - void
       title: InvoiceStatus
+    OwnerSchema:
+      properties:
+        name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required: []
+      title: OwnerSchema
     CursorPagination_str_api.routes.team_subscriptions.schemas.InvoiceSchema_:
       properties:
         data:
@@ -1394,65 +1456,6 @@ components:
       - data
       - page_size
       title: CursorPagination[str, InvoiceSchema]
-    InvoicePreviewTaxSchema:
-      properties:
-        description:
-          type: string
-        percentage:
-          type: string
-          description: Decimal value serialized as a string to avoid floating-point precision loss.
-          examples:
-          - '19.99'
-        effective_percentage:
-          oneOf:
-          - type: string
-          - type: 'null'
-          description: Optional decimal value serialized as a string to avoid floating-point precision loss.
-          examples:
-          - '19.99'
-        amount:
-          type: integer
-        taxable_amount:
-          type: integer
-      type: object
-      required:
-      - amount
-      - description
-      - effective_percentage
-      - percentage
-      - taxable_amount
-      title: InvoicePreviewTaxSchema
-    NoPagination_api.routes.team_subscriptions.schemas.InvoicePreviewSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/InvoicePreviewSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[InvoicePreviewSchema]
-    PaymentMethodType:
-      type: string
-      enum:
-      - card
-      title: PaymentMethodType
-    ProductCategory:
-      type: string
-      enum:
-      - cicd
-      - codepush
-      title: ProductCategory
-    SubscriptionItemSchema:
-      properties:
-        provider_id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-      type: object
-      required:
-      - created_at
-      - provider_id
-      title: SubscriptionItemSchema
   securitySchemes:
     api_key:
       type: apiKey
