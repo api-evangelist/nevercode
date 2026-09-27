@@ -65,7 +65,6 @@ apis:
   name: Nevercode App Previews API
   description: REST API endpoints for app previews.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - App Previews
   properties:
@@ -79,7 +78,6 @@ apis:
   name: Nevercode Applications API
   description: REST API endpoints for applications.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Application
   tags_raw:
@@ -95,7 +93,6 @@ apis:
   name: Nevercode Billing API
   description: REST API endpoints for billing.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Billing
   properties:
@@ -109,7 +106,6 @@ apis:
   name: Nevercode Build Dashboards API
   description: REST API endpoints for build dashboards.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Build Dashboards
   properties:
@@ -123,7 +119,6 @@ apis:
   name: Nevercode Builds API
   description: REST API endpoints for builds.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Builds
   properties:
@@ -137,7 +132,6 @@ apis:
   name: Nevercode Meta API
   description: REST API endpoints for meta data.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Meta
   properties:
@@ -151,7 +145,6 @@ apis:
   name: Nevercode Over-the-air Updates API
   description: REST API endpoints for over-the-air updates.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Over-the-Air Updates
   tags_raw:
@@ -167,7 +160,6 @@ apis:
   name: Nevercode Secrets and Environment Vars API
   description: REST API endpoints for environment variables.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Secrets and Environment Vars
   properties:
@@ -181,7 +173,6 @@ apis:
   name: Nevercode Team Invitations API
   description: REST API endpoints for team invitations.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Team Invitations
   properties:
@@ -195,7 +186,6 @@ apis:
   name: Nevercode Team Members API
   description: REST API endpoints for team members.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Team Members
   properties:
@@ -209,7 +199,6 @@ apis:
   name: Nevercode Teams API
   description: REST API endpoints for teams.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Team
   tags_raw:
@@ -225,7 +214,6 @@ apis:
   name: Nevercode Tester Groups API
   description: REST API endpoints for tester groups.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - Tester Groups
   properties:
@@ -239,7 +227,6 @@ apis:
   name: Nevercode Users API
   description: REST API endpoints for users.
   humanURL: https://docs.codemagic.io/rest-api/overview/
-  baseURL: https://codemagic.io/
   tags:
   - User
   tags_raw:

@@ -292,6 +292,25 @@ components:
       - accepted
       - revoked
       title: InvitationStatus
+    CreateInvitationSchema:
+      properties:
+        email:
+          type: string
+        roles:
+          items:
+            $ref: '#/components/schemas/InviteRoleSpec'
+          type: array
+      type: object
+      required:
+      - email
+      - roles
+      title: CreateInvitationSchema
+    InvitableRole:
+      type: string
+      enum:
+      - admin
+      - member
+      title: InvitableRole
     NoPagination_api.routes.team_invitations.schemas.PublicInvitationSchema_:
       properties:
         data:
@@ -300,6 +319,14 @@ components:
       required:
       - data
       title: NoPagination[PublicInvitationSchema]
+    InviteRoleSpec:
+      properties:
+        role:
+          $ref: '#/components/schemas/InvitableRole'
+      type: object
+      required:
+      - role
+      title: InviteRoleSpec
     PublicInvitationSchema:
       properties:
         team_name:
@@ -357,25 +384,6 @@ components:
       - roles
       - status
       title: InvitationSchema
-    InvitableRole:
-      type: string
-      enum:
-      - admin
-      - member
-      title: InvitableRole
-    CreateInvitationSchema:
-      properties:
-        email:
-          type: string
-        roles:
-          items:
-            $ref: '#/components/schemas/InviteRoleSpec'
-          type: array
-      type: object
-      required:
-      - email
-      - roles
-      title: CreateInvitationSchema
     ClassicPagination_api.routes.team_invitations.schemas.InvitationSchema_:
       properties:
         data:
@@ -403,14 +411,6 @@ components:
       required:
       - data
       title: NoPagination[InvitationSchema]
-    InviteRoleSpec:
-      properties:
-        role:
-          $ref: '#/components/schemas/InvitableRole'
-      type: object
-      required:
-      - role
-      title: InviteRoleSpec
   securitySchemes:
     api_key:
       type: apiKey

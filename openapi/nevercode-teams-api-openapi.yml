@@ -419,23 +419,31 @@ components:
       - created_at
       - name
       title: TeamSchema
-    FeaturesSchema:
+    user_schemas_TeamSchema:
       properties:
-        app_preview:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+        icon_url:
           oneOf:
-          - type: boolean
+          - type: string
           - type: 'null'
       type: object
-      required: []
-      title: FeaturesSchema
-    NoPagination_api.routes.team_audit_log_connector.schemas.AuditLogConnectorSchema_:
+      required:
+      - id
+      - name
+      title: TeamSchema
+    NoPagination_api.routes.team.schemas.TeamSchema_:
       properties:
         data:
-          $ref: '#/components/schemas/AuditLogConnectorSchema'
+          $ref: '#/components/schemas/team_schemas_TeamSchema'
       type: object
       required:
       - data
-      title: NoPagination[AuditLogConnectorSchema]
+      title: NoPagination[TeamSchema]
     ClassicPagination_api.routes.user.schemas.TeamSchema_:
       properties:
         data:
@@ -455,6 +463,23 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[TeamSchema]
+    FeaturesSchema:
+      properties:
+        app_preview:
+          oneOf:
+          - type: boolean
+          - type: 'null'
+      type: object
+      required: []
+      title: FeaturesSchema
+    NoPagination_api.routes.team_audit_log_connector.schemas.AuditLogConnectorSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/AuditLogConnectorSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[AuditLogConnectorSchema]
     UpdateAuditLogConnector:
       properties:
         aws_bucket_name:
@@ -475,23 +500,6 @@ components:
       - aws_bucket_name
       - aws_secret_key
       title: UpdateAuditLogConnector
-    user_schemas_TeamSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - id
-      - name
-      title: TeamSchema
     AuditLogConnectorSchema:
       properties:
         enabled:
@@ -512,14 +520,6 @@ components:
       required:
       - enabled
       title: AuditLogConnectorSchema
-    NoPagination_api.routes.team.schemas.TeamSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/team_schemas_TeamSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[TeamSchema]
   securitySchemes:
     api_key:
       type: apiKey

@@ -341,37 +341,40 @@ paths:
       deprecated: false
 components:
   schemas:
-    BuildConfigSchema:
+    CursorPagination_bson.objectid.ObjectId_api.routes.team_builds.schemas.BuildSchema_:
       properties:
-        flutter_mode:
-          oneOf:
-          - type: string
-          - type: 'null'
-        shorebird_mode:
-          oneOf:
-          - type: string
-          - type: 'null'
-        flutter_version:
-          oneOf:
-          - type: string
-          - type: 'null'
-        xcode_version:
-          oneOf:
-          - type: string
-          - type: 'null'
-        platforms:
+        data:
           items:
-            type: string
+            $ref: '#/components/schemas/team_builds_schemas_BuildSchema'
           type: array
+        page_size:
+          type: integer
+        cursor:
+          oneOf:
+          - {}
+          - type: 'null'
       type: object
-      required: []
-      title: BuildConfigSchema
-    team_builds_schemas_WorkflowSchema:
+      required:
+      - data
+      - page_size
+      title: CursorPagination[ObjectId, BuildSchema]
+    team_builds_schemas_ReleaseNoteSchema:
+      properties:
+        language:
+          type: string
+        text:
+          type: string
+      type: object
+      required:
+      - language
+      - text
+      title: ReleaseNoteSchema
+    builds_schemas_WorkflowSchema:
       properties:
         id:
           type: string
         source:
-          $ref: '#/components/schemas/team_builds_schemas_WorkflowSource'
+          $ref: '#/components/schemas/builds_schemas_WorkflowSource'
         name:
           oneOf:
           - type: string
@@ -381,6 +384,35 @@ components:
       - id
       - source
       title: WorkflowSchema
+    builds_schemas_CommitSchema:
+      properties:
+        hash:
+          oneOf:
+          - type: string
+          - type: 'null'
+        avatar_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+        author_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+        author_email:
+          oneOf:
+          - type: string
+          - type: 'null'
+        message:
+          oneOf:
+          - type: string
+          - type: 'null'
+        url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required: []
+      title: CommitSchema
     NoPagination_api.routes.builds.schemas.RemoteAccessSchema_:
       properties:
         data:
@@ -389,47 +421,6 @@ components:
       required:
       - data
       title: NoPagination[RemoteAccessSchema]
-    BuildStatusFilter:
-      type: string
-      enum:
-      - queued
-      - building
-      - finished
-      - failed
-      - canceled
-      - timeout
-      - skipped
-      title: BuildStatusFilter
-    NoPagination_api.routes.builds.schemas.BuildSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/builds_schemas_BuildSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[BuildSchema]
-    BuildActionStatus:
-      type: string
-      enum:
-      - success
-      - failed
-      - skipped
-      - canceled
-      title: BuildActionStatus
-    builds_schemas_PullRequestSchema:
-      properties:
-        number:
-          type: integer
-        source_branch:
-          type: string
-        destination_branch:
-          type: string
-      type: object
-      required:
-      - destination_branch
-      - number
-      - source_branch
-      title: PullRequestSchema
     BuildActionSchema:
       properties:
         id:
@@ -465,6 +456,36 @@ components:
       - name
       - type
       title: BuildActionSchema
+    RemoteAccessSshSchema:
+      properties:
+        script_url:
+          type: string
+      type: object
+      required:
+      - script_url
+      title: RemoteAccessSshSchema
+    team_builds_schemas_PullRequestSchema:
+      properties:
+        number:
+          type: integer
+        source_branch:
+          type: string
+        destination_branch:
+          type: string
+      type: object
+      required:
+      - destination_branch
+      - number
+      - source_branch
+      title: PullRequestSchema
+    BuildActionStatus:
+      type: string
+      enum:
+      - success
+      - failed
+      - skipped
+      - canceled
+      title: BuildActionStatus
     BuildStatus:
       type: string
       enum:
@@ -482,14 +503,28 @@ components:
       - timeout
       - skipped
       title: BuildStatus
-    RemoteAccessSshSchema:
+    BuildStatusFilter:
+      type: string
+      enum:
+      - queued
+      - building
+      - finished
+      - failed
+      - canceled
+      - timeout
+      - skipped
+      title: BuildStatusFilter
+    RemoteAccessSchema:
       properties:
-        script_url:
-          type: string
+        ssh:
+          $ref: '#/components/schemas/RemoteAccessSshSchema'
+        vnc:
+          $ref: '#/components/schemas/RemoteAccessVncSchema'
       type: object
       required:
-      - script_url
-      title: RemoteAccessSshSchema
+      - ssh
+      - vnc
+      title: RemoteAccessSchema
     team_builds_schemas_BuildSchema:
       properties:
         id:
@@ -561,7 +596,7 @@ components:
       - status
       - workflow
       title: BuildSchema
-    team_builds_schemas_PullRequestSchema:
+    builds_schemas_PullRequestSchema:
       properties:
         number:
           type: integer
@@ -575,77 +610,13 @@ components:
       - number
       - source_branch
       title: PullRequestSchema
-    ArtifactType:
+    builds_schemas_WorkflowSource:
       type: string
       enum:
-      - aab
-      - aar
-      - apk
-      - app
-      - bundle
-      - coverage_binary
-      - coverage_data
-      - device_recording
-      - directory
-      - dsym
-      - flutter_drive_log
-      - flutter_web_build_dir
-      - glob_matched
-      - ios_uitest_package
-      - ios_xctest_package
-      - ipa
-      - jar
-      - lint_result
-      - linux_app
-      - log
-      - logcat
-      - msix
-      - pkg
-      - proguard_map
-      - ios_simulator_log
-      - snap
-      - static_lib
-      - sylph_artefact_dir
-      - test_results_bundle
-      - windows_exe
-      - xcarchive
-      - xcodebuild_log
-      title: ArtifactType
-    builds_schemas_WorkflowSchema:
-      properties:
-        id:
-          type: string
-        source:
-          $ref: '#/components/schemas/builds_schemas_WorkflowSource'
-        name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - id
-      - source
-      title: WorkflowSchema
-    ClassicPagination_api.routes.builds.schemas.BuildActionSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/BuildActionSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-      type: object
-      required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[BuildActionSchema]
-    team_builds_schemas_ReleaseNoteSchema:
+      - file
+      - ui
+      title: WorkflowSource
+    builds_schemas_ReleaseNoteSchema:
       properties:
         language:
           type: string
@@ -656,79 +627,6 @@ components:
       - language
       - text
       title: ReleaseNoteSchema
-    builds_schemas_WorkflowSource:
-      type: string
-      enum:
-      - file
-      - ui
-      title: WorkflowSource
-    builds_schemas_ArtifactSchema:
-      properties:
-        name:
-          type: string
-        size_in_bytes:
-          type: integer
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        short_lived_download_url:
-          type: string
-        version_code:
-          oneOf:
-          - type: string
-          - type: 'null'
-        version_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - short_lived_download_url
-      - size_in_bytes
-      - type
-      title: ArtifactSchema
-    CursorPagination_bson.objectid.ObjectId_api.routes.team_builds.schemas.BuildSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/team_builds_schemas_BuildSchema'
-          type: array
-        page_size:
-          type: integer
-        cursor:
-          oneOf:
-          - {}
-          - type: 'null'
-      type: object
-      required:
-      - data
-      - page_size
-      title: CursorPagination[ObjectId, BuildSchema]
-    team_builds_schemas_ArtifactSchema:
-      properties:
-        name:
-          type: string
-        size_in_bytes:
-          type: integer
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        short_lived_download_url:
-          type: string
-        version_code:
-          oneOf:
-          - type: string
-          - type: 'null'
-        version_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - short_lived_download_url
-      - size_in_bytes
-      - type
-      title: ArtifactSchema
     team_builds_schemas_CommitSchema:
       properties:
         hash:
@@ -758,17 +656,96 @@ components:
       type: object
       required: []
       title: CommitSchema
-    builds_schemas_ReleaseNoteSchema:
+    RemoteAccessVncSchema:
       properties:
-        language:
+        password:
           type: string
-        text:
+        port:
+          type: integer
+        host:
+          type: string
+        username:
           type: string
       type: object
       required:
-      - language
-      - text
-      title: ReleaseNoteSchema
+      - host
+      - password
+      - port
+      - username
+      title: RemoteAccessVncSchema
+    team_builds_schemas_WorkflowSchema:
+      properties:
+        id:
+          type: string
+        source:
+          $ref: '#/components/schemas/team_builds_schemas_WorkflowSource'
+        name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - id
+      - source
+      title: WorkflowSchema
+    team_builds_schemas_ArtifactSchema:
+      properties:
+        name:
+          type: string
+        size_in_bytes:
+          type: integer
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        short_lived_download_url:
+          type: string
+        version_code:
+          oneOf:
+          - type: string
+          - type: 'null'
+        version_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - short_lived_download_url
+      - size_in_bytes
+      - type
+      title: ArtifactSchema
+    BuildConfigSchema:
+      properties:
+        flutter_mode:
+          oneOf:
+          - type: string
+          - type: 'null'
+        shorebird_mode:
+          oneOf:
+          - type: string
+          - type: 'null'
+        flutter_version:
+          oneOf:
+          - type: string
+          - type: 'null'
+        xcode_version:
+          oneOf:
+          - type: string
+          - type: 'null'
+        platforms:
+          items:
+            type: string
+          type: array
+      type: object
+      required: []
+      title: BuildConfigSchema
+    NoPagination_api.routes.builds.schemas.BuildSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/builds_schemas_BuildSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[BuildSchema]
     BuildActionTypeSchema:
       type: string
       enum:
@@ -796,52 +773,6 @@ components:
       - post_publish
       - finishing
       title: BuildActionTypeSchema
-    RemoteAccessSchema:
-      properties:
-        ssh:
-          $ref: '#/components/schemas/RemoteAccessSshSchema'
-        vnc:
-          $ref: '#/components/schemas/RemoteAccessVncSchema'
-      type: object
-      required:
-      - ssh
-      - vnc
-      title: RemoteAccessSchema
-    team_builds_schemas_WorkflowSource:
-      type: string
-      enum:
-      - file
-      - ui
-      title: WorkflowSource
-    builds_schemas_CommitSchema:
-      properties:
-        hash:
-          oneOf:
-          - type: string
-          - type: 'null'
-        avatar_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-        author_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-        author_email:
-          oneOf:
-          - type: string
-          - type: 'null'
-        message:
-          oneOf:
-          - type: string
-          - type: 'null'
-        url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required: []
-      title: CommitSchema
     builds_schemas_BuildSchema:
       properties:
         id:
@@ -931,6 +862,92 @@ components:
       - status
       - workflow
       title: BuildSchema
+    builds_schemas_ArtifactSchema:
+      properties:
+        name:
+          type: string
+        size_in_bytes:
+          type: integer
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        short_lived_download_url:
+          type: string
+        version_code:
+          oneOf:
+          - type: string
+          - type: 'null'
+        version_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - short_lived_download_url
+      - size_in_bytes
+      - type
+      title: ArtifactSchema
+    team_builds_schemas_WorkflowSource:
+      type: string
+      enum:
+      - file
+      - ui
+      title: WorkflowSource
+    ClassicPagination_api.routes.builds.schemas.BuildActionSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/BuildActionSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[BuildActionSchema]
+    ArtifactType:
+      type: string
+      enum:
+      - aab
+      - aar
+      - apk
+      - app
+      - bundle
+      - coverage_binary
+      - coverage_data
+      - device_recording
+      - directory
+      - dsym
+      - flutter_drive_log
+      - flutter_web_build_dir
+      - glob_matched
+      - ios_uitest_package
+      - ios_xctest_package
+      - ipa
+      - jar
+      - lint_result
+      - linux_app
+      - log
+      - logcat
+      - msix
+      - pkg
+      - proguard_map
+      - ios_simulator_log
+      - snap
+      - static_lib
+      - sylph_artefact_dir
+      - test_results_bundle
+      - windows_exe
+      - xcarchive
+      - xcodebuild_log
+      title: ArtifactType
     AppStoreConnectTaskStatus:
       type: string
       enum:
@@ -941,23 +958,6 @@ components:
       - timeout
       - failed
       title: AppStoreConnectTaskStatus
-    RemoteAccessVncSchema:
-      properties:
-        password:
-          type: string
-        port:
-          type: integer
-        host:
-          type: string
-        username:
-          type: string
-      type: object
-      required:
-      - host
-      - password
-      - port
-      - username
-      title: RemoteAccessVncSchema
   securitySchemes:
     api_key:
       type: apiKey

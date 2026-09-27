@@ -491,31 +491,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    UpdateTesterGroup:
-      properties:
-        name:
-          type: string
-      type: object
-      required:
-      - name
-      title: UpdateTesterGroup
-    apps_schemas_TesterGroupSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        name:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-      type: object
-      required:
-      - created_at
-      - id
-      - name
-      title: TesterGroupSchema
     tester_groups_schemas_TesterGroupSchema:
       properties:
         id:
@@ -533,47 +508,14 @@ components:
       - id
       - name
       title: TesterGroupSchema
-    ClassicPagination_api.routes.tester_groups.schemas.TesterGroupContactSchema_:
+    NoPagination_api.routes.tester_groups.schemas.TesterGroupSchema_:
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/TesterGroupContactSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
+          $ref: '#/components/schemas/tester_groups_schemas_TesterGroupSchema'
       type: object
       required:
-      - current_page
       - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[TesterGroupContactSchema]
-    CreateTesterGroup:
-      properties:
-        name:
-          type: string
-      type: object
-      required:
-      - name
-      title: CreateTesterGroup
-    PaymentRequiredSchema:
-      properties:
-        status_code:
-          type: integer
-        detail:
-          type: string
-        extra:
-          $ref: '#/components/schemas/ExtraSchema'
-      type: object
-      required:
-      - detail
-      - extra
-      - status_code
-      title: PaymentRequiredSchema
+      title: NoPagination[TesterGroupSchema]
     TesterGroupContactSchema:
       properties:
         id:
@@ -599,6 +541,107 @@ components:
       - id
       - status
       title: TesterGroupContactSchema
+    PaymentRequiredSchema:
+      properties:
+        status_code:
+          type: integer
+        detail:
+          type: string
+        extra:
+          $ref: '#/components/schemas/ExtraSchema'
+      type: object
+      required:
+      - detail
+      - extra
+      - status_code
+      title: PaymentRequiredSchema
+    NoPagination_api.routes.apps.schemas.TesterGroupSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/apps_schemas_TesterGroupSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[TesterGroupSchema]
+    ClassicPagination_api.routes.tester_groups.schemas.TesterGroupContactSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TesterGroupContactSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[TesterGroupContactSchema]
+    UpdateTesterGroup:
+      properties:
+        name:
+          type: string
+      type: object
+      required:
+      - name
+      title: UpdateTesterGroup
+    apps_schemas_TesterGroupSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+      type: object
+      required:
+      - created_at
+      - id
+      - name
+      title: TesterGroupSchema
+    ExtraSchema:
+      properties:
+        limit:
+          type: integer
+      type: object
+      required:
+      - limit
+      title: ExtraSchema
+    CreateTesterGroup:
+      properties:
+        name:
+          type: string
+      type: object
+      required:
+      - name
+      title: CreateTesterGroup
+    tester_groups_schemas_BulkImportSchema:
+      properties:
+        emails:
+          items:
+            type: string
+          type: array
+          examples:
+          - john.doe@example.com
+      type: object
+      required:
+      - emails
+      title: BulkImportSchema
+    ContactStatus:
+      type: string
+      enum:
+      - pending
+      - confirmed
+      - rejected
+      title: ContactStatus
     ClassicPagination_api.routes.apps.schemas.TesterGroupSchema_:
       properties:
         data:
@@ -618,49 +661,6 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[TesterGroupSchema]
-    ContactStatus:
-      type: string
-      enum:
-      - pending
-      - confirmed
-      - rejected
-      title: ContactStatus
-    tester_groups_schemas_BulkImportSchema:
-      properties:
-        emails:
-          items:
-            type: string
-          type: array
-          examples:
-          - john.doe@example.com
-      type: object
-      required:
-      - emails
-      title: BulkImportSchema
-    NoPagination_api.routes.tester_groups.schemas.TesterGroupSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/tester_groups_schemas_TesterGroupSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[TesterGroupSchema]
-    ExtraSchema:
-      properties:
-        limit:
-          type: integer
-      type: object
-      required:
-      - limit
-      title: ExtraSchema
-    NoPagination_api.routes.apps.schemas.TesterGroupSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/apps_schemas_TesterGroupSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[TesterGroupSchema]
   securitySchemes:
     api_key:
       type: apiKey

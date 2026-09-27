@@ -194,12 +194,41 @@ paths:
       deprecated: false
 components:
   schemas:
-    AppSettingsSrouce:
-      type: string
-      enum:
-      - ui
-      - file
-      title: AppSettingsSrouce
+    team_apps_schemas_AppSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+        repository:
+          $ref: '#/components/schemas/RepositorySchema'
+        settings_source:
+          $ref: '#/components/schemas/AppSettingsSrouce'
+        icon_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+        project_type:
+          oneOf:
+          - type: string
+          - type: 'null'
+        last_build_id:
+          oneOf:
+          - {}
+          - type: 'null'
+        archived:
+          oneOf:
+          - type: boolean
+          - type: 'null'
+      type: object
+      required:
+      - id
+      - name
+      - repository
+      - settings_source
+      title: AppSchema
     user_schemas_AppSchema:
       properties:
         id:
@@ -248,6 +277,20 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[AppSchema]
+    RepositorySchema:
+      properties:
+        url:
+          type: string
+      type: object
+      required:
+      - url
+      title: RepositorySchema
+    AppSettingsSrouce:
+      type: string
+      enum:
+      - ui
+      - file
+      title: AppSettingsSrouce
     ClassicPagination_api.routes.user.schemas.AppSchema_:
       properties:
         data:
@@ -267,49 +310,6 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[AppSchema]
-    team_apps_schemas_AppSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        name:
-          type: string
-        repository:
-          $ref: '#/components/schemas/RepositorySchema'
-        settings_source:
-          $ref: '#/components/schemas/AppSettingsSrouce'
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-        project_type:
-          oneOf:
-          - type: string
-          - type: 'null'
-        last_build_id:
-          oneOf:
-          - {}
-          - type: 'null'
-        archived:
-          oneOf:
-          - type: boolean
-          - type: 'null'
-      type: object
-      required:
-      - id
-      - name
-      - repository
-      - settings_source
-      title: AppSchema
-    RepositorySchema:
-      properties:
-        url:
-          type: string
-      type: object
-      required:
-      - url
-      title: RepositorySchema
   securitySchemes:
     api_key:
       type: apiKey
