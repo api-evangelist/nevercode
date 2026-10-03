@@ -491,23 +491,34 @@ paths:
       deprecated: false
 components:
   schemas:
-    tester_groups_schemas_TesterGroupSchema:
+    UpdateTesterGroup:
       properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
         name:
           type: string
-        created_at:
-          type: string
-          format: date-time
       type: object
       required:
-      - created_at
-      - id
       - name
-      title: TesterGroupSchema
+      title: UpdateTesterGroup
+    CreateTesterGroup:
+      properties:
+        name:
+          type: string
+      type: object
+      required:
+      - name
+      title: CreateTesterGroup
+    tester_groups_schemas_BulkImportSchema:
+      properties:
+        emails:
+          items:
+            type: string
+          type: array
+          examples:
+          - john.doe@example.com
+      type: object
+      required:
+      - emails
+      title: BulkImportSchema
     NoPagination_api.routes.tester_groups.schemas.TesterGroupSchema_:
       properties:
         data:
@@ -516,6 +527,13 @@ components:
       required:
       - data
       title: NoPagination[TesterGroupSchema]
+    ContactStatus:
+      type: string
+      enum:
+      - pending
+      - confirmed
+      - rejected
+      title: ContactStatus
     TesterGroupContactSchema:
       properties:
         id:
@@ -555,6 +573,31 @@ components:
       - extra
       - status_code
       title: PaymentRequiredSchema
+    ExtraSchema:
+      properties:
+        limit:
+          type: integer
+      type: object
+      required:
+      - limit
+      title: ExtraSchema
+    apps_schemas_TesterGroupSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+      type: object
+      required:
+      - created_at
+      - id
+      - name
+      title: TesterGroupSchema
     NoPagination_api.routes.apps.schemas.TesterGroupSchema_:
       properties:
         data:
@@ -582,66 +625,6 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[TesterGroupContactSchema]
-    UpdateTesterGroup:
-      properties:
-        name:
-          type: string
-      type: object
-      required:
-      - name
-      title: UpdateTesterGroup
-    apps_schemas_TesterGroupSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        name:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-      type: object
-      required:
-      - created_at
-      - id
-      - name
-      title: TesterGroupSchema
-    ExtraSchema:
-      properties:
-        limit:
-          type: integer
-      type: object
-      required:
-      - limit
-      title: ExtraSchema
-    CreateTesterGroup:
-      properties:
-        name:
-          type: string
-      type: object
-      required:
-      - name
-      title: CreateTesterGroup
-    tester_groups_schemas_BulkImportSchema:
-      properties:
-        emails:
-          items:
-            type: string
-          type: array
-          examples:
-          - john.doe@example.com
-      type: object
-      required:
-      - emails
-      title: BulkImportSchema
-    ContactStatus:
-      type: string
-      enum:
-      - pending
-      - confirmed
-      - rejected
-      title: ContactStatus
     ClassicPagination_api.routes.apps.schemas.TesterGroupSchema_:
       properties:
         data:
@@ -661,6 +644,23 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[TesterGroupSchema]
+    tester_groups_schemas_TesterGroupSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+      type: object
+      required:
+      - created_at
+      - id
+      - name
+      title: TesterGroupSchema
   securitySchemes:
     api_key:
       type: apiKey

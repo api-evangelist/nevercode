@@ -240,6 +240,33 @@ paths:
       deprecated: false
 components:
   schemas:
+    ClassicPagination_api.routes.team_members.schemas.TeamMemberSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TeamMemberSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[TeamMemberSchema]
+    UpdateMembershipSchema:
+      properties:
+        role:
+          $ref: '#/components/schemas/Role'
+      type: object
+      required:
+      - role
+      title: UpdateMembershipSchema
     TeamMemberSchema:
       properties:
         id:
@@ -268,45 +295,18 @@ components:
       - id
       - role
       title: TeamMemberSchema
-    ClassicPagination_api.routes.team_members.schemas.TeamMemberSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/TeamMemberSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-      type: object
-      required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[TeamMemberSchema]
-    TeamMemberRole:
-      type: string
-      enum:
-      - admin
-      - member
-      title: TeamMemberRole
-    UpdateMembershipSchema:
-      properties:
-        role:
-          $ref: '#/components/schemas/Role'
-      type: object
-      required:
-      - role
-      title: UpdateMembershipSchema
     Role:
       type: string
       enum:
       - member
       - admin
       title: Role
+    TeamMemberRole:
+      type: string
+      enum:
+      - admin
+      - member
+      title: TeamMemberRole
   securitySchemes:
     api_key:
       type: apiKey

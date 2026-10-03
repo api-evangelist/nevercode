@@ -403,83 +403,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    team_schemas_TeamSchema:
-      properties:
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-        created_at:
-          type: string
-          format: date-time
-      type: object
-      required:
-      - created_at
-      - name
-      title: TeamSchema
-    user_schemas_TeamSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - id
-      - name
-      title: TeamSchema
-    NoPagination_api.routes.team.schemas.TeamSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/team_schemas_TeamSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[TeamSchema]
-    ClassicPagination_api.routes.user.schemas.TeamSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/user_schemas_TeamSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-      type: object
-      required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[TeamSchema]
-    FeaturesSchema:
-      properties:
-        app_preview:
-          oneOf:
-          - type: boolean
-          - type: 'null'
-      type: object
-      required: []
-      title: FeaturesSchema
-    NoPagination_api.routes.team_audit_log_connector.schemas.AuditLogConnectorSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/AuditLogConnectorSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[AuditLogConnectorSchema]
     UpdateAuditLogConnector:
       properties:
         aws_bucket_name:
@@ -520,6 +443,83 @@ components:
       required:
       - enabled
       title: AuditLogConnectorSchema
+    NoPagination_api.routes.team.schemas.TeamSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/team_schemas_TeamSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[TeamSchema]
+    user_schemas_TeamSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+        icon_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - id
+      - name
+      title: TeamSchema
+    ClassicPagination_api.routes.user.schemas.TeamSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/user_schemas_TeamSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[TeamSchema]
+    team_schemas_TeamSchema:
+      properties:
+        name:
+          type: string
+        icon_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+        created_at:
+          type: string
+          format: date-time
+      type: object
+      required:
+      - created_at
+      - name
+      title: TeamSchema
+    FeaturesSchema:
+      properties:
+        app_preview:
+          oneOf:
+          - type: boolean
+          - type: 'null'
+      type: object
+      required: []
+      title: FeaturesSchema
+    NoPagination_api.routes.team_audit_log_connector.schemas.AuditLogConnectorSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/AuditLogConnectorSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[AuditLogConnectorSchema]
   securitySchemes:
     api_key:
       type: apiKey

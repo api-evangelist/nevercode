@@ -971,112 +971,18 @@ paths:
       deprecated: false
 components:
   schemas:
-    AccessKeySchema:
+    AccountSchema:
       properties:
-        id:
-          type: string
-        name:
-          type: string
-        created_by:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        expires_at:
-          type: string
-          format: date-time
-      type: object
-      required:
-      - created_at
-      - created_by
-      - expires_at
-      - id
-      - name
-      title: AccessKeySchema
-    ota_deployment_usage_schemas_SeriesSchema:
-      properties:
-        name:
-          type: string
-        metric:
-          type: string
-        values:
-          items:
-            $ref: '#/components/schemas/ota_deployment_usage_schemas_ValueSchema'
-          type: array
-      type: object
-      required:
-      - metric
-      - name
-      - values
-      title: SeriesSchema
-    ClassicPagination_api.routes.ota_deployment_releases.schemas.DeploymentReleaseSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/DeploymentReleaseSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-      type: object
-      required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[DeploymentReleaseSchema]
-    SummarySchema:
-      properties:
-        metric:
-          type: string
-        value:
-          type: integer
-      type: object
-      required:
-      - metric
-      - value
-      title: SummarySchema
-    ProjectUpdateSchema:
-      properties:
-        deployment_channel:
-          $ref: '#/components/schemas/DeploymentChannelSchema'
-        version:
-          type: string
-        application_version:
-          type: string
-        released_at:
-          type: string
-          format: date-time
         status:
-          $ref: '#/components/schemas/DeploymentReleaseStatus'
-        summary:
-          items:
-            $ref: '#/components/schemas/ota_team_projects_schemas_MetricSchema'
-          type: array
+          $ref: '#/components/schemas/Status'
+        team_id:
+          oneOf:
+          - {}
+          - type: 'null'
       type: object
       required:
-      - application_version
-      - deployment_channel
-      - released_at
       - status
-      - summary
-      - version
-      title: ProjectUpdateSchema
-    ota_deployment_usage_schemas_ValueSchema:
-      properties:
-        timestamp:
-          type: string
-          format: date-time
-        value:
-          type: integer
-      type: object
-      required:
-      - timestamp
-      - value
-      title: ValueSchema
+      title: AccountSchema
     ota_team_projects_schemas_MetricSchema:
       properties:
         metric:
@@ -1088,36 +994,6 @@ components:
       - metric
       - value
       title: MetricSchema
-    ota_team_usage_schemas_SeriesSchema:
-      properties:
-        name:
-          type: string
-        metric:
-          type: string
-        values:
-          items:
-            $ref: '#/components/schemas/ota_team_usage_schemas_ValueSchema'
-          type: array
-      type: object
-      required:
-      - metric
-      - name
-      - values
-      title: SeriesSchema
-    DeploymentReleaseStatus:
-      type: string
-      enum:
-      - active
-      - inactive
-      title: DeploymentReleaseStatus
-    NoPagination_api.routes.ota_team_usage.schemas.UsageSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/ota_team_usage_schemas_UsageSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[UsageSchema]
     ClassicPagination_api.routes.ota_project_deployment_keys.schemas.DeploymentKeySchema_:
       properties:
         data:
@@ -1137,21 +1013,21 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[DeploymentKeySchema]
-    NoPagination_api.routes.ota_deployment_usage.schemas.UsageSchema_:
+    CreateAccessKeySchema:
       properties:
-        data:
-          $ref: '#/components/schemas/ota_deployment_usage_schemas_UsageSchema'
+        name:
+          type: string
+          maxLength: 100
+          minLength: 1
+        ttl_days:
+          type: integer
+          maximum: 365.0
+          minimum: 1.0
+          default: 365
       type: object
       required:
-      - data
-      title: NoPagination[UsageSchema]
-    Status:
-      type: string
-      enum:
-      - enabled
-      - disabled
-      - pending
-      title: Status
+      - name
+      title: CreateAccessKeySchema
     ota_team_usage_schemas_MetaSchema:
       properties:
         period_from:
@@ -1169,30 +1045,55 @@ components:
       - period_from
       - period_to
       title: MetaSchema
-    ota_team_usage_schemas_ValueSchema:
+    NoPagination_api.routes.ota.schemas.AccountSchema_:
       properties:
-        timestamp:
+        data:
+          $ref: '#/components/schemas/AccountSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[AccountSchema]
+    ota_deployment_releases_schemas_MetricSchema:
+      properties:
+        metric:
           type: string
-          format: date-time
         value:
           type: integer
       type: object
       required:
-      - timestamp
+      - metric
       - value
-      title: ValueSchema
-    AccountSchema:
+      title: MetricSchema
+    ota_deployment_usage_schemas_UsageSchema:
       properties:
-        status:
-          $ref: '#/components/schemas/Status'
-        team_id:
-          oneOf:
-          - {}
-          - type: 'null'
+        series:
+          items:
+            $ref: '#/components/schemas/ota_deployment_usage_schemas_SeriesSchema'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ota_deployment_usage_schemas_MetaSchema'
       type: object
       required:
-      - status
-      title: AccountSchema
+      - meta
+      - series
+      title: UsageSchema
+    SummarySchema:
+      properties:
+        metric:
+          type: string
+        value:
+          type: integer
+      type: object
+      required:
+      - metric
+      - value
+      title: SummarySchema
+    DeploymentReleaseStatus:
+      type: string
+      enum:
+      - active
+      - inactive
+      title: DeploymentReleaseStatus
     ota_deployment_usage_schemas_MetaSchema:
       properties:
         period_from:
@@ -1210,6 +1111,81 @@ components:
       - period_from
       - period_to
       title: MetaSchema
+    ClassicPagination_api.routes.ota_team_access_keys.schemas.AccessKeySchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AccessKeySchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[AccessKeySchema]
+    NoPagination_api.routes.ota_deployment_usage.schemas.UsageSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/ota_deployment_usage_schemas_UsageSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[UsageSchema]
+    Status:
+      type: string
+      enum:
+      - enabled
+      - disabled
+      - pending
+      title: Status
+    CreatedAccessKeySchema:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_by:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+        token:
+          type: string
+      type: object
+      required:
+      - created_at
+      - created_by
+      - expires_at
+      - id
+      - name
+      - token
+      title: CreatedAccessKeySchema
+    ota_team_usage_schemas_SeriesSchema:
+      properties:
+        name:
+          type: string
+        metric:
+          type: string
+        values:
+          items:
+            $ref: '#/components/schemas/ota_team_usage_schemas_ValueSchema'
+          type: array
+      type: object
+      required:
+      - metric
+      - name
+      - values
+      title: SeriesSchema
     DeploymentReleaseSchema:
       properties:
         version:
@@ -1236,19 +1212,49 @@ components:
       - status
       - summary
       title: DeploymentReleaseSchema
-    NoPagination_api.routes.ota.schemas.AccountSchema_:
+    ota_deployment_usage_schemas_SeriesSchema:
       properties:
-        data:
-          $ref: '#/components/schemas/AccountSchema'
+        name:
+          type: string
+        metric:
+          type: string
+        values:
+          items:
+            $ref: '#/components/schemas/ota_deployment_usage_schemas_ValueSchema'
+          type: array
       type: object
       required:
-      - data
-      title: NoPagination[AccountSchema]
-    ClassicPagination_api.routes.ota_team_access_keys.schemas.AccessKeySchema_:
+      - metric
+      - name
+      - values
+      title: SeriesSchema
+    AccessKeySchema:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_by:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+      type: object
+      required:
+      - created_at
+      - created_by
+      - expires_at
+      - id
+      - name
+      title: AccessKeySchema
+    ClassicPagination_api.routes.ota_deployment_releases.schemas.DeploymentReleaseSchema_:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/AccessKeySchema'
+            $ref: '#/components/schemas/DeploymentReleaseSchema'
           type: array
         page_size:
           type: integer
@@ -1262,86 +1268,19 @@ components:
       - data
       - page_size
       - total_pages
-      title: ClassicPagination[AccessKeySchema]
-    DeploymentChannelSchema:
+      title: ClassicPagination[DeploymentReleaseSchema]
+    ota_team_usage_schemas_ValueSchema:
       properties:
-        id:
+        timestamp:
           type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        name:
-          type: string
-      type: object
-      required:
-      - id
-      - name
-      title: DeploymentChannelSchema
-    MetricType:
-      type: string
-      enum:
-      - download_count
-      - deployment_succeeded_count
-      - deployment_failed_count
-      title: MetricType
-      description: The name of the usage metric to retrieve.
-    DeploymentKeySchema:
-      properties:
-        name:
-          type: string
-        key:
-          type: string
-      type: object
-      required:
-      - key
-      - name
-      title: DeploymentKeySchema
-    NoPagination_api.routes.ota_team_access_keys.schemas.CreatedAccessKeySchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/CreatedAccessKeySchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[CreatedAccessKeySchema]
-    ota_deployment_usage_schemas_UsageSchema:
-      properties:
-        series:
-          items:
-            $ref: '#/components/schemas/ota_deployment_usage_schemas_SeriesSchema'
-          type: array
-        meta:
-          $ref: '#/components/schemas/ota_deployment_usage_schemas_MetaSchema'
-      type: object
-      required:
-      - meta
-      - series
-      title: UsageSchema
-    ota_deployment_releases_schemas_MetricSchema:
-      properties:
-        metric:
-          type: string
+          format: date-time
         value:
           type: integer
       type: object
       required:
-      - metric
+      - timestamp
       - value
-      title: MetricSchema
-    CreateAccessKeySchema:
-      properties:
-        name:
-          type: string
-          maxLength: 100
-          minLength: 1
-        ttl_days:
-          type: integer
-          maximum: 365.0
-          minimum: 1.0
-          default: 365
-      type: object
-      required:
-      - name
-      title: CreateAccessKeySchema
+      title: ValueSchema
     ClassicPagination_api.routes.ota_team_projects.schemas.ProjectSchema_:
       properties:
         data:
@@ -1361,31 +1300,53 @@ components:
       - page_size
       - total_pages
       title: ClassicPagination[ProjectSchema]
-    CreatedAccessKeySchema:
+    NoPagination_api.routes.ota_team_access_keys.schemas.CreatedAccessKeySchema_:
       properties:
-        id:
+        data:
+          $ref: '#/components/schemas/CreatedAccessKeySchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[CreatedAccessKeySchema]
+    ota_deployment_usage_schemas_ValueSchema:
+      properties:
+        timestamp:
           type: string
+          format: date-time
+        value:
+          type: integer
+      type: object
+      required:
+      - timestamp
+      - value
+      title: ValueSchema
+    MetricType:
+      type: string
+      enum:
+      - download_count
+      - deployment_succeeded_count
+      - deployment_failed_count
+      title: MetricType
+      description: The name of the usage metric to retrieve.
+    DeploymentKeySchema:
+      properties:
         name:
           type: string
-        created_by:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        expires_at:
-          type: string
-          format: date-time
-        token:
+        key:
           type: string
       type: object
       required:
-      - created_at
-      - created_by
-      - expires_at
-      - id
+      - key
       - name
-      - token
-      title: CreatedAccessKeySchema
+      title: DeploymentKeySchema
+    NoPagination_api.routes.ota_team_usage.schemas.UsageSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/ota_team_usage_schemas_UsageSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[UsageSchema]
     ota_team_usage_schemas_UsageSchema:
       properties:
         series:
@@ -1404,6 +1365,19 @@ components:
       - series
       - summary
       title: UsageSchema
+    DeploymentChannelSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+      type: object
+      required:
+      - id
+      - name
+      title: DeploymentChannelSchema
     ProjectSchema:
       properties:
         id:
@@ -1426,6 +1400,32 @@ components:
       - id
       - name
       title: ProjectSchema
+    ProjectUpdateSchema:
+      properties:
+        deployment_channel:
+          $ref: '#/components/schemas/DeploymentChannelSchema'
+        version:
+          type: string
+        application_version:
+          type: string
+        released_at:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/DeploymentReleaseStatus'
+        summary:
+          items:
+            $ref: '#/components/schemas/ota_team_projects_schemas_MetricSchema'
+          type: array
+      type: object
+      required:
+      - application_version
+      - deployment_channel
+      - released_at
+      - status
+      - summary
+      - version
+      title: ProjectUpdateSchema
   securitySchemes:
     api_key:
       type: apiKey
