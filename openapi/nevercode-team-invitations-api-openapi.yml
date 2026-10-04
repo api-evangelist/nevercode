@@ -335,6 +335,13 @@ components:
       - admin
       - member
       title: InvitableRole
+    InvitationStatus:
+      type: string
+      enum:
+      - pending
+      - accepted
+      - revoked
+      title: InvitationStatus
     InvitationSchema:
       properties:
         id:
@@ -364,14 +371,6 @@ components:
       - roles
       - status
       title: InvitationSchema
-    NoPagination_api.routes.team_invitations.schemas.PublicInvitationSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/PublicInvitationSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[PublicInvitationSchema]
     CreateInvitationSchema:
       properties:
         email:
@@ -385,13 +384,14 @@ components:
       - email
       - roles
       title: CreateInvitationSchema
-    InvitationStatus:
-      type: string
-      enum:
-      - pending
-      - accepted
-      - revoked
-      title: InvitationStatus
+    NoPagination_api.routes.team_invitations.schemas.PublicInvitationSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/PublicInvitationSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[PublicInvitationSchema]
     ClassicPagination_api.routes.team_invitations.schemas.InvitationSchema_:
       properties:
         data:

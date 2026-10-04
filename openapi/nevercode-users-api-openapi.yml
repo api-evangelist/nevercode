@@ -228,130 +228,27 @@ paths:
       deprecated: false
 components:
   schemas:
-    Theme:
-      type: string
-      enum:
-      - light
-      - dark
-      - system
-      title: Theme
-    NotificationCategory:
-      type: string
-      enum:
-      - news1
-      title: NotificationCategory
-    PinnedAccountView:
-      type: string
-      enum:
-      - full
-      - compact
-      title: PinnedAccountView
-    NoPagination_api.routes.user.schemas.UserSchema_:
+    UserSchema:
       properties:
-        data:
-          $ref: '#/components/schemas/UserSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[UserSchema]
-    ApiKeySchema:
-      properties:
-        api_key:
-          type: string
-      type: object
-      required:
-      - api_key
-      title: ApiKeySchema
-    ClassicPagination_api.routes.user.schemas.NotificationSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/NotificationSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-      type: object
-      required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[NotificationSchema]
-    PinnedAccountSchema:
-      properties:
-        team:
-          type: string
-          description: 'Allowed values: `personal` or team ID, see [/user/teams](#/operations/UserTeamsGetTeams)'
-        view:
-          $ref: '#/components/schemas/PinnedAccountView'
-      type: object
-      required:
-      - team
-      - view
-      title: PinnedAccountSchema
-    TeamPermissionsSchema:
-      properties:
-        team_id:
+        id:
           type: string
           examples:
           - 60a0b1c2d3e4f56789abcdef
-        user_id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        team:
-          items:
-            $ref: '#/components/schemas/TeamPermission'
-          type: array
-          description: Team-scoped permissions. Empty for app-only members.
-        default_app_permissions:
-          items:
-            $ref: '#/components/schemas/AppPermission'
-          type: array
-          description: App-scoped permissions applied to every app the user can access.
-        apps:
+        avatar_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+        permissions:
           additionalProperties:
             items:
-              $ref: '#/components/schemas/AppPermission'
+              $ref: '#/components/schemas/Permission'
             type: array
           type: object
-          description: 'Per-app overrides: only apps whose effective permissions differ from `default_app_permissions`.'
       type: object
       required:
-      - apps
-      - default_app_permissions
-      - team
-      - team_id
-      - user_id
-      title: TeamPermissionsSchema
-    AppPermission:
-      type: string
-      enum:
-      - can_start_app_preview
-      - can_read_app_preview
-      - can_create_app_vars
-      - can_read_app_vars
-      - can_read_builds
-      - can_create_tester_groups
-      - can_read_tester_groups
-      - can_update_tester_groups
-      - can_delete_tester_groups
-      - can_create_tester_group_contacts
-      - can_read_tester_group_contacts
-      - can_delete_tester_group_contacts
-      title: AppPermission
-    NoPagination_api.routes.user.schemas.ApiKeySchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/ApiKeySchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[ApiKeySchema]
+      - id
+      - permissions
+      title: UserSchema
     Permission:
       type: string
       enum:
@@ -394,103 +291,6 @@ components:
       - can_read_tester_group_contacts
       - can_delete_tester_group_contacts
       title: Permission
-    PreferencesSchema:
-      properties:
-        pinned_accounts:
-          items:
-            $ref: '#/components/schemas/PinnedAccountSchema'
-          type: array
-        theme:
-          $ref: '#/components/schemas/Theme'
-      type: object
-      required:
-      - pinned_accounts
-      - theme
-      title: PreferencesSchema
-    ClientEvent:
-      type: string
-      enum:
-      - Onboarding Viewed
-      - Onboarding Started
-      - Onboarding Finished
-      - Onboarding Info Provided
-      - Onboarding Billing Submitted
-      - Onboarding Billing Enabled
-      - Onboarding Billing Selected
-      - Onboarding Redirected
-      title: ClientEvent
-    TrackUserSchema:
-      properties:
-        event:
-          $ref: '#/components/schemas/ClientEvent'
-        properties:
-          additionalProperties:
-            type: string
-          type: object
-      type: object
-      required:
-      - event
-      - properties
-      title: TrackUserSchema
-    UserSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        avatar_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-        permissions:
-          additionalProperties:
-            items:
-              $ref: '#/components/schemas/Permission'
-            type: array
-          type: object
-      type: object
-      required:
-      - id
-      - permissions
-      title: UserSchema
-    NoPagination_api.routes.user.schemas.PreferencesSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/PreferencesSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[PreferencesSchema]
-    NoPagination_api.routes.user_team_permissions.schemas.TeamPermissionsSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/TeamPermissionsSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[TeamPermissionsSchema]
-    NotificationSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        category:
-          $ref: '#/components/schemas/NotificationCategory'
-        body_text:
-          type: string
-        cta_text:
-          type: string
-        cta_url:
-          type: string
-      type: object
-      required:
-      - body_text
-      - category
-      - cta_text
-      - cta_url
-      - id
-      title: NotificationSchema
     TeamPermission:
       type: string
       enum:
@@ -521,6 +321,206 @@ components:
       - can_create_ota_access_keys
       - can_delete_ota_access_keys
       title: TeamPermission
+    AppPermission:
+      type: string
+      enum:
+      - can_start_app_preview
+      - can_read_app_preview
+      - can_create_app_vars
+      - can_read_app_vars
+      - can_read_builds
+      - can_create_tester_groups
+      - can_read_tester_groups
+      - can_update_tester_groups
+      - can_delete_tester_groups
+      - can_create_tester_group_contacts
+      - can_read_tester_group_contacts
+      - can_delete_tester_group_contacts
+      title: AppPermission
+    TrackUserSchema:
+      properties:
+        event:
+          $ref: '#/components/schemas/ClientEvent'
+        properties:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+      required:
+      - event
+      - properties
+      title: TrackUserSchema
+    NoPagination_api.routes.user.schemas.ApiKeySchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/ApiKeySchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[ApiKeySchema]
+    ClientEvent:
+      type: string
+      enum:
+      - Onboarding Viewed
+      - Onboarding Started
+      - Onboarding Finished
+      - Onboarding Info Provided
+      - Onboarding Billing Submitted
+      - Onboarding Billing Enabled
+      - Onboarding Billing Selected
+      - Onboarding Redirected
+      title: ClientEvent
+    Theme:
+      type: string
+      enum:
+      - light
+      - dark
+      - system
+      title: Theme
+    PreferencesSchema:
+      properties:
+        pinned_accounts:
+          items:
+            $ref: '#/components/schemas/PinnedAccountSchema'
+          type: array
+        theme:
+          $ref: '#/components/schemas/Theme'
+      type: object
+      required:
+      - pinned_accounts
+      - theme
+      title: PreferencesSchema
+    ClassicPagination_api.routes.user.schemas.NotificationSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/NotificationSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[NotificationSchema]
+    NotificationSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        category:
+          $ref: '#/components/schemas/NotificationCategory'
+        body_text:
+          type: string
+        cta_text:
+          type: string
+        cta_url:
+          type: string
+      type: object
+      required:
+      - body_text
+      - category
+      - cta_text
+      - cta_url
+      - id
+      title: NotificationSchema
+    TeamPermissionsSchema:
+      properties:
+        team_id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        user_id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        team:
+          items:
+            $ref: '#/components/schemas/TeamPermission'
+          type: array
+          description: Team-scoped permissions. Empty for app-only members.
+        default_app_permissions:
+          items:
+            $ref: '#/components/schemas/AppPermission'
+          type: array
+          description: App-scoped permissions applied to every app the user can access.
+        apps:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/AppPermission'
+            type: array
+          type: object
+          description: 'Per-app overrides: only apps whose effective permissions differ from `default_app_permissions`.'
+      type: object
+      required:
+      - apps
+      - default_app_permissions
+      - team
+      - team_id
+      - user_id
+      title: TeamPermissionsSchema
+    ApiKeySchema:
+      properties:
+        api_key:
+          type: string
+      type: object
+      required:
+      - api_key
+      title: ApiKeySchema
+    PinnedAccountSchema:
+      properties:
+        team:
+          type: string
+          description: 'Allowed values: `personal` or team ID, see [/user/teams](#/operations/UserTeamsGetTeams)'
+        view:
+          $ref: '#/components/schemas/PinnedAccountView'
+      type: object
+      required:
+      - team
+      - view
+      title: PinnedAccountSchema
+    NotificationCategory:
+      type: string
+      enum:
+      - news1
+      title: NotificationCategory
+    NoPagination_api.routes.user.schemas.PreferencesSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/PreferencesSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[PreferencesSchema]
+    PinnedAccountView:
+      type: string
+      enum:
+      - full
+      - compact
+      title: PinnedAccountView
+    NoPagination_api.routes.user_team_permissions.schemas.TeamPermissionsSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/TeamPermissionsSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[TeamPermissionsSchema]
+    NoPagination_api.routes.user.schemas.UserSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/UserSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[UserSchema]
   securitySchemes:
     api_key:
       type: apiKey

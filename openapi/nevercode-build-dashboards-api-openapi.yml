@@ -161,20 +161,6 @@ paths:
       - {}
 components:
   schemas:
-    dashboards_schemas_PullRequestSchema:
-      properties:
-        number:
-          type: integer
-        source_branch:
-          type: string
-        destination_branch:
-          type: string
-      type: object
-      required:
-      - destination_branch
-      - number
-      - source_branch
-      title: PullRequestSchema
     dashboards_schemas_ReleaseNoteSchema:
       properties:
         language:
@@ -186,48 +172,6 @@ components:
       - language
       - text
       title: ReleaseNoteSchema
-    dashboards_schemas_ArtifactSchema:
-      properties:
-        name:
-          type: string
-        size_in_bytes:
-          type: integer
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        short_lived_download_url:
-          type: string
-        version_code:
-          oneOf:
-          - type: string
-          - type: 'null'
-        version_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - short_lived_download_url
-      - size_in_bytes
-      - type
-      title: ArtifactSchema
-    CursorPagination_bson.objectid.ObjectId_api.routes.dashboards.schemas.BuildSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/dashboards_schemas_BuildSchema'
-          type: array
-        page_size:
-          type: integer
-        cursor:
-          oneOf:
-          - {}
-          - type: 'null'
-      type: object
-      required:
-      - data
-      - page_size
-      title: CursorPagination[ObjectId, BuildSchema]
     ArtifactType:
       type: string
       enum:
@@ -264,50 +208,6 @@ components:
       - xcarchive
       - xcodebuild_log
       title: ArtifactType
-    BuildStatus:
-      type: string
-      enum:
-      - initializing
-      - queued
-      - preparing
-      - fetching
-      - testing
-      - building
-      - publishing
-      - finishing
-      - finished
-      - failed
-      - canceled
-      - timeout
-      - skipped
-      title: BuildStatus
-    DashboardSchema:
-      properties:
-        uuid:
-          type: string
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - uuid
-      title: DashboardSchema
-    dashboards_schemas_WorkflowSchema:
-      properties:
-        id:
-          type: string
-        name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - id
-      title: WorkflowSchema
     dashboards_schemas_CommitSchema:
       properties:
         hash:
@@ -337,26 +237,6 @@ components:
       type: object
       required: []
       title: CommitSchema
-    NoPagination_api.routes.dashboards.schemas.DashboardSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/DashboardSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[DashboardSchema]
-    dashboards_schemas_AppSchema:
-      properties:
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      title: AppSchema
     dashboards_schemas_BuildSchema:
       properties:
         id:
@@ -424,6 +304,126 @@ components:
       - status
       - workflow
       title: BuildSchema
+    NoPagination_api.routes.dashboards.schemas.DashboardSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/DashboardSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[DashboardSchema]
+    dashboards_schemas_ArtifactSchema:
+      properties:
+        name:
+          type: string
+        size_in_bytes:
+          type: integer
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        short_lived_download_url:
+          type: string
+        version_code:
+          oneOf:
+          - type: string
+          - type: 'null'
+        version_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - short_lived_download_url
+      - size_in_bytes
+      - type
+      title: ArtifactSchema
+    dashboards_schemas_AppSchema:
+      properties:
+        name:
+          type: string
+        icon_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      title: AppSchema
+    dashboards_schemas_PullRequestSchema:
+      properties:
+        number:
+          type: integer
+        source_branch:
+          type: string
+        destination_branch:
+          type: string
+      type: object
+      required:
+      - destination_branch
+      - number
+      - source_branch
+      title: PullRequestSchema
+    BuildStatus:
+      type: string
+      enum:
+      - initializing
+      - queued
+      - preparing
+      - fetching
+      - testing
+      - building
+      - publishing
+      - finishing
+      - finished
+      - failed
+      - canceled
+      - timeout
+      - skipped
+      title: BuildStatus
+    DashboardSchema:
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        icon_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - uuid
+      title: DashboardSchema
+    dashboards_schemas_WorkflowSchema:
+      properties:
+        id:
+          type: string
+        name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - id
+      title: WorkflowSchema
+    CursorPagination_bson.objectid.ObjectId_api.routes.dashboards.schemas.BuildSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/dashboards_schemas_BuildSchema'
+          type: array
+        page_size:
+          type: integer
+        cursor:
+          oneOf:
+          - {}
+          - type: 'null'
+      type: object
+      required:
+      - data
+      - page_size
+      title: CursorPagination[ObjectId, BuildSchema]
   securitySchemes:
     api_key:
       type: apiKey

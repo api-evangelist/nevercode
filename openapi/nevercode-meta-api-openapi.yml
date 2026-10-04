@@ -61,14 +61,20 @@ paths:
       - {}
 components:
   schemas:
-    NoPagination_api.routes.meta.schemas.ShorebirdSchema_:
+    ShorebirdSchema:
       properties:
-        data:
-          $ref: '#/components/schemas/ShorebirdSchema'
+        flutter_versions:
+          items:
+            type: string
+          type: array
+          description: For more information, see [Supported Flutter Versions](https://docs.shorebird.dev/getting-started/flutter-version/).
+        shorebird_version:
+          type: string
       type: object
       required:
-      - data
-      title: NoPagination[ShorebirdSchema]
+      - flutter_versions
+      - shorebird_version
+      title: ShorebirdSchema
     meta_schemas_MetaSchema:
       properties:
         address_prefixes:
@@ -88,20 +94,14 @@ components:
       - address_prefixes
       - simulator_address_prefixes
       title: MetaSchema
-    ShorebirdSchema:
+    NoPagination_api.routes.meta.schemas.ShorebirdSchema_:
       properties:
-        flutter_versions:
-          items:
-            type: string
-          type: array
-          description: For more information, see [Supported Flutter Versions](https://docs.shorebird.dev/getting-started/flutter-version/).
-        shorebird_version:
-          type: string
+        data:
+          $ref: '#/components/schemas/ShorebirdSchema'
       type: object
       required:
-      - flutter_versions
-      - shorebird_version
-      title: ShorebirdSchema
+      - data
+      title: NoPagination[ShorebirdSchema]
     NoPagination_api.routes.meta.schemas.MetaSchema_:
       properties:
         data:

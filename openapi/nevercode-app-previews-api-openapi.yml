@@ -344,22 +344,79 @@ paths:
       - {}
 components:
   schemas:
-    NoPagination_api.routes.shared_previews.schemas.SharedAppPreviewDetailsSchema_:
+    NoPagination_api.routes.previews.schemas.AppPreviewSchema_:
       properties:
         data:
-          $ref: '#/components/schemas/SharedAppPreviewDetailsSchema'
+          $ref: '#/components/schemas/previews_schemas_AppPreviewSchema'
       type: object
       required:
       - data
-      title: NoPagination[SharedAppPreviewDetailsSchema]
-    ExtraSchema:
+      title: NoPagination[AppPreviewSchema]
+    team_previews_schemas_ArtifactSchema:
       properties:
-        limit:
+        name:
+          type: string
+        path:
+          type: string
+        version_code:
+          oneOf:
+          - type: string
+          - type: 'null'
+        version_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - path
+      title: ArtifactSchema
+    ClassicPagination_api.routes.team_previews.schemas.AppPreviewSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/team_previews_schemas_AppPreviewSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
           type: integer
       type: object
       required:
-      - limit
-      title: ExtraSchema
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[AppPreviewSchema]
+    StartPreviewSchema:
+      properties:
+        artifact_path:
+          type: string
+      type: object
+      required:
+      - artifact_path
+      title: StartPreviewSchema
+    previews_schemas_ArtifactSchema:
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+        version_code:
+          oneOf:
+          - type: string
+          - type: 'null'
+        version_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - path
+      title: ArtifactSchema
     team_previews_schemas_BuildSchema:
       properties:
         id:
@@ -380,181 +437,20 @@ components:
       - labels
       - release_notes
       title: BuildSchema
-    AppPreviewApplicationSchema:
+    PaymentRequiredSchema:
       properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - id
-      - name
-      title: AppPreviewApplicationSchema
-    SharedAppPreviewSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        shared_preview_id:
-          type: string
-      type: object
-      required:
-      - id
-      - shared_preview_id
-      title: SharedAppPreviewSchema
-    ClassicPagination_api.routes.team_previews.schemas.AppPreviewSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/team_previews_schemas_AppPreviewSchema'
-          type: array
-        page_size:
+        status_code:
           type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
+        detail:
+          type: string
+        extra:
+          $ref: '#/components/schemas/ExtraSchema'
       type: object
       required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[AppPreviewSchema]
-    team_previews_schemas_ReleaseNoteSchema:
-      properties:
-        language:
-          type: string
-        text:
-          type: string
-      type: object
-      required:
-      - language
-      - text
-      title: ReleaseNoteSchema
-    team_previews_schemas_ArtifactSchema:
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-        version_code:
-          oneOf:
-          - type: string
-          - type: 'null'
-        version_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - path
-      title: ArtifactSchema
-    previews_schemas_AppPreviewSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        streaming_public_key:
-          type: string
-        app:
-          $ref: '#/components/schemas/previews_schemas_AppSchema'
-        build:
-          $ref: '#/components/schemas/previews_schemas_BuildSchema'
-        artifact:
-          $ref: '#/components/schemas/previews_schemas_ArtifactSchema'
-        created_at:
-          type: string
-          format: date-time
-        expires_at:
-          type: string
-          format: date-time
-        deleted_at:
-          oneOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-      type: object
-      required:
-      - app
-      - artifact
-      - build
-      - created_at
-      - expires_at
-      - id
-      - streaming_public_key
-      title: AppPreviewSchema
-    previews_schemas_ArtifactSchema:
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-        version_code:
-          oneOf:
-          - type: string
-          - type: 'null'
-        version_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - path
-      title: ArtifactSchema
-    StartedAppPreviewSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        expires_at:
-          type: string
-          format: date-time
-      type: object
-      required:
-      - expires_at
-      - id
-      title: StartedAppPreviewSchema
-    NoPagination_api.routes.previews.schemas.AppPreviewSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/previews_schemas_AppPreviewSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[AppPreviewSchema]
-    previews_schemas_BuildSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        release_notes:
-          items:
-            $ref: '#/components/schemas/previews_schemas_ReleaseNoteSchema'
-          type: array
-        labels:
-          items:
-            type: string
-          type: array
-      type: object
-      required:
-      - id
-      - labels
-      - release_notes
-      title: BuildSchema
+      - detail
+      - extra
+      - status_code
+      title: PaymentRequiredSchema
     team_previews_schemas_AppPreviewSchema:
       properties:
         id:
@@ -590,22 +486,28 @@ components:
       - id
       - streaming_public_key
       title: AppPreviewSchema
-    StartPreviewSchema:
+    StartedAppPreviewSchema:
       properties:
-        artifact_path:
+        id:
           type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        expires_at:
+          type: string
+          format: date-time
       type: object
       required:
-      - artifact_path
-      title: StartPreviewSchema
-    NoPagination_api.routes.previews.schemas.SharedAppPreviewSchema_:
+      - expires_at
+      - id
+      title: StartedAppPreviewSchema
+    NoPagination_api.routes.builds.schemas.StartedAppPreviewSchema_:
       properties:
         data:
-          $ref: '#/components/schemas/SharedAppPreviewSchema'
+          $ref: '#/components/schemas/StartedAppPreviewSchema'
       type: object
       required:
       - data
-      title: NoPagination[SharedAppPreviewSchema]
+      title: NoPagination[StartedAppPreviewSchema]
     previews_schemas_ReleaseNoteSchema:
       properties:
         language:
@@ -617,45 +519,14 @@ components:
       - language
       - text
       title: ReleaseNoteSchema
-    NoPagination_api.routes.builds.schemas.StartedAppPreviewSchema_:
+    ExtraSchema:
       properties:
-        data:
-          $ref: '#/components/schemas/StartedAppPreviewSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[StartedAppPreviewSchema]
-    PaymentRequiredSchema:
-      properties:
-        status_code:
+        limit:
           type: integer
-        detail:
-          type: string
-        extra:
-          $ref: '#/components/schemas/ExtraSchema'
       type: object
       required:
-      - detail
-      - extra
-      - status_code
-      title: PaymentRequiredSchema
-    SharedAppPreviewDetailsSchema:
-      properties:
-        id:
-          type: string
-          examples:
-          - 60a0b1c2d3e4f56789abcdef
-        streaming_public_key:
-          type: string
-        expires_at:
-          type: string
-          format: date-time
-      type: object
-      required:
-      - expires_at
-      - id
-      - streaming_public_key
-      title: SharedAppPreviewDetailsSchema
+      - limit
+      title: ExtraSchema
     previews_schemas_AppSchema:
       properties:
         id:
@@ -673,6 +544,135 @@ components:
       - id
       - name
       title: AppSchema
+    SharedAppPreviewDetailsSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        streaming_public_key:
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+      type: object
+      required:
+      - expires_at
+      - id
+      - streaming_public_key
+      title: SharedAppPreviewDetailsSchema
+    AppPreviewApplicationSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        name:
+          type: string
+        icon_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - id
+      - name
+      title: AppPreviewApplicationSchema
+    NoPagination_api.routes.previews.schemas.SharedAppPreviewSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/SharedAppPreviewSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[SharedAppPreviewSchema]
+    team_previews_schemas_ReleaseNoteSchema:
+      properties:
+        language:
+          type: string
+        text:
+          type: string
+      type: object
+      required:
+      - language
+      - text
+      title: ReleaseNoteSchema
+    previews_schemas_AppPreviewSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        streaming_public_key:
+          type: string
+        app:
+          $ref: '#/components/schemas/previews_schemas_AppSchema'
+        build:
+          $ref: '#/components/schemas/previews_schemas_BuildSchema'
+        artifact:
+          $ref: '#/components/schemas/previews_schemas_ArtifactSchema'
+        created_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+        deleted_at:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+      type: object
+      required:
+      - app
+      - artifact
+      - build
+      - created_at
+      - expires_at
+      - id
+      - streaming_public_key
+      title: AppPreviewSchema
+    NoPagination_api.routes.shared_previews.schemas.SharedAppPreviewDetailsSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/SharedAppPreviewDetailsSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[SharedAppPreviewDetailsSchema]
+    SharedAppPreviewSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        shared_preview_id:
+          type: string
+      type: object
+      required:
+      - id
+      - shared_preview_id
+      title: SharedAppPreviewSchema
+    previews_schemas_BuildSchema:
+      properties:
+        id:
+          type: string
+          examples:
+          - 60a0b1c2d3e4f56789abcdef
+        release_notes:
+          items:
+            $ref: '#/components/schemas/previews_schemas_ReleaseNoteSchema'
+          type: array
+        labels:
+          items:
+            type: string
+          type: array
+      type: object
+      required:
+      - id
+      - labels
+      - release_notes
+      title: BuildSchema
   securitySchemes:
     api_key:
       type: apiKey

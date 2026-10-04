@@ -267,6 +267,12 @@ components:
       required:
       - role
       title: UpdateMembershipSchema
+    Role:
+      type: string
+      enum:
+      - member
+      - admin
+      title: Role
     TeamMemberSchema:
       properties:
         id:
@@ -295,12 +301,6 @@ components:
       - id
       - role
       title: TeamMemberSchema
-    Role:
-      type: string
-      enum:
-      - member
-      - admin
-      title: Role
     TeamMemberRole:
       type: string
       enum:
