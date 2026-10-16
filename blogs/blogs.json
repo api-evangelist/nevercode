@@ -2,6 +2,13 @@
   "repo": "nevercode",
   "feeds": [
     {
+      "source": "https://blog.codemagic.io",
+      "feed_url": "https://blog.codemagic.io/index.xml",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
+    },
+    {
       "source": "https://docs.codemagic.io/getting-started/about-codemagic/",
       "feed_url": "https://docs.codemagic.io/getting-started/about-codemagic/",
       "title": "",
@@ -9,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-03T12:30:02Z"
+  "post_count": 1,
+  "fetched": "2026-10-10T13:15:00Z"
 }
