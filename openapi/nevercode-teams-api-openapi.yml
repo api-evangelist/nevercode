@@ -403,15 +403,26 @@ paths:
       deprecated: false
 components:
   schemas:
-    FeaturesSchema:
+    UpdateAuditLogConnector:
       properties:
-        app_preview:
-          oneOf:
-          - type: boolean
-          - type: 'null'
+        aws_bucket_name:
+          type: string
+          maxLength: 63
+          minLength: 3
+        aws_access_key_id:
+          type: string
+          maxLength: 128
+          minLength: 16
+        aws_secret_key:
+          type: string
+          maxLength: 128
+          minLength: 16
       type: object
-      required: []
-      title: FeaturesSchema
+      required:
+      - aws_access_key_id
+      - aws_bucket_name
+      - aws_secret_key
+      title: UpdateAuditLogConnector
     ClassicPagination_api.routes.user.schemas.TeamSchema_:
       properties:
         data:
@@ -439,6 +450,14 @@ components:
       required:
       - data
       title: NoPagination[AuditLogConnectorSchema]
+    NoPagination_api.routes.team.schemas.TeamSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/team_schemas_TeamSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[TeamSchema]
     user_schemas_TeamSchema:
       properties:
         id:
@@ -456,34 +475,6 @@ components:
       - id
       - name
       title: TeamSchema
-    UpdateAuditLogConnector:
-      properties:
-        aws_bucket_name:
-          type: string
-          maxLength: 63
-          minLength: 3
-        aws_access_key_id:
-          type: string
-          maxLength: 128
-          minLength: 16
-        aws_secret_key:
-          type: string
-          maxLength: 128
-          minLength: 16
-      type: object
-      required:
-      - aws_access_key_id
-      - aws_bucket_name
-      - aws_secret_key
-      title: UpdateAuditLogConnector
-    NoPagination_api.routes.team.schemas.TeamSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/team_schemas_TeamSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[TeamSchema]
     team_schemas_TeamSchema:
       properties:
         name:
@@ -500,6 +491,15 @@ components:
       - created_at
       - name
       title: TeamSchema
+    FeaturesSchema:
+      properties:
+        app_preview:
+          oneOf:
+          - type: boolean
+          - type: 'null'
+      type: object
+      required: []
+      title: FeaturesSchema
     AuditLogConnectorSchema:
       properties:
         enabled:

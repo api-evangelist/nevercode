@@ -61,6 +61,14 @@ paths:
       - {}
 components:
   schemas:
+    NoPagination_api.routes.meta.schemas.MetaSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/meta_schemas_MetaSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[MetaSchema]
     ShorebirdSchema:
       properties:
         flutter_versions:
@@ -102,14 +110,6 @@ components:
       required:
       - data
       title: NoPagination[ShorebirdSchema]
-    NoPagination_api.routes.meta.schemas.MetaSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/meta_schemas_MetaSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[MetaSchema]
   securitySchemes:
     api_key:
       type: apiKey

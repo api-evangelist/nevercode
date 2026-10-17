@@ -161,6 +161,58 @@ paths:
       - {}
 components:
   schemas:
+    dashboards_schemas_WorkflowSchema:
+      properties:
+        id:
+          type: string
+        name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - id
+      title: WorkflowSchema
+    dashboards_schemas_ArtifactSchema:
+      properties:
+        name:
+          type: string
+        size_in_bytes:
+          type: integer
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        short_lived_download_url:
+          type: string
+        version_code:
+          oneOf:
+          - type: string
+          - type: 'null'
+        version_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - short_lived_download_url
+      - size_in_bytes
+      - type
+      title: ArtifactSchema
+    DashboardSchema:
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        icon_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - uuid
+      title: DashboardSchema
     dashboards_schemas_ReleaseNoteSchema:
       properties:
         language:
@@ -172,6 +224,49 @@ components:
       - language
       - text
       title: ReleaseNoteSchema
+    dashboards_schemas_CommitSchema:
+      properties:
+        hash:
+          oneOf:
+          - type: string
+          - type: 'null'
+        avatar_url:
+          oneOf:
+          - type: string
+          - type: 'null'
+        author_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+        author_email:
+          oneOf:
+          - type: string
+          - type: 'null'
+        message:
+          oneOf:
+          - type: string
+          - type: 'null'
+        url:
+          oneOf:
+          - type: string
+          - type: 'null'
+      type: object
+      required: []
+      title: CommitSchema
+    dashboards_schemas_PullRequestSchema:
+      properties:
+        number:
+          type: integer
+        source_branch:
+          type: string
+        destination_branch:
+          type: string
+      type: object
+      required:
+      - destination_branch
+      - number
+      - source_branch
+      title: PullRequestSchema
     ArtifactType:
       type: string
       enum:
@@ -208,35 +303,35 @@ components:
       - xcarchive
       - xcodebuild_log
       title: ArtifactType
-    dashboards_schemas_CommitSchema:
+    BuildStatus:
+      type: string
+      enum:
+      - initializing
+      - queued
+      - preparing
+      - fetching
+      - testing
+      - building
+      - publishing
+      - finishing
+      - finished
+      - failed
+      - canceled
+      - timeout
+      - skipped
+      title: BuildStatus
+    dashboards_schemas_AppSchema:
       properties:
-        hash:
-          oneOf:
-          - type: string
-          - type: 'null'
-        avatar_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-        author_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-        author_email:
-          oneOf:
-          - type: string
-          - type: 'null'
-        message:
-          oneOf:
-          - type: string
-          - type: 'null'
-        url:
+        name:
+          type: string
+        icon_url:
           oneOf:
           - type: string
           - type: 'null'
       type: object
-      required: []
-      title: CommitSchema
+      required:
+      - name
+      title: AppSchema
     dashboards_schemas_BuildSchema:
       properties:
         id:
@@ -304,109 +399,6 @@ components:
       - status
       - workflow
       title: BuildSchema
-    NoPagination_api.routes.dashboards.schemas.DashboardSchema_:
-      properties:
-        data:
-          $ref: '#/components/schemas/DashboardSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[DashboardSchema]
-    dashboards_schemas_ArtifactSchema:
-      properties:
-        name:
-          type: string
-        size_in_bytes:
-          type: integer
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        short_lived_download_url:
-          type: string
-        version_code:
-          oneOf:
-          - type: string
-          - type: 'null'
-        version_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - short_lived_download_url
-      - size_in_bytes
-      - type
-      title: ArtifactSchema
-    dashboards_schemas_AppSchema:
-      properties:
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      title: AppSchema
-    dashboards_schemas_PullRequestSchema:
-      properties:
-        number:
-          type: integer
-        source_branch:
-          type: string
-        destination_branch:
-          type: string
-      type: object
-      required:
-      - destination_branch
-      - number
-      - source_branch
-      title: PullRequestSchema
-    BuildStatus:
-      type: string
-      enum:
-      - initializing
-      - queued
-      - preparing
-      - fetching
-      - testing
-      - building
-      - publishing
-      - finishing
-      - finished
-      - failed
-      - canceled
-      - timeout
-      - skipped
-      title: BuildStatus
-    DashboardSchema:
-      properties:
-        uuid:
-          type: string
-        name:
-          type: string
-        icon_url:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - name
-      - uuid
-      title: DashboardSchema
-    dashboards_schemas_WorkflowSchema:
-      properties:
-        id:
-          type: string
-        name:
-          oneOf:
-          - type: string
-          - type: 'null'
-      type: object
-      required:
-      - id
-      title: WorkflowSchema
     CursorPagination_bson.objectid.ObjectId_api.routes.dashboards.schemas.BuildSchema_:
       properties:
         data:
@@ -424,6 +416,14 @@ components:
       - data
       - page_size
       title: CursorPagination[ObjectId, BuildSchema]
+    NoPagination_api.routes.dashboards.schemas.DashboardSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/DashboardSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[DashboardSchema]
   securitySchemes:
     api_key:
       type: apiKey

@@ -285,42 +285,31 @@ paths:
       deprecated: false
 components:
   schemas:
-    NoPagination_api.routes.team_invitations.schemas.InvitationSchema_:
+    ClassicPagination_api.routes.team_invitations.schemas.InvitationSchema_:
       properties:
         data:
-          $ref: '#/components/schemas/InvitationSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[InvitationSchema]
-    PublicInvitationSchema:
-      properties:
-        team_name:
-          type: string
-        inviter_display_name:
-          oneOf:
-          - type: string
-          - type: 'null'
-        invitee_email:
-          type: string
-        roles:
           items:
-            $ref: '#/components/schemas/InviteRoleSpec'
+            $ref: '#/components/schemas/InvitationSchema'
           type: array
-        created_at:
-          type: string
-          format: date-time
-        expires_at:
-          type: string
-          format: date-time
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
       type: object
       required:
-      - created_at
-      - expires_at
-      - invitee_email
-      - roles
-      - team_name
-      title: PublicInvitationSchema
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[InvitationSchema]
+    InvitableRole:
+      type: string
+      enum:
+      - admin
+      - member
+      title: InvitableRole
     InviteRoleSpec:
       properties:
         role:
@@ -329,19 +318,22 @@ components:
       required:
       - role
       title: InviteRoleSpec
-    InvitableRole:
-      type: string
-      enum:
-      - admin
-      - member
-      title: InvitableRole
-    InvitationStatus:
-      type: string
-      enum:
-      - pending
-      - accepted
-      - revoked
-      title: InvitationStatus
+    NoPagination_api.routes.team_invitations.schemas.PublicInvitationSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/PublicInvitationSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[PublicInvitationSchema]
+    NoPagination_api.routes.team_invitations.schemas.InvitationSchema_:
+      properties:
+        data:
+          $ref: '#/components/schemas/InvitationSchema'
+      type: object
+      required:
+      - data
+      title: NoPagination[InvitationSchema]
     InvitationSchema:
       properties:
         id:
@@ -371,6 +363,13 @@ components:
       - roles
       - status
       title: InvitationSchema
+    InvitationStatus:
+      type: string
+      enum:
+      - pending
+      - accepted
+      - revoked
+      title: InvitationStatus
     CreateInvitationSchema:
       properties:
         email:
@@ -384,33 +383,34 @@ components:
       - email
       - roles
       title: CreateInvitationSchema
-    NoPagination_api.routes.team_invitations.schemas.PublicInvitationSchema_:
+    PublicInvitationSchema:
       properties:
-        data:
-          $ref: '#/components/schemas/PublicInvitationSchema'
-      type: object
-      required:
-      - data
-      title: NoPagination[PublicInvitationSchema]
-    ClassicPagination_api.routes.team_invitations.schemas.InvitationSchema_:
-      properties:
-        data:
+        team_name:
+          type: string
+        inviter_display_name:
+          oneOf:
+          - type: string
+          - type: 'null'
+        invitee_email:
+          type: string
+        roles:
           items:
-            $ref: '#/components/schemas/InvitationSchema'
+            $ref: '#/components/schemas/InviteRoleSpec'
           type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
+        created_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
       type: object
       required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[InvitationSchema]
+      - created_at
+      - expires_at
+      - invitee_email
+      - roles
+      - team_name
+      title: PublicInvitationSchema
   securitySchemes:
     api_key:
       type: apiKey

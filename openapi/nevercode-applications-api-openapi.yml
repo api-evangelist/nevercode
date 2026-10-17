@@ -194,58 +194,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    AppSettingsSrouce:
-      type: string
-      enum:
-      - ui
-      - file
-      title: AppSettingsSrouce
-    ClassicPagination_api.routes.user.schemas.AppSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/user_schemas_AppSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-      type: object
-      required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[AppSchema]
-    RepositorySchema:
-      properties:
-        url:
-          type: string
-      type: object
-      required:
-      - url
-      title: RepositorySchema
-    ClassicPagination_api.routes.team_apps.schemas.AppSchema_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/team_apps_schemas_AppSchema'
-          type: array
-        page_size:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-      type: object
-      required:
-      - current_page
-      - data
-      - page_size
-      - total_pages
-      title: ClassicPagination[AppSchema]
     user_schemas_AppSchema:
       properties:
         id:
@@ -275,6 +223,58 @@ components:
       - last_build_id
       - name
       title: AppSchema
+    ClassicPagination_api.routes.user.schemas.AppSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/user_schemas_AppSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[AppSchema]
+    AppSettingsSrouce:
+      type: string
+      enum:
+      - ui
+      - file
+      title: AppSettingsSrouce
+    ClassicPagination_api.routes.team_apps.schemas.AppSchema_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/team_apps_schemas_AppSchema'
+          type: array
+        page_size:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+      type: object
+      required:
+      - current_page
+      - data
+      - page_size
+      - total_pages
+      title: ClassicPagination[AppSchema]
+    RepositorySchema:
+      properties:
+        url:
+          type: string
+      type: object
+      required:
+      - url
+      title: RepositorySchema
     team_apps_schemas_AppSchema:
       properties:
         id:
