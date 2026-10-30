@@ -64,6 +64,146 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nevercode is a company surfaced as a portfolio company of seedcamp and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Codemagic (built by Nevercode, founded in Estonia) is a continuous integration and delivery (CI/CD) platform purpose-built for mobile app teams. It automates building, testing, code signing, and releasing apps across Flutter, React Native, native iOS and Android, Unity, Ionic, and .NET MAUI, and integrates with GitHub, GitLab, Bitbucket, and Azure DevOps. Its REST API (v3) exposes applications, builds, artifacts, teams, tester groups, secrets and environment variables, over-the-air updates, app previews, and billing so teams can trigger builds and manage their CI/CD pipelines programmatically.
 
-Backed by: seedcamp — http://codemagic.io
+**Areas:** Company · Continuous Integration · Continuous Delivery · CI/CD · DevOps · Mobile · Flutter · Builds · App Distribution · Code Signing · Developer Tools
+
+## Nevercode on APIs.io
+
+Everything profiled for Nevercode is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nevercode/](https://apis.io/providers/nevercode/)** — or go straight to one of the APIs or properties below.
+
+### APIs (13)
+
+- [Nevercode App Previews API](https://apis.io/apis/nevercode/nevercode-app-previews-api/) — REST API endpoints for app previews.
+- [Nevercode Applications API](https://apis.io/apis/nevercode/nevercode-applications-api/) — REST API endpoints for applications.
+- [Nevercode Billing API](https://apis.io/apis/nevercode/nevercode-billing-api/) — REST API endpoints for billing.
+- [Nevercode Build Dashboards API](https://apis.io/apis/nevercode/nevercode-build-dashboards-api/) — REST API endpoints for build dashboards.
+- [Nevercode Builds API](https://apis.io/apis/nevercode/nevercode-builds-api/) — REST API endpoints for builds.
+- [Nevercode Meta API](https://apis.io/apis/nevercode/nevercode-meta-api/) — REST API endpoints for meta data.
+- [Nevercode Over-the-air Updates API](https://apis.io/apis/nevercode/nevercode-over-the-air-updates-api/) — REST API endpoints for over-the-air updates.
+- [Nevercode Secrets and Environment Vars API](https://apis.io/apis/nevercode/nevercode-secrets-and-environment-vars-api/) — REST API endpoints for environment variables.
+- [Nevercode Team Invitations API](https://apis.io/apis/nevercode/nevercode-team-invitations-api/) — REST API endpoints for team invitations.
+- [Nevercode Team Members API](https://apis.io/apis/nevercode/nevercode-team-members-api/) — REST API endpoints for team members.
+- [Nevercode Teams API](https://apis.io/apis/nevercode/nevercode-teams-api/) — REST API endpoints for teams.
+- [Nevercode Tester Groups API](https://apis.io/apis/nevercode/nevercode-tester-groups-api/) — REST API endpoints for tester groups.
+- [Nevercode Users API](https://apis.io/apis/nevercode/nevercode-users-api/) — REST API endpoints for users.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [codemagic](https://apis.io/servers/nevercode/codemagic/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Nevercode Agentic Access](https://apis.io/agentic-access/nevercode/nevercode-agentic-access/)
+
+#### Collections (12)
+
+Postman and Open Collection request collections.
+
+- [Codemagic App Previews Applications API](https://apis.io/collections/nevercode/open-nevercode-applications-api/)
+- [Codemagic App Previews Billing API](https://apis.io/collections/nevercode/open-nevercode-billing-api/)
+- [Codemagic App Previews Build Dashboards API](https://apis.io/collections/nevercode/open-nevercode-build-dashboards-api/)
+- [Codemagic App Previews Builds API](https://apis.io/collections/nevercode/open-nevercode-builds-api/)
+- [Codemagic App Previews Meta API](https://apis.io/collections/nevercode/open-nevercode-meta-api/)
+- [Codemagic App Previews Over-the-air Updates API](https://apis.io/collections/nevercode/open-nevercode-over-the-air-updates-api/)
+- [Codemagic App Previews Secrets and Environment Vars API](https://apis.io/collections/nevercode/open-nevercode-secrets-and-environment-vars-api/)
+- [Codemagic App Previews Team Invitations API](https://apis.io/collections/nevercode/open-nevercode-team-invitations-api/)
+- [Codemagic App Previews Team Members API](https://apis.io/collections/nevercode/open-nevercode-team-members-api/)
+- [Codemagic App Previews Teams API](https://apis.io/collections/nevercode/open-nevercode-teams-api/)
+- [Codemagic App Previews Tester Groups API](https://apis.io/collections/nevercode/open-nevercode-tester-groups-api/)
+- [Codemagic App Previews Users API](https://apis.io/collections/nevercode/open-nevercode-users-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Nevercode Codemagic Rest Api Overlay](https://apis.io/overlays/nevercode/nevercode-codemagic-rest-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nevercode Authentication](https://apis.io/security/nevercode/nevercode-authentication/)
+- [Nevercode Domain Security](https://apis.io/security/nevercode/nevercode-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://codemagic.io)
+- [Documentation](https://docs.codemagic.io)
+- [Getting started](https://docs.codemagic.io/getting-started/about-codemagic/)
+- [API reference](https://codemagic.io/api/v3/schema)
+- [Pricing](https://codemagic.io/pricing)
+- [Sign up](https://codemagic.io/signup)
+- [Support](https://github.com/orgs/codemagic-ci-cd/discussions)
+- [Blog](https://blog.codemagic.io)
+- [Security](https://codemagic.io/security-statement)
+- [Compliance](https://codemagic.io/security-statement)
+- [Terms of service](https://codemagic.io/terms)
+- [Privacy policy](https://codemagic.io/privacy-policy)
+- [GitHub](https://github.com/codemagic-ci-cd)
+- [Status](https://status.codemagic.io)
+
+## API Evangelist rating
+
+**Kin Score 47.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 48.8 |
+| Contract governance | 18.2 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 46.1 |
+
+**Agent readiness 32.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nevercode/](https://apis.io/providers/nevercode/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nevercode: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nevercode/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
